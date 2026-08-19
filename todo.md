@@ -35,3 +35,5 @@
 - [x] Consolidate verified architecture, documentation, and source evidence for Onchain SIP, XMO Messenger, and SorobanVault.
 - [x] Create three linked technical case-study routes with reusable source-atlas components.
 - [x] Validate the case-study routes locally and save a checkpoint.
+- [x] Review and professionalize visible project and capability copy without changing the established layout.
+- [x] Validate the content-only refinement locally and save a checkpoint.

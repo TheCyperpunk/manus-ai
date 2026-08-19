@@ -20,27 +20,27 @@ import "./overview.css";
 const disciplines = [
   {
     number: "01",
-    title: "Interface systems",
-    copy: "Responsive product surfaces shaped with React, TypeScript, Svelte, accessible UI primitives, and deliberate interaction design.",
+    title: "Product interface engineering",
+    copy: "Production-minded web surfaces built with React, TypeScript, and Svelte—combining accessible patterns, reliable state, and considered interaction behavior.",
     icon: Workflow,
     route: "/stack",
-    mode: "STACK INSTRUMENT / SOURCE-DERIVED",
+    mode: "FRONTEND PRACTICE / PRODUCT SURFACES",
   },
   {
     number: "02",
-    title: "Applied intelligence",
-    copy: "LLM integrations, retrieval workflows, local model interfaces, multimodal tooling, and practical automation.",
+    title: "Applied AI systems",
+    copy: "LLM-enabled product workflows spanning retrieval, local-model interfaces, multimodal inputs, and practical automation that serves a defined user task.",
     icon: Sparkles,
     route: "/activity",
-    mode: "ACTIVITY LEDGER / PUBLIC EVENTS",
+    mode: "AI PRACTICE / RETRIEVAL + LOCAL WORKFLOWS",
   },
   {
     number: "03",
-    title: "On-chain thinking",
-    copy: "Smart-contract interaction, wallet-connected experiences, and transparent systems built around Web3 primitives.",
+    title: "Contract-connected products",
+    copy: "Wallet-aware experiences and contract-facing interfaces for transparent plan state, controlled token policy, and testnet-oriented Web3 product flows.",
     icon: Orbit,
     route: "/network",
-    mode: "NETWORK DOSSIER / PUBLIC PROFILE",
+    mode: "WEB3 PRACTICE / CONTRACT INTERFACES",
   },
 ];
 
@@ -80,7 +80,7 @@ export default function Home() {
           <h1 className="sr-only">Sangeeth Karunakaran — Full-Stack Developer</h1>
           <p className="overview-role">FULL-STACK DEVELOPER <span>·</span> AI SYSTEMS <span>·</span> WEB3</p>
           <p className="overview-lede">
-            Sangeeth Karunakaran is a full-stack developer from Kerala working across web interfaces, AI-driven tools, and Web3 systems. The practice is equal parts product craft, technical curiosity, and the discipline to make complex technology usable.
+            Sangeeth Karunakaran is a full-stack developer from Kerala building web products across interface engineering, applied AI, and Web3. The work prioritizes clear systems, dependable implementation, and interactions that make complex workflows usable.
           </p>
           <div className="overview-actions">
             <Link href="/open" className="overview-button">Start a conversation <ArrowDownRight size={17} /></Link>
@@ -122,7 +122,7 @@ export default function Home() {
             <p className="overview-kicker"><i /> 02 / BIOGRAPHY IN MOTION</p>
             <h2>A practice built<br />to <em>connect layers.</em></h2>
           </div>
-          <p>From interaction details to backend services, local intelligence, and on-chain logic, the focus is on joining useful parts into experiences that hold together under real use.</p>
+          <p>From interaction architecture to backend services, local intelligence, and on-chain logic, the focus is on joining the right technical layers into products that remain coherent under real use.</p>
         </header>
 
         <nav className="atlas-gateway" aria-label="Source atlas proof modes">
