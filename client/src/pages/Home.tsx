@@ -25,6 +25,8 @@ const disciplines = [
     icon: Workflow,
     route: "/case-studies/onchain-sip",
     mode: "PROJECT / SMART-CONTRACT EXECUTION",
+    tags: ["Solidity", "Hardhat", "React", "Node.js", "Ethers.js", "Web3.js"],
+    sourceHref: "https://github.com/TheCyperpunk/collegeproject",
   },
   {
     number: "02",
@@ -33,6 +35,8 @@ const disciplines = [
     icon: Sparkles,
     route: "/projects",
     mode: "PROJECT / LOCAL-FIRST AI WORKFLOWS",
+    tags: ["Svelte", "Ollama", "Docker", "TypeScript", "Python", "RAG"],
+    sourceHref: "https://github.com/TheCyperpunk?tab=repositories",
   },
   {
     number: "03",
@@ -41,6 +45,8 @@ const disciplines = [
     icon: Orbit,
     route: "/projects",
     mode: "PROJECT / INCIDENT OPERATIONS",
+    tags: ["Python", "Shell", "CLI automation", "REST APIs"],
+    sourceHref: "https://github.com/TheCyperpunk?tab=repositories",
   },
 ];
 
@@ -151,7 +157,12 @@ export default function Home() {
                 <div><span>{discipline.number}</span><Icon size={19} /></div>
                 <h3>{discipline.title}</h3>
                 <p>{discipline.copy}</p>
-                <small>{discipline.mode}</small>
+                <ul className="discipline-card__tags" aria-label={`${discipline.title} technologies`}>
+                  {discipline.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                </ul>
+                <a className="discipline-card__source" href={discipline.sourceHref} target="_blank" rel="noreferrer">
+                  View source on GitHub <ArrowUpRight size={14} />
+                </a>
                 <Link href={discipline.route} aria-label={`Open ${discipline.title} evidence`}>↗</Link>
               </motion.article>
             );

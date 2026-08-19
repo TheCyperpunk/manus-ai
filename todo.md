@@ -42,3 +42,4 @@
 - [x] Replace only the titles and sentences in the three indicated Overview cards with the supplied Onchain SIP, Auradesk, and ZeroHour content.
 - [x] Remove the duplicate project section previously added below the cards.
 - [x] Validate the corrected content-only update locally and save a checkpoint.
+- [x] Add the supplied technology labels and GitHub-source action to the three existing Overview project cards without changing their design.
