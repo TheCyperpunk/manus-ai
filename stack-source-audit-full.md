@@ -13,3 +13,7 @@ The data is generated at `client/src/lib/stack-repo-audit.ts` from `/home/ubuntu
 ## Targeted Re-audit: `videoplatform`
 
 The `videoplatform` row was upgraded from primary-language metadata after a targeted public-source review. GitHub’s language endpoint reports **TypeScript 347,195 bytes**, **CSS 3,820 bytes**, **Dockerfile 3,733 bytes**, and **JavaScript 2,931 bytes**. Its public frontend manifest declares Next.js, React, TanStack Query, Zustand, Tailwind CSS, Zod, and Framer Motion; the backend manifest declares Fastify and MongoDB integration. Public repository structure also contains Docker Compose, Kubernetes configuration, and Nginx configuration. The row now carries these evidence-backed signals.
+
+## Complete Repository-by-Repository Verification
+
+All **60 original, non-archived public repositories** were rechecked individually through GitHub language data, a bounded public source-tree review, and—where present—root or nested manifests, build/deployment configuration, and README/Markdown documentation. Generated output now lives in `client/src/lib/stack-repo-audit.ts`. Vendored dependency directories and generated build output are excluded, so visible stack chips represent repository-owned source evidence. Empty repositories remain represented in the ledger but do not receive invented stack labels.

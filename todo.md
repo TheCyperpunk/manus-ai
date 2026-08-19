@@ -66,3 +66,4 @@
 - [x] Replace the generic Stack coverage ledger with a verified project-by-project technology ledger using public repository, organization, code, and documentation evidence.
 - [x] Expand the Stack project ledger to every eligible original public repository using verified source, manifest, and documentation signals.
 - [x] Re-audit videoplatform’s language and source evidence, then correct only its Stack ledger row.
+- [x] Audit every eligible original public repository individually and replace each Stack row with only verified language, code, manifest, configuration, and documentation signals.
