@@ -148,13 +148,13 @@ export default function Home() {
         <div className="overview-hero__grid" aria-hidden="true" />
           <div className="signal-monogram-field" aria-hidden="true">
             <div className="signal-monogram-field__glow" />
-            <div className="signal-monogram-field__glyph"><span>S</span><span>K</span><i>/</i></div>
+            <div className="signal-monogram-field__glyph"><span>K</span><i>/</i></div>
             <div className="signal-monogram-field__axis signal-monogram-field__axis--horizontal" />
             <div className="signal-monogram-field__cuts"><i /><i /><i /></div>
           </div>
           <div className="signal-monogram-field signal-monogram-field--right" aria-hidden="true">
             <div className="signal-monogram-field__glow" />
-            <div className="signal-monogram-field__glyph"><span>S</span><span>K</span><i>/</i></div>
+            <div className="signal-monogram-field__glyph"><span>K</span><i>/</i></div>
             <div className="signal-monogram-field__axis signal-monogram-field__axis--horizontal" />
             <div className="signal-monogram-field__cuts"><i /><i /><i /></div>
           </div>

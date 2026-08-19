@@ -59,7 +59,7 @@
   text-shadow: 0 0 86px rgba(184,255,59,.04);
 }
 
-.signal-monogram-field__glyph span:nth-child(2) { margin-left: -.12em; color: rgba(184,255,59,.092); }
+.signal-monogram-field__glyph span { margin-left: -.12em; color: rgba(184,255,59,.092); }
 .signal-monogram-field__glyph i { margin-left: -.13em; color: rgba(184,255,59,.21); font-style: normal; }
 
 .signal-monogram-field__axis {
@@ -109,7 +109,7 @@
   color: rgba(184,255,59,.14);
 }
 
-.signal-monogram-field--right .signal-monogram-field__glyph span:nth-child(2) { color: rgba(184,255,59,.082); }
+.signal-monogram-field--right .signal-monogram-field__glyph span { color: rgba(184,255,59,.082); }
 .signal-monogram-field--right .signal-monogram-field__glyph i { color: rgba(184,255,59,.2); }
 .signal-monogram-field--right .signal-monogram-field__axis--horizontal { left: auto; right: 0; width: min(52vw, 760px); }
 .signal-monogram-field--right .signal-monogram-field__cuts { left: auto; right: 0; transform: skewX(-13deg); }
