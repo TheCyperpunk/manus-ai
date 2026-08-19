@@ -24,7 +24,6 @@ import { githubHandle, useGithubSource } from "@/lib/github-source";
 import "./overview.css";
 import "./overview-project-action.css";
 import "./overview-hero-links.css";
-import "./overview-hero-motion.css";
 
 const disciplines = [
   {
@@ -87,31 +86,6 @@ export default function Home() {
     <main className="overview-main">
       <section className="overview-hero">
         <div className="overview-hero__grid" aria-hidden="true" />
-        <div className="hero-motion-field" aria-hidden="true">
-          <div className="hero-motion-field__wash" />
-          <div className="hero-motion-field__arc hero-motion-field__arc--one" />
-          <div className="hero-motion-field__arc hero-motion-field__arc--two" />
-          <div className="hero-motion-field__arc hero-motion-field__arc--three" />
-          <div className="hero-motion-field__scan" />
-          <div className="hero-motion-field__lanes">
-            <i /><i /><i />
-          </div>
-          <div className="hero-motion-field__packets">
-            <i /><i /><i />
-          </div>
-          <span className="hero-motion-field__watermark">S//</span>
-          <div className="hero-motion-field__frame">
-            <i /><i /><i /><i />
-          </div>
-          <div className="hero-motion-field__strata"><i /><i /><i /></div>
-          <span className="hero-motion-field__beacon hero-motion-field__beacon--one" />
-          <span className="hero-motion-field__beacon hero-motion-field__beacon--two" />
-          <span className="hero-motion-field__beacon hero-motion-field__beacon--three" />
-          <svg className="hero-motion-field__trajectory" viewBox="0 0 1440 740" preserveAspectRatio="none">
-            <path d="M-80 575C180 470 350 640 610 518S1040 260 1510 338" />
-            <path d="M-60 638C192 520 384 710 650 590S1070 348 1490 414" />
-          </svg>
-        </div>
         <div className="overview-hero__orbits" aria-hidden="true">
           <motion.i animate={{ rotate: 360 }} transition={{ duration: 34, repeat: Infinity, ease: "linear" }} />
           <motion.i animate={{ rotate: -360 }} transition={{ duration: 22, repeat: Infinity, ease: "linear" }} />
