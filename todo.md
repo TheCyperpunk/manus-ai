@@ -105,3 +105,4 @@
 - [x] Update the header availability status from “Open to collaboration” to “Open to work”.
 - [x] Add the current Qugodo Full Stack Developer role as the leading Experience Trace entry.
 - [x] Commit the latest portfolio changes and push them to the configured GitHub repository.
+- [x] Audit and optimize the production portfolio bundle, loading behavior, and runtime performance before deployment.

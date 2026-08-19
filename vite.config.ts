@@ -203,11 +203,11 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+export default defineConfig(({ command }) => {
+  const isDevelopment = command === "serve";
 
-export default defineConfig({
-  plugins,
-  resolve: {
+  return {
+    resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
       "@shared": path.resolve(import.meta.dirname, "shared"),
@@ -219,6 +219,23 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    target: "es2020",
+    cssCodeSplit: true,
+    assetsInlineLimit: 0,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (
+            id.includes("node_modules/react/") ||
+            id.includes("node_modules/react-dom/") ||
+            id.includes("node_modules/wouter/") ||
+            id.includes("node_modules/framer-motion/")
+          ) {
+            return "framework";
+          }
+        },
+      },
+    },
   },
   server: {
     port: 3000,
@@ -238,4 +255,10 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
+    plugins: [
+      react(),
+      tailwindcss(),
+      ...(isDevelopment ? [jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()] : []),
+    ],
+  };
 });

@@ -21,7 +21,7 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
       <header className="atlas-topbar">
         <div className="atlas-topbar__inner">
           <Link href="/" className="atlas-topbar__brand" aria-label="Sangeeth Karunakaran portfolio home">
-            <img src="/manus-storage/sangeeth-signal-mark_5302d470.png" alt="" />
+            <img src="/manus-storage/sangeeth-signal-mark_5302d470.png" alt="" decoding="async" />
             <span>SANGEETH<span>//</span>K</span><i />
           </Link>
           <nav className="atlas-topbar__links" aria-label="Portfolio navigation">
