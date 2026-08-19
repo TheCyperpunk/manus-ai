@@ -27,3 +27,5 @@
 - [x] Validate the activity dashboard locally without pushing code to GitHub.
 - [x] Add an explicit visual separator and year labels at the 2025–2026 calendar boundary.
 - [x] Validate the clarified Activity calendar locally and save a checkpoint.
+- [x] Remove the redundant three-card live-event summary strip from the Activity page.
+- [x] Validate the simplified Activity layout and save a checkpoint.
