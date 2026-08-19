@@ -106,3 +106,11 @@ Each page keeps the near-black canvas, Signal Lime as an evidence highlighter, m
 - Persistent navigation must frame—not cover—the primary reading lane; the fixed sidebar remains a source index while the content column begins in protected visual space.
 - Each route owns one dominant proof instrument. Projects begins with live-inventory-curated source dossiers before the complete archive, while activity, network, stack, open, and contact use a ledger, dossier, language instrument, availability console, and command-channel grid respectively.
 - Signal rails, compact source tags, and split-frame `S//` markers are structural wayfinding, not ambient decoration.
+
+## Dashboard Navigation Adaptation
+
+The source atlas now exchanges its persistent side index for a **compact horizontal source bar**. It borrows the reference’s disciplined, document-like density—small brand lockup, central route links, a lime availability status, and a single GitHub action—without copying its layout or content. The visual hierarchy shifts from oversized theatrical framing to a protected, centered evidence column with a stable 1080px reading measure.
+
+- The top navigation is a status instrument: route links retain numeric indexing only in active or hover states, the Open channel is visibly marked as live, and the GitHub action stays visually separate from internal routing.
+- Repository, activity, stack, and network surfaces use compact bordered instruments, tighter metadata, two-column repository records, and factual summary rows. The public GitHub data remains the primary content source.
+- At small widths, the header becomes an accessible menu control with a concise drawer, while the content keeps generous tap targets and a single-column evidence flow.

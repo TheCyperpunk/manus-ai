@@ -12,3 +12,7 @@
 - [x] Define routes and page-specific GitHub evidence treatments.
 - [x] Build the multi-page GitHub-first portfolio experience.
 - [x] Validate routed pages and responsive layouts without pushing code to GitHub.
+- [x] Define the reference-inspired top navigation and compact evidence-dashboard treatment.
+- [x] Replace the sidebar with responsive navbar navigation across all routes.
+- [x] Reshape the repository, activity, stack, and network pages into compact proof dashboards.
+- [x] Validate the new dashboard layout locally without pushing code to GitHub.

@@ -1,76 +1,45 @@
-/** Proof in Motion — fixed source-atlas navigation uses the existing responsive sidebar primitive. */
 import { Link, useLocation } from "wouter";
-import { ArrowUpRight, Boxes, Github, GitPullRequest, Mail, Menu, Network, Radar, Sparkles } from "lucide-react";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarGroupLabel,
-  SidebarHeader,
-  SidebarInset,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
+import { ArrowUpRight, Github, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const navigation = [
-  { href: "/", label: "Overview", index: "00", icon: Radar },
-  { href: "/projects", label: "Projects", index: "01", icon: Boxes },
-  { href: "/activity", label: "Activity", index: "02", icon: GitPullRequest },
-  { href: "/network", label: "Network", index: "03", icon: Network },
-  { href: "/stack", label: "Stack", index: "04", icon: Sparkles },
-  { href: "/open", label: "Open channel", index: "05", icon: Mail },
+  { href: "/", label: "Overview", index: "00" },
+  { href: "/projects", label: "Projects", index: "01" },
+  { href: "/activity", label: "Activity", index: "02" },
+  { href: "/network", label: "Network", index: "03" },
+  { href: "/stack", label: "Stack", index: "04" },
+  { href: "/open", label: "Open", index: "05" },
+  { href: "/contact", label: "Contact", index: "06" },
 ];
 
 export default function PortfolioShell({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const activeFor = (href: string) => href === "/" ? location === "/" : location.startsWith(href);
+
   return (
-    <SidebarProvider defaultOpen>
-      <div className="atlas-shell">
-        <Sidebar collapsible="offcanvas" className="atlas-sidebar">
-          <SidebarHeader className="atlas-sidebar__header">
-            <Link href="/" className="atlas-brand">
-              <img src="/manus-storage/sangeeth-signal-mark_5302d470.png" alt="Sangeeth K signal mark" />
-              <span>SANGEETH<span>//</span>K</span>
-            </Link>
-            <p>PERSONAL SOURCE ATLAS</p>
-          </SidebarHeader>
-          <SidebarContent className="atlas-sidebar__content">
-            <SidebarGroup>
-              <SidebarGroupLabel className="atlas-sidebar__label">Navigate evidence</SidebarGroupLabel>
-              <SidebarMenu className="atlas-sidebar__menu">
-                {navigation.map((item) => {
-                  const Icon = item.icon;
-                  const active = item.href === "/" ? location === "/" : location.startsWith(item.href);
-                  return (
-                    <SidebarMenuItem key={item.href}>
-                      <SidebarMenuButton asChild isActive={active} className="atlas-sidebar__link">
-                        <Link href={item.href}><span className="atlas-sidebar__index">{item.index}</span><Icon size={15} /><span>{item.label}</span></Link>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  );
-                })}
-              </SidebarMenu>
-            </SidebarGroup>
-          </SidebarContent>
-          <SidebarFooter className="atlas-sidebar__footer">
-            <a href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer"><Github size={15} /> @TheCyperpunk <ArrowUpRight size={13} /></a>
-            <span><i /> API-backed public evidence</span>
-          </SidebarFooter>
-        </Sidebar>
-        <SidebarInset className="atlas-inset">
-          <header className="atlas-mobilebar">
-            <SidebarTrigger className="atlas-mobilebar__trigger"><Menu size={18} /></SidebarTrigger>
-            <Link href="/" className="atlas-mobilebar__brand"><img src="/manus-storage/sangeeth-signal-mark_5302d470.png" alt="" /> SANGEETH<span>//</span>K</Link>
-            <a href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer" aria-label="Open GitHub profile"><Github size={17} /></a>
-          </header>
-          {children}
-        </SidebarInset>
-      </div>
-    </SidebarProvider>
+    <div className="atlas-shell topnav-shell">
+      <header className="atlas-topbar">
+        <div className="atlas-topbar__inner">
+          <Link href="/" className="atlas-topbar__brand" aria-label="Sangeeth Karunakaran portfolio home">
+            <img src="/manus-storage/sangeeth-signal-mark_5302d470.png" alt="" />
+            <span>SANGEETH<span>//</span>K</span><i />
+          </Link>
+          <nav className="atlas-topbar__links" aria-label="Portfolio navigation">
+            {navigation.map((item) => <Link key={item.href} href={item.href} className={activeFor(item.href) ? "is-active" : ""}><small>{item.index}</small>{item.label}</Link>)}
+          </nav>
+          <div className="atlas-topbar__actions">
+            <Link href="/open" className="atlas-topbar__status"><i />Open to collaboration</Link>
+            <a href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer" className="atlas-topbar__github" aria-label="Open GitHub profile"><Github size={15} /><ArrowUpRight size={12} /></a>
+            <button type="button" className="atlas-topbar__menu" onClick={() => setMenuOpen((value) => !value)} aria-expanded={menuOpen} aria-controls="atlas-mobile-navigation" aria-label="Toggle portfolio navigation">{menuOpen ? <X size={18} /> : <Menu size={18} />}</button>
+          </div>
+        </div>
+        {menuOpen && <nav id="atlas-mobile-navigation" className="atlas-topbar__drawer" aria-label="Portfolio navigation">
+          {navigation.map((item) => <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} className={activeFor(item.href) ? "is-active" : ""}><span>{item.index}</span>{item.label}<ArrowUpRight size={14} /></Link>)}
+          <a href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer"><Github size={15} /> @TheCyperpunk <ArrowUpRight size={14} /></a>
+        </nav>}
+      </header>
+      <div className="atlas-inset topnav-inset">{children}</div>
+    </div>
   );
 }
-
