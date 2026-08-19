@@ -9,3 +9,7 @@ The Stack ledger covers **60 original, non-archived public repositories** from t
 | Public organization membership | 0 | No organization-owned project work is inferred |
 
 The data is generated at `client/src/lib/stack-repo-audit.ts` from `/home/ubuntu/stack-audit/all-repos/stack-repository-audit.json`. Forked and archived repositories are deliberately excluded.
+
+## Targeted Re-audit: `videoplatform`
+
+The `videoplatform` row was upgraded from primary-language metadata after a targeted public-source review. GitHub’s language endpoint reports **TypeScript 347,195 bytes**, **CSS 3,820 bytes**, **Dockerfile 3,733 bytes**, and **JavaScript 2,931 bytes**. Its public frontend manifest declares Next.js, React, TanStack Query, Zustand, Tailwind CSS, Zod, and Framer Motion; the backend manifest declares Fastify and MongoDB integration. Public repository structure also contains Docker Compose, Kubernetes configuration, and Nginx configuration. The row now carries these evidence-backed signals.

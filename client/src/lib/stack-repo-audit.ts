@@ -466,9 +466,24 @@ export const stackRepositoryAudit = {
       "name": "videoplatform",
       "url": "https://github.com/TheCyperpunk/videoplatform",
       "description": "",
-      "source": "GITHUB METADATA / videoplatform",
+      "source": "CODE + MANIFEST + DEPLOY / videoplatform",
       "technologies": [
-        "TypeScript"
+        "TypeScript",
+        "CSS",
+        "Dockerfile",
+        "JavaScript",
+        "Next.js",
+        "React",
+        "Fastify",
+        "MongoDB",
+        "TanStack Query",
+        "Zustand",
+        "Tailwind CSS",
+        "Zod",
+        "Framer Motion",
+        "Docker",
+        "Kubernetes",
+        "Nginx"
       ]
     },
     {
