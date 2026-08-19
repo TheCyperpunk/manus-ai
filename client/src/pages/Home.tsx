@@ -99,6 +99,11 @@ export default function Home() {
           <div className="hero-motion-field__packets">
             <i /><i /><i />
           </div>
+          <span className="hero-motion-field__watermark">S//</span>
+          <div className="hero-motion-field__frame">
+            <i /><i /><i /><i />
+          </div>
+          <div className="hero-motion-field__strata"><i /><i /><i /></div>
           <span className="hero-motion-field__beacon hero-motion-field__beacon--one" />
           <span className="hero-motion-field__beacon hero-motion-field__beacon--two" />
           <span className="hero-motion-field__beacon hero-motion-field__beacon--three" />
