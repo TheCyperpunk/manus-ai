@@ -81,3 +81,4 @@
 - [x] Change the Overview “Start a conversation” action to open the email client directly.
 - [x] Rewrite the Overview hero introduction in first person rather than third-person profile language.
 - [x] Increase the shared top-navigation font size and remove the right-side GitHub shortcut while retaining the collaboration status.
+- [x] Simplify and compact the Overview project action with no default left rail or dark background, lime-only hover styling, and the label “MORE PROJECT”.

@@ -1,23 +1,18 @@
-/* Proof in Motion Overview action — a compact, readable dark-green portal with Signal Lime proof accent. */
+/* Proof in Motion Overview action — small neutral-outline control; Signal Lime appears only on direct hover. */
 .discipline-grid__more {
   position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 13px;
-  width: min(100%, 244px);
-  min-height: 54px;
-  margin: 16px 0 0 auto;
-  padding: 0 16px;
-  border: 1px solid rgba(184, 255, 59, .11);
-  border-left: 2px solid rgba(184, 255, 59, .82);
-  background:
-    radial-gradient(circle at 18% 50%, rgba(184, 255, 59, .065), transparent 60%),
-    linear-gradient(104deg, #10140d 0%, #0c0e0c 60%, #0a0a0a 100%);
-  box-shadow: inset 0 0 22px rgba(184, 255, 59, .012);
-  color: #eef3e8;
-  overflow: hidden;
-  transition: none;
+  gap: 10px;
+  width: min(100%, 182px);
+  min-height: 42px;
+  margin: 14px 0 0 auto;
+  padding: 0 12px;
+  border: 1px solid rgba(242, 243, 237, .16);
+  background: transparent;
+  color: #bfc4ba;
+  transition: color 160ms var(--ease-out), border-color 160ms var(--ease-out);
 }
 
 .discipline-grid__more::before { display: none; }
@@ -25,20 +20,28 @@
 .discipline-grid__more span {
   display: inline-flex;
   align-items: center;
-  color: var(--lime);
-  font: 600 11px var(--mono);
+  color: currentColor;
+  font: 600 10px var(--mono);
   letter-spacing: .045em;
 }
 
-.discipline-grid__more svg { color: rgba(184, 255, 59, .84); }
+.discipline-grid__more svg { color: currentColor; }
+
+.discipline-grid__more:hover,
+.discipline-grid__more:focus-visible {
+  border-color: var(--lime);
+  color: var(--lime);
+}
+
+.discipline-grid__more:focus-visible { outline: 1px solid rgba(184, 255, 59, .42); outline-offset: 3px; }
 
 @media (max-width: 520px) {
   .discipline-grid__more {
-    width: min(100%, 244px);
-    min-height: 54px;
-    margin-top: 16px;
-    padding: 0 16px;
+    width: min(100%, 172px);
+    min-height: 40px;
+    margin-top: 14px;
+    padding: 0 11px;
   }
 
-  .discipline-grid__more span { font-size: 10px; }
+  .discipline-grid__more span { font-size: 9px; }
 }
