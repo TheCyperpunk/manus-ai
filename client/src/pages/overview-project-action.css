@@ -5,7 +5,9 @@
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 10px;
+  box-sizing: border-box;
   width: min(100%, 182px);
+  height: 42px;
   min-height: 42px;
   margin: 14px 0 0 auto;
   padding: 0 12px;
@@ -29,9 +31,8 @@
 
 .discipline-grid__more:hover,
 .discipline-grid__more:focus-visible {
-  border-width: 1px;
-  border-color: var(--lime);
-  background-color: transparent;
+  border: 1px solid var(--lime);
+  background: transparent;
   box-shadow: none;
   color: var(--lime);
 }
@@ -41,6 +42,7 @@
 @media (max-width: 520px) {
   .discipline-grid__more {
     width: min(100%, 172px);
+    height: 40px;
     min-height: 40px;
     margin-top: 14px;
     padding: 0 11px;

@@ -83,3 +83,4 @@
 - [x] Increase the shared top-navigation font size and remove the right-side GitHub shortcut while retaining the collaboration status.
 - [x] Simplify and compact the Overview project action with no default left rail or dark background, lime-only hover styling, and the label “MORE PROJECT”.
 - [x] Keep the Overview project action outline at the same 1px thickness on hover, changing only its color.
+- [x] Lock the Overview project action’s box dimensions and use the same 1px border geometry in default and hover states.
