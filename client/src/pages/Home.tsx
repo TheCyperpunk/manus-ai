@@ -23,6 +23,7 @@ import { githubHandle, useGithubSource } from "@/lib/github-source";
 import "./overview.css";
 import "./overview-project-action.css";
 import "./overview-hero-links.css";
+import "./overview-evidence-refinements.css";
 
 const disciplines = [
   {
@@ -32,6 +33,7 @@ const disciplines = [
     icon: Workflow,
     route: "/case-studies/onchain-sip",
     mode: "PROJECT / SMART-CONTRACT EXECUTION",
+    trace: ["SCHEDULE", "CONTRACT", "EXECUTION"],
     tags: ["Solidity", "Hardhat", "React", "Node.js", "Ethers.js", "Web3.js"],
     sourceHref: "https://github.com/TheCyperpunk/collegeproject",
   },
@@ -42,6 +44,7 @@ const disciplines = [
     icon: Sparkles,
     route: "/projects",
     mode: "PROJECT / LOCAL-FIRST AI WORKFLOWS",
+    trace: ["LOCAL INPUT", "RAG RETRIEVAL", "MODEL OUTPUT"],
     tags: ["Svelte", "Ollama", "Docker", "TypeScript", "Python", "RAG"],
     sourceHref: "https://github.com/TheCyperpunk?tab=repositories",
   },
@@ -52,6 +55,7 @@ const disciplines = [
     icon: Orbit,
     route: "/projects",
     mode: "PROJECT / INCIDENT OPERATIONS",
+    trace: ["FIELD REPORT", "CLI INTAKE", "COORDINATION LOG"],
     tags: ["Python", "Shell", "CLI automation", "REST APIs"],
     sourceHref: "https://github.com/TheCyperpunk?tab=repositories",
   },
@@ -71,8 +75,10 @@ const timeline = [
 ];
 
 const recognitions = [
-  ["01", "First Prize", "Data Innovate X Ideathon · St. Thomas College", "VENUE / ST. THOMAS COLLEGE"],
-  ["02", "First Prize", "LastBot Hackathon · IIIT Kottayam", "VENUE / IIIT KOTTAYAM"],
+  { index: "01", award: "First Prize", event: "Data Innovate X Ideathon", venue: "St. Thomas College", note: "VENUE / ST. THOMAS COLLEGE" },
+  { index: "02", award: "First Prize", event: "LastBot Hackathon", venue: "IIIT Kottayam", note: "VENUE / IIIT KOTTAYAM" },
+  { index: "03", award: "Winner", event: "BNB Hack Kerala", venue: "The Hosteller Fort Kochi, Ocean Edge", note: "VENUE / FORT KOCHI · OCEAN EDGE" },
+  { index: "04", award: "First Prize", event: "Hack Europa 2.0", venue: "School of Engineering, Cochin University of Science and Technology (CUSAT)", note: "VENUE / CUSAT" },
 ];
 
 export default function Home() {
@@ -165,11 +171,11 @@ export default function Home() {
         </header>
 
         <nav className="atlas-gateway" aria-label="Source atlas proof modes">
-          <span>ATLAS / PROOF MODES</span>
-          <Link href="/projects"><b>01</b> Registry</Link>
-          <Link href="/network"><b>02</b> Network</Link>
-          <Link href="/stack"><b>03</b> Stack</Link>
-          <Link href="/contact"><b>04</b> Contact</Link>
+          <span>SOURCE ATLAS / VERIFIED ROUTES</span>
+          <Link href="/projects"><b>01</b> Source registry</Link>
+          <Link href="/network"><b>02</b> Public network</Link>
+          <Link href="/stack"><b>03</b> Stack evidence</Link>
+          <Link href="/contact"><b>04</b> Contact channel</Link>
         </nav>
 
         <div className="discipline-grid">
@@ -186,6 +192,9 @@ export default function Home() {
                 whileHover={{ y: -6 }}
               >
                 <div><span>{discipline.number}</span><Icon size={19} /></div>
+                <div className="discipline-card__trace" aria-label={`${discipline.title} proof trace`}>
+                  <span>{discipline.trace[0]}</span><i aria-hidden="true" /><span>{discipline.trace[1]}</span><i aria-hidden="true" /><span>{discipline.trace[2]}</span>
+                </div>
                 <h3>{discipline.title}</h3>
                 <p>{discipline.copy}</p>
                 <ul className="discipline-card__tags" aria-label={`${discipline.title} technologies`}>
@@ -206,8 +215,9 @@ export default function Home() {
 
       <section className="pathway-section">
         <div className="pathway-section__lane" aria-hidden="true"><span /><span /><span /><span /><span /></div>
+        <div className="pathway-section__stamp" aria-hidden="true"><span>S// EVIDENCE INSERT</span><i /><b>03</b></div>
         <div className="pathway-section__intro">
-          <p className="overview-kicker"><i /> 03 / EXPERIENCE TRACE</p>
+          <p className="overview-kicker"><i /> 03 / EXPERIENCE TRACE / EVIDENCE INSERT</p>
           <h2>Learning in public.<br /><em>Shipping with care.</em></h2>
           <p>Academic grounding, three focused internship experiences, and competitive recognition provide the context behind the interface.</p>
         </div>
@@ -220,16 +230,37 @@ export default function Home() {
         </ol>
       </section>
 
-      <section className="recognition-console">
-        <div className="recognition-console__light" aria-hidden="true" />
-        <div className="recognition-console__headline">
-          <p className="overview-kicker"><i /> 04 / RECOGNITION</p>
-          <h2>Two moments of<br /><em>external signal.</em></h2>
-        </div>
-        <div className="recognition-console__records">
-          {recognitions.map(([number, award, detail, sourceNote], index) => (
-            <motion.article key={number} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.1, duration: 0.42 }}>
-              <span>{number}</span><Award size={18} /><strong>{award}</strong><p>{detail}</p><small>{sourceNote}</small>
+      <section className="recognition-console" aria-labelledby="recognition-title">
+        <div className="recognition-console__field" aria-hidden="true" />
+        <header className="recognition-console__head">
+          <div>
+            <p className="overview-kicker"><i /> 04 / RECOGNITION LEDGER</p>
+            <h2 id="recognition-title">Wins, <em>recorded.</em><br />Signals, retained.</h2>
+          </div>
+          <div className="recognition-console__count" aria-label="Four external recognitions">
+            <b>04</b>
+            <span>EXTERNAL<br />SIGNALS</span>
+          </div>
+        </header>
+
+        <div className="recognition-console__manifest" aria-label="Recognition records">
+          <div className="recognition-console__manifest-label" aria-hidden="true"><span>S// FIELD<br />LOG</span></div>
+          {recognitions.map((recognition, index) => (
+            <motion.article
+              key={recognition.index}
+              className="recognition-record"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-70px" }}
+              transition={{ delay: index * 0.07, duration: 0.48, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <div className="recognition-record__index"><span>{recognition.index}</span><i /><small>SIGNAL</small></div>
+              <div className="recognition-record__body">
+                <div className="recognition-record__meta"><span>{recognition.award}</span><small>AWARD RECORD</small></div>
+                <h3>{recognition.event}</h3>
+                <p>{recognition.venue}</p>
+              </div>
+              <div className="recognition-record__proof"><Award size={18} /><small>{recognition.note}</small></div>
             </motion.article>
           ))}
         </div>

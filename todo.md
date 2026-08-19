@@ -87,3 +87,4 @@
 - [x] Match the Overview project action’s hover border thickness exactly to its default border.
 - [x] Add restrained dark-green default and hover background surfaces to the Overview project action while retaining its compact geometry.
 - [x] Restore the “S” in the compact Overview action label so it reads “MORE PROJECTS.”
+- [x] Redesign the Overview Recognition section into a distinct proof-led composition and add BNB Hack Kerala — Winner and Hack Europa 2.0 — First Prize with their supplied venues.
