@@ -55,3 +55,4 @@
 - [x] Optimize the Projects repository inventory so verified data is visible immediately and live refreshes do not leave a prolonged loading state.
 - [x] Recompose the Contact route into a reference-led collaboration page with clear, verified contact channels while retaining the Proof in Motion design system.
 - [x] Correct the Contact hero desktop columns so the complete collaboration message, primary email action, and status are visible within the frame.
+- [x] Recompose Contact to match the supplied hero and wide channel-switchboard references without removing the existing dark background treatment.

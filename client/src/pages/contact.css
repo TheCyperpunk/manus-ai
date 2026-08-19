@@ -1,5 +1,13 @@
 /* Proof in Motion Contact — scoped responsive rules preserve the reference-led signal field, S// watermark, and direct-channel hierarchy. */
 
+.contact-page > .contact-signal {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @media (max-width: 1000px) {
   .contact-signal__content {
     grid-template-columns: minmax(0, 1fr) minmax(250px, .48fr);
