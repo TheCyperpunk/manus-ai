@@ -98,7 +98,7 @@ export default function Home() {
             Sangeeth Karunakaran is a full-stack developer from Kerala building web products across interface engineering, applied AI, and Web3. The work prioritizes clear systems, dependable implementation, and interactions that make complex workflows usable.
           </p>
           <div className="overview-actions">
-            <Link href="/open" className="overview-button">Start a conversation <ArrowDownRight size={17} /></Link>
+            <Link href="/contact" className="overview-button">Start a conversation <ArrowDownRight size={17} /></Link>
             <a href={`https://github.com/${githubHandle}`} target="_blank" rel="noreferrer" className="overview-link">Read the public trail <ArrowUpRight size={15} /></a>
           </div>
         </motion.div>
@@ -156,8 +156,7 @@ export default function Home() {
           <Link href="/activity"><b>02</b> Activity</Link>
           <Link href="/network"><b>03</b> Network</Link>
           <Link href="/stack"><b>04</b> Stack</Link>
-          <Link href="/open"><b>05</b> Open</Link>
-          <Link href="/contact"><b>06</b> Contact</Link>
+          <Link href="/contact"><b>05</b> Contact</Link>
         </nav>
 
         <div className="discipline-grid">

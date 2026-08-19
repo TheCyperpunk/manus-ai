@@ -9,8 +9,7 @@ const navigation = [
   { href: "/activity", label: "Activity", index: "02" },
   { href: "/participation", label: "Participation", index: "03" },
   { href: "/stack", label: "Stack", index: "04" },
-  { href: "/open", label: "Open", index: "05" },
-  { href: "/contact", label: "Contact", index: "06" },
+  { href: "/contact", label: "Contact", index: "05" },
 ];
 
 export default function PortfolioShell({ children }: { children: React.ReactNode }) {
@@ -30,7 +29,7 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
             {navigation.map((item) => <Link key={item.href} href={item.href} className={activeFor(item.href) ? "is-active" : ""}><small>{item.index}</small>{item.label}</Link>)}
           </nav>
           <div className="atlas-topbar__actions">
-            <Link href="/open" className="atlas-topbar__status"><i />Open to collaboration</Link>
+            <Link href="/contact" className="atlas-topbar__status"><i />Open to collaboration</Link>
             <a href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer" className="atlas-topbar__github" aria-label="Open GitHub profile"><Github size={15} /><ArrowUpRight size={12} /></a>
             <button type="button" className="atlas-topbar__menu" onClick={() => setMenuOpen((value) => !value)} aria-expanded={menuOpen} aria-controls="atlas-mobile-navigation" aria-label="Toggle portfolio navigation">{menuOpen ? <X size={18} /> : <Menu size={18} />}</button>
           </div>
