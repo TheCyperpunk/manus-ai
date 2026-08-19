@@ -112,4 +112,4 @@
 - [x] Push the verified Vercel asset repair to GitHub and provide the final production redeployment check.
 - [x] Add a brief, accessible global first-visit app-loader and validate its transition into the portfolio experience.
 - [x] Strengthen the Overview with a dominant technical proof artifact, more distinct project evidence traces, and tighter source-atlas framing.
-- [ ] Push the global-loader and proof-surface enhancement to GitHub, then provide the final Vercel redeployment check.
+- [x] Push the global-loader and proof-surface enhancement to GitHub, then provide the final Vercel redeployment check.
