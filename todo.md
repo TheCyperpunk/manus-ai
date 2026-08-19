@@ -104,3 +104,4 @@
 - [x] Remove the dedicated Contact page content and make Contact navigation redirect to the contact section at the bottom of Overview.
 - [x] Update the header availability status from “Open to collaboration” to “Open to work”.
 - [x] Add the current Qugodo Full Stack Developer role as the leading Experience Trace entry.
+- [ ] Commit the latest portfolio changes and push them to the configured GitHub repository.
