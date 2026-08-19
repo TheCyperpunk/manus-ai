@@ -37,3 +37,5 @@
 - [x] Validate the case-study routes locally and save a checkpoint.
 - [x] Review and professionalize visible project and capability copy without changing the established layout.
 - [x] Validate the content-only refinement locally and save a checkpoint.
+- [x] Add the supplied Onchain SIP, Auradesk, and ZeroHour project cards to the portfolio.
+- [x] Validate the added project cards locally and save a checkpoint.

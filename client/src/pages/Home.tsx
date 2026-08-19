@@ -2,6 +2,7 @@
  * Proof in Motion / Overview: portrait-led personal dossier, Signal Lime accents,
  * kinetic typography, and component-first evidence rather than project imagery.
  */
+import { Fragment } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import {
@@ -41,6 +42,36 @@ const disciplines = [
     icon: Orbit,
     route: "/network",
     mode: "WEB3 PRACTICE / CONTRACT INTERFACES",
+  },
+];
+
+const projectSurfaces = [
+  {
+    title: "Onchain SIP",
+    copy: "An on-chain Systematic Investment Plan that turns recurring investment logic into transparent smart-contract execution.",
+    tags: ["Solidity", "Hardhat", "React", "Node.js", "Ethers.js", "Web3.js"],
+    href: "https://github.com/TheCyperpunk/collegeproject",
+    accent: "lime",
+    proof: "CONTRACT / EXECUTION TRACE",
+    trace: ["deposit", "schedule", "execute"],
+  },
+  {
+    title: "Auradesk",
+    copy: "A local-first assistant for vision and chat workflows, bringing RAG, speech, and web-aware tools into one private interface.",
+    tags: ["Svelte", "Ollama", "Docker", "TypeScript", "Python", "RAG"],
+    href: "https://github.com/TheCyperpunk?tab=repositories",
+    accent: "cyan",
+    proof: "LOCAL / RETRIEVAL TRACE",
+    trace: ["prompt", "context", "response"],
+  },
+  {
+    title: "ZeroHour",
+    copy: "A command-line workflow for rapid incident reporting and retrieval, designed to make coordination faster when time matters.",
+    tags: ["Python", "Shell", "CLI automation", "REST APIs"],
+    href: "https://github.com/TheCyperpunk?tab=repositories",
+    accent: "amber",
+    proof: "CLI / INCIDENT TRACE",
+    trace: ["capture", "report", "retrieve"],
   },
 ];
 
@@ -156,6 +187,46 @@ export default function Home() {
               </motion.article>
             );
           })}
+        </div>
+      </section>
+
+      <section className="project-surfaces" aria-labelledby="project-surfaces-title">
+        <header className="project-surfaces__header">
+          <p className="overview-kicker"><i /> 03 / SELECTED BUILD SURFACES</p>
+          <h2 id="project-surfaces-title">Three systems.<br /><em>Different constraints.</em></h2>
+          <p>Project snapshots spanning smart-contract execution, local-first intelligence, and operational tooling.</p>
+        </header>
+        <div className="project-surfaces__grid">
+          {projectSurfaces.map((project) => (
+            <motion.article
+              key={project.title}
+              className={`project-surface project-surface--${project.accent}`}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-90px" }}
+              transition={{ duration: 0.46 }}
+              whileHover={{ y: -5 }}
+            >
+              <span className="project-surface__index">S// {project.title.toUpperCase()}</span>
+              <div className="project-surface__proof" aria-label={`${project.title} proof trace`}>
+                <span>{project.proof}</span>
+                <div className="project-surface__trace">
+                  {project.trace.map((step, index) => (
+                    <Fragment key={step}>
+                      <b>{step}</b>
+                      {index < project.trace.length - 1 && <i aria-hidden="true" />}
+                    </Fragment>
+                  ))}
+                </div>
+              </div>
+              <h3>{project.title}</h3>
+              <p>{project.copy}</p>
+              <ul aria-label={`${project.title} technologies`}>
+                {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
+              </ul>
+              <a href={project.href} target="_blank" rel="noreferrer">View source on GitHub <ArrowUpRight size={15} /></a>
+            </motion.article>
+          ))}
         </div>
       </section>
 

@@ -125,3 +125,9 @@ The source atlas now exchanges its persistent side index for a **compact horizon
 - Each case study keeps the shared evidence tape but begins with a **project-specific dominant proof instrument**: a contract-state lifecycle for Onchain SIP, a browser-to-native handoff trace for XMO Messenger, and a token-policy transfer manifold for SorobanVault.
 - The `S//` split frame governs proof-section transitions, artifact corners, trace checkpoints, and evidence dividers. It must remain structural even when the underlying project mechanics change.
 - A repeated section title is permitted only when its project-specific trace, connector geometry, and evidence mode are visibly distinct; swapping case-study copy alone must never make two dossiers interchangeable.
+
+## Style Decisions
+
+- Portfolio project cards retain supplied copy verbatim, but begin with a project-specific source trace before the descriptive summary: contract lifecycle for Onchain SIP, local-runtime retrieval for Auradesk, and CLI incident flow for ZeroHour.
+- The Overview project band behaves as an offset evidence tape rather than a uniform card row. Subtle vertical stagger, connector traces, and split-frame corners make each surface a distinct instrument.
+- `S//` geometry must frame practical proof data—source type, implementation route, and system handoff—not simply decorate card edges.
