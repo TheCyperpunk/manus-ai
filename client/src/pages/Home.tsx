@@ -185,6 +185,9 @@ export default function Home() {
             );
           })}
         </div>
+        <Link href="/projects" className="discipline-grid__more">
+          <span><i /> VIEW MORE PROJECTS</span><small>COMPLETE REPOSITORY REGISTRY</small><ArrowUpRight size={16} />
+        </Link>
       </section>
 
       <section className="pathway-section">
