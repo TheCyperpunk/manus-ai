@@ -220,14 +220,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="overview-outro">
+      <section className="overview-outro overview-outro--rail-only" aria-label="Section boundary">
         <div className="overview-outro__rail" aria-hidden="true"><span>S//</span><i /><i /><i /><i /></div>
-        <div className="overview-outro__monogram" aria-hidden="true">S//</div>
-        <div>
-          <p className="overview-kicker"><i /> NEXT / COLLABORATION</p>
-          <h2>Bring the hard<br />constraint.</h2>
-        </div>
-        <div><p>Interested in working through a product question, an interaction system, or a technical edge case? The Open Channel is a better place to begin than a generic contact form.</p><Link href="/open" className="overview-link overview-link--dark">Open the channel <ArrowUpRight size={15} /></Link></div>
       </section>
 
       <section className="contact-switchboard overview-switchboard" aria-labelledby="contact-switchboard-title">
