@@ -72,3 +72,4 @@
 - [x] Audit the supplied GitHub organizations and add only verified substantive organization-owned repositories to the portfolio Stack ledger.
 - [x] Remove the Activity page completely, including its route, navigation entry, and unused page source.
 - [x] Add one Projects-page action beneath the three Overview project cards without altering those cards or their GitHub links.
+- [x] Replace the full-width Overview Projects action with a compact, readable dark-green and Signal Lime button.

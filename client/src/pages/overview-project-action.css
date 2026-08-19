@@ -1,0 +1,62 @@
+/* Proof in Motion Overview action — a compact, readable dark-green portal with Signal Lime proof accent. */
+.discipline-grid__more {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 28px;
+  width: min(100%, 414px);
+  min-height: 86px;
+  margin-top: 24px;
+  padding: 0 28px;
+  border: 1px solid rgba(184, 255, 59, .31);
+  border-left: 2px solid var(--lime);
+  background:
+    radial-gradient(circle at 18% 50%, rgba(184, 255, 59, .20), transparent 56%),
+    linear-gradient(104deg, #1c2b12 0%, #11170e 57%, #0d0f0d 100%);
+  box-shadow: inset 0 0 28px rgba(184, 255, 59, .045), 0 13px 28px rgba(0, 0, 0, .18);
+  color: #eef3e8;
+  overflow: hidden;
+  transition: border-color 180ms var(--ease-out), background 180ms var(--ease-out), transform 180ms var(--ease-out);
+}
+
+.discipline-grid__more::before { display: none; }
+
+.discipline-grid__more span {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--lime);
+  font: 600 13px var(--mono);
+  letter-spacing: .045em;
+}
+
+.discipline-grid__more span i {
+  width: 9px;
+  height: 9px;
+  box-shadow: 0 0 14px rgba(184, 255, 59, .8);
+}
+
+.discipline-grid__more svg { color: var(--lime); }
+
+.discipline-grid__more:hover {
+  border-color: rgba(184, 255, 59, .75);
+  background:
+    radial-gradient(circle at 18% 50%, rgba(184, 255, 59, .30), transparent 60%),
+    linear-gradient(104deg, #273b16 0%, #151d10 57%, #0d0f0d 100%);
+  transform: translateY(-2px);
+}
+
+.discipline-grid__more:active { transform: translateY(0) scale(.98); }
+
+@media (max-width: 520px) {
+  .discipline-grid__more {
+    width: 100%;
+    min-height: 78px;
+    margin-top: 18px;
+    padding: 0 21px;
+  }
+
+  .discipline-grid__more span { font-size: 12px; }
+}
+

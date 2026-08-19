@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { githubHandle, useGithubSource } from "@/lib/github-source";
 import "./overview.css";
+import "./overview-project-action.css";
 
 const disciplines = [
   {
@@ -186,7 +187,7 @@ export default function Home() {
           })}
         </div>
         <Link href="/projects" className="discipline-grid__more">
-          <span><i /> VIEW MORE PROJECTS</span><small>COMPLETE REPOSITORY REGISTRY</small><ArrowUpRight size={16} />
+          <span><i /> VIEW MORE PROJECTS</span><ArrowUpRight size={18} />
         </Link>
       </section>
 
