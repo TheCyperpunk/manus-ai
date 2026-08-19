@@ -51,3 +51,4 @@
 - [x] Restore the Network page public-organization panel with verified visible fallback content while retaining its layout.
 - [x] Replace the Network route content with a participation page grounded in the supplied LinkedIn event posts.
 - [x] Move the participation ledger to a dedicated Participation route and refine its evidence intervals with source artifacts and stronger S// structural framing.
+- [x] Add the remaining ten user-supplied LinkedIn participation records to the existing Participation ledger.
