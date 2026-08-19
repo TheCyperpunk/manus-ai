@@ -49,3 +49,5 @@
 - [x] Apply the validated Source Atlas refinements to Stack proof instruments, evidence intervals, recent-build ledger, and brand framing.
 - [x] Restore the original Stack language instrument’s visible chart and metric values with source-backed fallback data while retaining its layout.
 - [x] Restore the Network page public-organization panel with verified visible fallback content while retaining its layout.
+- [x] Replace the Network route content with a participation page grounded in the supplied LinkedIn event posts.
+- [x] Move the participation ledger to a dedicated Participation route and refine its evidence intervals with source artifacts and stronger S// structural framing.

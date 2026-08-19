@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Activity from "./pages/Activity";
 import Network from "./pages/Network";
+import Participation from "./pages/Participation";
 import Stack from "./pages/Stack";
 import Open from "./pages/Open";
 import Contact from "./pages/Contact";
@@ -16,7 +17,7 @@ import CaseStudy from "./pages/CaseStudy";
 import PortfolioShell from "./components/PortfolioShell";
 
 function Router() {
-  return <PortfolioShell><Switch><Route path="/" component={Home} /><Route path="/projects" component={Projects} /><Route path="/case-studies/:slug" component={CaseStudy} /><Route path="/activity" component={Activity} /><Route path="/network" component={Network} /><Route path="/stack" component={Stack} /><Route path="/open" component={Open} /><Route path="/contact" component={Contact} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></PortfolioShell>;
+  return <PortfolioShell><Switch><Route path="/" component={Home} /><Route path="/projects" component={Projects} /><Route path="/case-studies/:slug" component={CaseStudy} /><Route path="/activity" component={Activity} /><Route path="/participation" component={Participation} /><Route path="/network" component={Network} /><Route path="/stack" component={Stack} /><Route path="/open" component={Open} /><Route path="/contact" component={Contact} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></PortfolioShell>;
 }
 
 export default function App() {

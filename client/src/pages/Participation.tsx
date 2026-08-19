@@ -1,5 +1,5 @@
-/** Proof in Motion — sourced participation ledger; event evidence is limited to user-supplied public LinkedIn posts. */
-import { ArrowUpRight, CalendarDays, Flag, Handshake, Link2, MapPin, RadioTower } from "lucide-react";
+/** Proof in Motion — dedicated participation route; all event records link to user-supplied public LinkedIn sources. */
+import { ArrowUpRight, CalendarDays, Flag, Handshake, Link2, MapPin, RadioTower, ScanLine } from "lucide-react";
 import { AtlasFooter, AtlasPageHeader } from "@/components/AtlasPage";
 
 type ParticipationEvent = {
@@ -30,19 +30,27 @@ const participationEvents: ParticipationEvent[] = [
 ];
 
 const years: ParticipationEvent["year"][] = ["2026", "2025"];
+const intervalArtifact: Record<ParticipationEvent["year"], { title: string; note: string; tags: string[] }> = {
+  "2026": { title: "Build sprint interval", note: "Four source-linked public posts trace a short, dense cycle of rapid prototyping across AI, product, and university hackathon rooms.", tags: ["24H BUILDS", "AGENTIC AI", "PRODUCT SPRINT", "TEAM PROTOTYPING"] },
+  "2025": { title: "Field & community interval", note: "Ten source-linked records connect the Web3 builder circuit with open-source gatherings and design-led participation.", tags: ["WEB3 FIELDWORK", "OPEN SOURCE", "DESIGN SPRINT", "COMMUNITY EXCHANGE"] },
+};
 
-export default function Network() {
+export default function Participation() {
   return <main className="atlas-main atlas-page participation-page">
     <AtlasPageHeader index="03" eyebrow="Participation ledger" title={<>Show up.<br /><em>Build in public.</em></>} copy="A source-linked record of hackathons, design sprints, open-source gatherings, and Web3 builder events. Every entry is grounded in a supplied public LinkedIn post—not inferred affiliation or outcome claims." aside={<div className="participation-source"><RadioTower size={16} /><div><span>SOURCE SET / 14 POSTS</span><b>USER-SUPPLIED PUBLIC LINKEDIN EVIDENCE</b></div></div>} />
 
-    <section className="participation-instrument" aria-label="Participation overview">
+    <section className="participation-instrument participation-instrument--framed" aria-label="Participation overview">
       <div className="participation-instrument__lead"><div className="participation-kicker"><Flag size={19} /> EVENT PARTICIPATION</div><strong>14</strong><p>documented public event records across 2025–26.</p><span>Not a claims wall. A linked record of where the work happened.</span></div>
       <div className="participation-instrument__axes"><article><CalendarDays size={18} /><b>2026 / BUILD SPRINTS</b><p>Make-A-Ton, Build for India, BeachHack, and CodeKalari create a recent rapid-build interval.</p></article><article><RadioTower size={18} /><b>2025 / WEB3 FIELDWORK</b><p>Stacks, Avalanche, Shardeum, ETHGlobal, and BNB Chain events form the onchain participation trail.</p></article><article><Handshake size={18} /><b>COMMUNITY / OPEN SOURCE</b><p>DesignQuest, Debian Day, Indic Wikimedia, and TinkHack widen the record beyond hackathons.</p></article></div>
     </section>
 
     <section className="participation-ledger">
       <div className="participation-ledger__head"><div><p>PUBLIC POST INTERVALS</p><h2>Where the work<br /><em>met the room.</em></h2></div><p>Each record keeps the original event context concise and exposes its post as the primary proof artifact.</p></div>
-      {years.map((year) => <div className="participation-year" key={year}><div className="participation-year__rail"><span>S// {year}</span><i /><small>{participationEvents.filter((entry) => entry.year === year).length} PUBLIC RECORDS</small></div><div className="participation-events">{participationEvents.filter((entry) => entry.year === year).map((entry, index) => <article className="participation-event" key={entry.event}><div className="participation-event__date"><b>{entry.date}</b><span>{entry.year}</span></div><div className="participation-event__signal"><i /><span>{String(index + 1).padStart(2, "0")}</span></div><div className="participation-event__body"><div className="participation-event__meta"><span>{entry.type}</span><span><MapPin size={11} /> {entry.place}</span></div><h3>{entry.event}</h3><p>{entry.detail}</p></div><a href={entry.href} target="_blank" rel="noreferrer" aria-label={`View source post for ${entry.event}`}><Link2 size={15} /><span>POST</span><ArrowUpRight size={14} /></a></article>)}</div></div>)}
+      {years.map((year) => {
+        const interval = intervalArtifact[year];
+        const records = participationEvents.filter((entry) => entry.year === year);
+        return <div className="participation-year" key={year}><div className="participation-year__rail"><span>S// {year}</span><i /><small>{records.length} PUBLIC RECORDS</small></div><aside className="participation-interval" aria-label={`${year} evidence interval`}><div className="participation-interval__signal"><ScanLine size={16} /><span>PROOF CLUSTER / {year}</span></div><div><h3>{interval.title}</h3><p>{interval.note}</p></div><div className="participation-interval__tags">{interval.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><b>14 → {records.length} POSTS</b></aside><div className="participation-events">{records.map((entry, index) => <article className="participation-event" key={entry.event}><div className="participation-event__date"><b>{entry.date}</b><span>{entry.year}</span></div><div className="participation-event__signal"><i /><span>{String(index + 1).padStart(2, "0")}</span></div><div className="participation-event__body"><div className="participation-event__meta"><span>{entry.type}</span><span><MapPin size={11} /> {entry.place}</span></div><h3>{entry.event}</h3><p>{entry.detail}</p></div><a href={entry.href} target="_blank" rel="noreferrer" aria-label={`View source post for ${entry.event}`}><Link2 size={15} /><span>POST</span><ArrowUpRight size={14} /></a></article>)}</div></div>;
+      })}
     </section>
     <AtlasFooter />
   </main>;
