@@ -85,3 +85,4 @@
 - [x] Keep the Overview project action outline at the same 1px thickness on hover, changing only its color.
 - [x] Lock the Overview project action’s box dimensions and use the same 1px border geometry in default and hover states.
 - [x] Match the Overview project action’s hover border thickness exactly to its default border.
+- [x] Add restrained dark-green default and hover background surfaces to the Overview project action while retaining its compact geometry.
