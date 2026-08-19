@@ -77,5 +77,6 @@
 - [x] Further reduce the Overview Projects button dimensions and soften its green background and glow opacity.
 - [x] Rename the Overview action to “MORE PROJECT WORK,” remove its dot and hover effect, and apply the quieter left-rail border treatment.
 - [x] Add a compact professional-link row under the Overview hero actions for GitHub, LinkedIn, Devfolio, Unstop, and the resume.
-- [ ] Refine the Overview professional-link row with rounded outlined controls, white border-only hover states, a visible Resume label, and verified Devfolio and Unstop vector marks.
 - [x] Refine the Overview professional-link row with rounded outlined controls, white border-only hover states, a visible Resume label, and verified Devfolio and Unstop vector marks.
+- [x] Change the Overview “Start a conversation” action to open the email client directly.
+- [x] Rewrite the Overview hero introduction in first person rather than third-person profile language.

@@ -99,10 +99,10 @@ export default function Home() {
           <h1 className="sr-only">Sangeeth Karunakaran — Full-Stack Developer</h1>
           <p className="overview-role">FULL-STACK DEVELOPER <span>·</span> AI SYSTEMS <span>·</span> WEB3</p>
           <p className="overview-lede">
-            Sangeeth Karunakaran is a full-stack developer from Kerala building web products across interface engineering, applied AI, and Web3. The work prioritizes clear systems, dependable implementation, and interactions that make complex workflows usable.
+            Based in Kerala, I build web products across interface engineering, applied AI, and Web3. I focus on clear systems, dependable implementation, and interactions that make complex workflows usable.
           </p>
             <div className="overview-actions">
-              <Link href="/contact" className="overview-button">Start a conversation <ArrowDownRight size={17} /></Link>
+              <a href="mailto:sangeethkarunakaran16@gmail.com" className="overview-button">Start a conversation <ArrowDownRight size={17} /></a>
               <a href={`https://github.com/${githubHandle}`} target="_blank" rel="noreferrer" className="overview-link">Read the public trail <ArrowUpRight size={15} /></a>
             </div>
             <div className="overview-profile-links" aria-label="Professional links">
