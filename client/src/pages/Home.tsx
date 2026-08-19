@@ -256,6 +256,9 @@ export default function Home() {
             </motion.article>
           ))}
         </div>
+        <Link href="/participation" className="discipline-grid__more recognition-console__more">
+          <span>MORE ACHIEVEMENTS</span><ArrowUpRight size={14} />
+        </Link>
       </section>
 
       <section className="overview-outro overview-outro--rail-only" aria-label="Section boundary">
