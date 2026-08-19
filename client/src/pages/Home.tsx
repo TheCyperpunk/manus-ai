@@ -1,8 +1,9 @@
 /**
  * Proof in Motion / Overview: portrait-led personal dossier, Signal Lime accents,
  * kinetic typography, and component-first evidence rather than project imagery.
- * Hero constraint: preserve its copy, portrait, actions, and layout; add motion only as a lightweight background signal field.
+ * Hero constraint: preserve its copy, portrait, actions, and layout; use mirrored signal fields, pointer parallax, and a one-time initialization reveal without changing foreground content.
  */
+import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import {
@@ -25,6 +26,7 @@ import "./overview.css";
 import "./overview-project-action.css";
 import "./overview-hero-links.css";
 import "./overview-hero-monogram.css";
+import "./overview-intro-reveal.css";
 
 const disciplines = [
   {
@@ -82,10 +84,67 @@ const recognitions = [
 export default function Home() {
   const source = useGithubSource();
   const profile = source.profile;
+  const heroRef = useRef<HTMLElement>(null);
+  const parallaxFrame = useRef<number | null>(null);
+  const pendingParallax = useRef({ x: 0, y: 0 });
+  const [introVisible, setIntroVisible] = useState(false);
+
+  useEffect(() => () => {
+    if (parallaxFrame.current !== null) cancelAnimationFrame(parallaxFrame.current);
+  }, []);
+
+  useEffect(() => {
+    const storageKey = "sangeeth-atlas-intro-seen";
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    try {
+      if (window.localStorage.getItem(storageKey)) return;
+      setIntroVisible(true);
+      const dismissIntro = window.setTimeout(() => {
+        setIntroVisible(false);
+        window.localStorage.setItem(storageKey, "1");
+      }, 1220);
+      return () => window.clearTimeout(dismissIntro);
+    } catch {
+      return;
+    }
+  }, []);
+
+  const handleHeroPointerMove = (event: ReactPointerEvent<HTMLElement>) => {
+    if (event.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const bounds = event.currentTarget.getBoundingClientRect();
+    pendingParallax.current = {
+      x: ((event.clientX - bounds.left) / bounds.width - 0.5) * 13,
+      y: ((event.clientY - bounds.top) / bounds.height - 0.5) * 9,
+    };
+
+    if (parallaxFrame.current !== null) return;
+    parallaxFrame.current = requestAnimationFrame(() => {
+      const hero = heroRef.current;
+      if (hero) {
+        hero.style.setProperty("--signal-parallax-x", `${pendingParallax.current.x.toFixed(2)}px`);
+        hero.style.setProperty("--signal-parallax-y", `${pendingParallax.current.y.toFixed(2)}px`);
+        hero.style.setProperty("--signal-parallax-x-opposite", `${(-pendingParallax.current.x * 0.72).toFixed(2)}px`);
+        hero.style.setProperty("--signal-parallax-y-opposite", `${(-pendingParallax.current.y * 0.72).toFixed(2)}px`);
+      }
+      parallaxFrame.current = null;
+    });
+  };
+
+  const resetHeroParallax = () => {
+    const hero = heroRef.current;
+    if (!hero) return;
+    hero.style.setProperty("--signal-parallax-x", "0px");
+    hero.style.setProperty("--signal-parallax-y", "0px");
+    hero.style.setProperty("--signal-parallax-x-opposite", "0px");
+    hero.style.setProperty("--signal-parallax-y-opposite", "0px");
+  };
 
   return (
     <main className="overview-main">
-      <section className="overview-hero">
+      <section ref={heroRef} className="overview-hero" onPointerMove={handleHeroPointerMove} onPointerLeave={resetHeroParallax}>
+        {introVisible && <div className="overview-intro-reveal" aria-hidden="true"><span className="overview-intro-reveal__index">S// 00</span><strong>INITIALIZING<br />SOURCE ATLAS</strong><i /><span className="overview-intro-reveal__status">PUBLIC SIGNAL / READY</span></div>}
         <div className="overview-hero__grid" aria-hidden="true" />
         <div className="signal-monogram-field" aria-hidden="true">
           <div className="signal-monogram-field__glow" />
@@ -94,6 +153,14 @@ export default function Home() {
           <div className="signal-monogram-field__axis signal-monogram-field__axis--horizontal" />
           <div className="signal-monogram-field__cuts"><i /><i /><i /></div>
           <div className="signal-monogram-field__rail"><span>SK / SIGNAL FIELD</span><b>01</b></div>
+        </div>
+        <div className="signal-monogram-field signal-monogram-field--left" aria-hidden="true">
+          <div className="signal-monogram-field__glow" />
+          <div className="signal-monogram-field__glyph"><span>S</span><span>K</span><i>/</i></div>
+          <div className="signal-monogram-field__axis signal-monogram-field__axis--vertical" />
+          <div className="signal-monogram-field__axis signal-monogram-field__axis--horizontal" />
+          <div className="signal-monogram-field__cuts"><i /><i /><i /></div>
+          <div className="signal-monogram-field__rail"><span>SK / COUNTER FIELD</span><b>02</b></div>
         </div>
         <div className="overview-hero__orbits" aria-hidden="true">
           <motion.i animate={{ rotate: 360 }} transition={{ duration: 34, repeat: Infinity, ease: "linear" }} />

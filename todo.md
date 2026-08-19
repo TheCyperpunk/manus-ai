@@ -95,3 +95,4 @@
 - [x] Revert the added hero motion and Source Atlas background systems, retaining only the existing small cross/diagonal background block.
 - [x] Create a more visible, original Signal Monogram Field behind the Overview hero, inspired by the supplied dark technical references without copying them.
 - [x] Remove only the lower-left diamond-grid ornament and square nodes from the Overview hero background.
+- [x] Mirror the Signal Monogram Field to the left as a restrained counterweight, add pointer parallax, extend the visual language to case-study headers, and add a first-visit intro reveal.

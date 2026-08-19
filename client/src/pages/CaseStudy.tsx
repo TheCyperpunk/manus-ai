@@ -27,6 +27,14 @@ export default function CaseStudy() {
   return <main className="atlas-main atlas-page case-study">
     <nav className="case-study__crumbs" aria-label="Case study breadcrumb"><Link href="/projects"><ArrowLeft size={14} /> Repository registry</Link><span>/</span><b>{study.index} · {study.name}</b></nav>
     <section className="case-study__hero">
+      <div className={`case-study__signal-field case-study__signal-field--${study.slug}`} aria-hidden="true">
+        <span className="case-study__signal-field-index">S//{study.index} / EVIDENCE FIELD</span>
+        <span className="case-study__signal-field-glyph">0{study.index}</span>
+        <i className="case-study__signal-field-axis case-study__signal-field-axis--vertical" />
+        <i className="case-study__signal-field-axis case-study__signal-field-axis--horizontal" />
+        <span className="case-study__signal-field-cut case-study__signal-field-cut--one" />
+        <span className="case-study__signal-field-cut case-study__signal-field-cut--two" />
+      </div>
       <div className="case-study__hero-rail" aria-hidden="true"><span>S//{study.index}</span><i /><i /><i /></div>
       <AtlasPageHeader index={study.index} eyebrow={study.mode} title={<> {study.headline.split("\n").map((line, index) => <span className="case-study__headline-line" key={line}>{line}{index === 0 && <br />}</span>)}</>} copy={study.summary} aside={<span className="case-study__status"><i /> {study.status}</span>} />
       <div className="case-study__hero-bottom"><div className="case-study__artifact"><span>PRIMARY ARTIFACT</span><strong>{study.artifact}</strong></div><div className="case-study__links"><a href={study.repositoryUrl} target="_blank" rel="noreferrer"><Github size={15} /> SOURCE <ArrowUpRight size={13} /></a>{study.liveUrl && <a href={study.liveUrl} target="_blank" rel="noreferrer"><ExternalLink size={14} /> {study.liveLabel || "OPEN SURFACE"} <ArrowUpRight size={13} /></a>}</div></div>
