@@ -1,5 +1,6 @@
 /** Proof in Motion — public GitHub source adapter; labels identify live API data versus dated snapshots. */
 import { useEffect, useMemo, useState } from "react";
+import { fallbackRepos } from "./github-snapshot";
 
 const HANDLE = "TheCyperpunk";
 const API_ROOT = "https://api.github.com";
@@ -87,7 +88,7 @@ const fallbackProfile: GithubProfile = {
   updated_at: "2026-07-31T20:49:38Z",
 };
 
-const emptySource: GithubSource = { profile: fallbackProfile, repos: [], events: [], orgs: [], starred: 55, status: "loading" };
+const emptySource: GithubSource = { profile: fallbackProfile, repos: fallbackRepos, events: [], orgs: [], starred: 55, status: "loading" };
 
 async function getJson<T>(path: string): Promise<T> {
   const response = await fetch(`${API_ROOT}${path}`, { headers: { Accept: "application/vnd.github+json" } });
@@ -102,15 +103,21 @@ async function getAllRepos() {
   return batches.flat();
 }
 
-async function loadSource(): Promise<GithubSource> {
-  const [profile, repos, events, orgs, starred] = await Promise.all([
+async function loadPrimarySource() {
+  const [profile, repos] = await Promise.all([
     getJson<GithubProfile>(`/users/${HANDLE}`),
     getAllRepos(),
+  ]);
+  return { profile, repos };
+}
+
+async function loadSupplementarySource() {
+  const [events, orgs, starred] = await Promise.all([
     getJson<GithubEvent[]>(`/users/${HANDLE}/events/public?per_page=100`),
     getJson<GithubOrg[]>(`/users/${HANDLE}/orgs`),
     getJson<GithubRepo[]>(`/users/${HANDLE}/starred?per_page=100`),
   ]);
-  return { profile, repos, events, orgs, starred: starred.length, status: "ready" };
+  return { events, orgs, starred: starred.length };
 }
 
 export function useGithubSource() {
@@ -118,8 +125,12 @@ export function useGithubSource() {
 
   useEffect(() => {
     let mounted = true;
-    loadSource()
-      .then((next) => mounted && setSource(next))
+    loadPrimarySource()
+      .then((primary) => {
+        if (mounted) setSource((previous) => ({ ...previous, ...primary, status: "ready" }));
+        return loadSupplementarySource();
+      })
+      .then((supplementary) => mounted && setSource((previous) => ({ ...previous, ...supplementary })))
       .catch(() => mounted && setSource((previous) => ({ ...previous, status: "degraded" })));
     return () => { mounted = false; };
   }, []);

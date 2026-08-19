@@ -12,7 +12,6 @@ export function AtlasFooter() {
 }
 
 export function SourceStatus({ status }: { status: "loading" | "ready" | "degraded" }) {
-  const label = status === "ready" ? "Live public API" : status === "loading" ? "Loading public API" : "Dated fallback snapshot";
+  const label = status === "ready" ? "Live public API" : status === "loading" ? "Verified snapshot · refreshing" : "Dated fallback snapshot";
   return <span className={`source-status source-status--${status}`}><i /> {label}</span>;
 }
-
