@@ -1,5 +1,5 @@
-/** Proof in Motion — preserve the Source Atlas language instrument; add profile-README stack topology only as labeled GitHub-declared evidence. */
-import { ArrowUpRight, Braces, BrainCircuit, CloudCog, Code2, Database, GitBranch, Layers3, TerminalSquare, Waypoints } from "lucide-react";
+/** Proof in Motion — preserve the Source Atlas language instrument; use the Stack ledger only for public code, manifest, and README-backed project evidence. */
+import { ArrowUpRight, Braces, BrainCircuit, CloudCog, Code2, Database, GitBranch, TerminalSquare, Waypoints } from "lucide-react";
 import { AtlasFooter, AtlasPageHeader, SourceStatus } from "@/components/AtlasPage";
 import { useGithubMetrics, useGithubSource } from "@/lib/github-source";
 
@@ -34,28 +34,13 @@ const profileStackTopology = [
   },
 ];
 
-const establishedPortfolioStack = ["Shadcn/UI", "Vite", "JavaScript", "TypeScript", "React", "Next.js", "Svelte", "Redux", "Tailwind", "MongoDB", "Firebase", "Azure", "Docker", "Kubernetes", "Git", "Node.js", "Express", "OpenAI API", "LangChain", "Ollama", "FAISS", "ChromaDB", "Solidity", "Hardhat", "Ethers.js"];
-
-const profileCoverageLedger = [
-  { code: "F.01", title: "Client foundations", source: "README / FRONTEND", technologies: ["JavaScript", "TypeScript", "HTML5", "CSS3", "Dart", "Sass", "SCSS"] },
-  { code: "F.02", title: "State + cross-platform", source: "README / FRONTEND", technologies: ["Redux", "Zustand", "Recoil", "Vuex", "Pinia", "React Native", "Flutter", "Expo"] },
-  { code: "F.03", title: "UI + quality toolchain", source: "README / FRONTEND", technologies: ["Material UI", "Ant Design", "Chakra UI", "Bootstrap", "Webpack", "Babel", "ESLint", "Lighthouse"] },
-  { code: "B.01", title: "Backend languages", source: "README / BACKEND", technologies: ["Python", "Go", "Java", "PHP", "C#", "Ruby", "C", "C++"] },
-  { code: "B.02", title: "Service frameworks", source: "README / BACKEND", technologies: ["Django", "Flask", "FastAPI", "Gin", "Fiber", "Echo", "Spring Boot", "Micronaut", "Laravel", "CodeIgniter", "ASP.NET Core", "Blazor"] },
-  { code: "B.03", title: "Data, security + events", source: "README / BACKEND", technologies: ["MySQL", "Firebase", "SQLite", "Cassandra", "JWT", "OAuth 2.0", "Keycloak", "RabbitMQ", "Kafka", "NATS", "Redis Pub/Sub"] },
-  { code: "B.04", title: "API protocols", source: "README / BACKEND", technologies: ["REST", "Apollo", "Hasura", "gRPC", "WebSockets", "Postman"] },
-  { code: "A.01", title: "AI data + optimization", source: "README / AI · ML", technologies: ["Keras", "YOLO", "GANs", "MediaPipe", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly", "Reinforcement Learning", "Genetic Algorithms"] },
-  { code: "W.01", title: "Networks + decentralized storage", source: "README / WEB3", technologies: ["Vyper", "Ethereum", "Polygon", "Solana", "Binance Smart Chain", "Web3.js", "IPFS", "Moralis"] },
-  { code: "D.01", title: "Cloud + infrastructure", source: "README / DEVOPS", technologies: ["GitLab CI", "AWS", "Firebase", "Vercel", "Netlify", "DigitalOcean", "Ansible", "Pulumi"] },
-  { code: "D.02", title: "Observability", source: "README / DEVOPS", technologies: ["Prometheus", "Grafana", "Elasticsearch", "Logstash", "Kibana"] },
-  { code: "T.01", title: "Collaboration + testing", source: "README / WORKFLOW", technologies: ["Git", "GitHub", "GitLab", "Bitbucket", "Jira", "Trello", "Notion", "Asana", "Jest", "Mocha", "Chai", "Cypress", "Selenium"] },
-];
-
-const profileCoverageIntervals = [
-  { index: "S// 01", label: "Interface field", note: "Frontend systems + delivery surfaces", groups: profileCoverageLedger.slice(0, 3) },
-  { index: "S// 02", label: "Service field", note: "Backend systems + communication layers", groups: profileCoverageLedger.slice(3, 7) },
-  { index: "S// 03", label: "Intelligence field", note: "AI, optimization + decentralized protocols", groups: profileCoverageLedger.slice(7, 9) },
-  { index: "S// 04", label: "Operations field", note: "Cloud, observability + team workflow", groups: profileCoverageLedger.slice(9) },
+const projectStackLedger = [
+  { code: "P.01", title: "Onchain SIP", source: "CODE + MANIFEST / collegeproject", technologies: ["Next.js", "React", "TypeScript", "Solidity", "Hardhat", "Wagmi", "RainbowKit", "Ethers.js", "Viem", "OpenZeppelin", "Tailwind CSS", "Recharts"] },
+  { code: "P.02", title: "XMO Messenger", source: "CODE + MANIFEST / award-experiment", technologies: ["Next.js", "React", "TypeScript", "GSAP", "Tailwind CSS", "Netlify", "Android App Links"] },
+  { code: "P.03", title: "SorobanVault", source: "CODE + README / SorobanVault-", technologies: ["Rust", "Soroban SDK", "Soroban CLI", "Stellar", "Solidity", "Foundry", "Forge", "EVM", "WASM"] },
+  { code: "P.04", title: "Smart Energy Monitoring", source: "CODE + README / smart-energy-monitoring", technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Recharts", "Radix UI", "React Hook Form", "Zod", "Lucide"] },
+  { code: "P.05", title: "Video Search", source: "CODE + README / multi-api-video-search", technologies: ["TypeScript", "Node.js", "Express", "Axios", "Cheerio", "React", "Vite", "REST API"] },
+  { code: "P.06", title: "TeleCloneChat", source: "CODE + MANIFEST / TeleCloneChat", technologies: ["Next.js", "React", "TypeScript", "Drizzle ORM", "Neon", "TanStack Query", "Framer Motion", "Tailwind CSS", "Radix UI", "Zod"] },
 ];
 
 // Public repository snapshot captured 19 Aug 2026. It only renders when the browser-side GitHub request is unavailable.
@@ -96,10 +81,9 @@ export default function Stack() {
       <a className="stack-topology__source" href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer"><Waypoints size={15} /><span>VERIFIED INPUT</span><b>Public profile README · technical skills matrix</b><ArrowUpRight size={15} /></a>
     </section>
     <section className="stack-ledger" aria-labelledby="stack-ledger-title">
-      <header className="stack-ledger__head"><div><p className="atlas-kicker"><i />COMPLETE COVERAGE LEDGER</p><h2 id="stack-ledger-title">Everything<br /><em>declared.</em></h2></div><p>The original practical surface is intentionally compact. This ledger closes the audit gap by carrying every additional, explicitly declared profile category in the same evidence system.</p></header>
-      <article className="stack-ledger__carry"><div><Layers3 size={19} /><span>PORTFOLIO / CARRIED FORWARD</span></div><strong>Previously established stack</strong><div className="stack-ledger__chips">{establishedPortfolioStack.map((technology) => <span key={technology}><b>{"</>"}</b>{technology}</span>)}</div></article>
-      <div className="stack-ledger__intervals">{profileCoverageIntervals.map((interval) => <section className="stack-ledger__interval" key={interval.index}><header><span>{interval.index}</span><div><p>PROFILE DECLARATION / SOURCE INTERVAL</p><h3>{interval.label}</h3></div><b>{interval.note}</b><i /></header><div className="stack-ledger__list">{interval.groups.map((group) => <article key={group.code}><span>{group.code}</span><div><p>{group.source}</p><h3>{group.title}</h3></div><div className="stack-ledger__chips">{group.technologies.map((technology) => <span key={technology}><b>{"</>"}</b>{technology}</span>)}</div></article>)}</div></section>)}</div>
-      <a className="stack-ledger__source" href="https://github.com/TheCyperpunk/TheCyperpunk/blob/main/ReadMe.md" target="_blank" rel="noreferrer"><Waypoints size={15} /><span>GITHUB SOURCE</span><b>Technical Skills &amp; Expertise · full public matrix</b><ArrowUpRight size={15} /></a>
+      <header className="stack-ledger__head"><div><p className="atlas-kicker"><i />PROJECT STACK LEDGER</p><h2 id="stack-ledger-title">Stack use,<br /><em>by project.</em></h2></div><p>Each row is grounded in a public repository’s code, declared dependencies, build configuration, or README. The public-organization audit returned no membership, so no organization-owned work is inferred here.</p></header>
+      <div className="stack-ledger__list">{projectStackLedger.map((project) => <article key={project.code}><span>{project.code}</span><div><p>{project.source}</p><h3>{project.title}</h3></div><div className="stack-ledger__chips">{project.technologies.map((technology) => <span key={technology}><b>{"</>"}</b>{technology}</span>)}</div></article>)}</div>
+      <a className="stack-ledger__source" href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer"><Waypoints size={15} /><span>GITHUB SOURCE</span><b>Six audited project repositories · 60 original public repositories · no public organization membership</b><ArrowUpRight size={15} /></a>
     </section>
     <section className="recent-surface"><div className="recent-surface__head"><div><p className="atlas-kicker">S// 03 · RECENT BUILD SURFACES</p><h2>What moved<br /><em>most recently.</em></h2></div><span>public repository trace · sorted by latest push / update</span></div><div className="recent-surface__list">{recentlyPushed.map((repo, index) => <a href={repo.html_url} target="_blank" rel="noreferrer" key={repo.id}><span className="recent-surface__index">R// {String(index + 1).padStart(2, "0")}</span><span>{repo.language || "Unclassified"}</span><b>{repo.name}</b><time>{new Date(repo.pushed_at || repo.updated_at).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}</time><ArrowUpRight size={15} /></a>)}</div></section>
     <AtlasFooter />

@@ -63,3 +63,4 @@
 - [x] Match only the retained Overview S// separator’s framing and proportions to the supplied thin-divider reference without changing the switchboard.
 - [x] Move the existing Activity contribution calendar into Projects between the curated cards and repository registry controls, without any design or content changes.
 - [x] Move the three Open evidence cards to the bottom of Projects, then remove the Open route and navigation entry without changing unrelated content.
+- [x] Replace the generic Stack coverage ledger with a verified project-by-project technology ledger using public repository, organization, code, and documentation evidence.
