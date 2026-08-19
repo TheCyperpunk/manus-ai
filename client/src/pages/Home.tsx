@@ -230,7 +230,7 @@ export default function Home() {
         <div><p>Interested in working through a product question, an interaction system, or a technical edge case? The Open Channel is a better place to begin than a generic contact form.</p><Link href="/open" className="overview-link overview-link--dark">Open the channel <ArrowUpRight size={15} /></Link></div>
       </section>
 
-      <section className="contact-switchboard" aria-labelledby="contact-switchboard-title">
+      <section className="contact-switchboard overview-switchboard" aria-labelledby="contact-switchboard-title">
         <header className="contact-switchboard__head">
           <div>
             <p className="atlas-kicker"><i /> CHANNEL SWITCHBOARD</p>

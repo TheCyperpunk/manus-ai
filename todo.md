@@ -57,3 +57,4 @@
 - [x] Correct the Contact hero desktop columns so the complete collaboration message, primary email action, and status are visible within the frame.
 - [x] Recompose Contact to match the supplied hero and wide channel-switchboard references without removing the existing dark background treatment.
 - [x] Move only the existing channel switchboard to the bottom of Overview while leaving the Contact hero background and composition unchanged.
+- [x] Constrain only the Overview channel switchboard to the reference’s inset left and right margins without changing its content or visual treatment.

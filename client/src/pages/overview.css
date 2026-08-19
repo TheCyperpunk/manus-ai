@@ -1,5 +1,6 @@
 /* Proof in Motion / Overview: portrait is a single personal anchor; the visual system uses kinetic type, rails, interface geometry, and source-atlas routing. */
 .overview-main { background: #0a0b0a; color: #eef0e9; overflow: hidden; }
+.overview-main .overview-switchboard { width: calc(100% - 152px); max-width: none; margin-left: auto; margin-right: auto; }
 .overview-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(330px, .42fr); gap: clamp(44px, 9vw, 150px); width: min(1100px, calc(100% - 48px)); min-height: min(820px, calc(100vh - 59px)); margin: 0 auto; padding: clamp(80px, 10vw, 142px) 0 72px; isolation: isolate; }
 .overview-hero__grid { position: absolute; inset: 0 -7vw; z-index: -3; opacity: .38; background-image: linear-gradient(rgba(241,243,236,.033) 1px, transparent 1px), linear-gradient(90deg, rgba(241,243,236,.033) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(90deg, black 0%, black 61%, transparent 96%); }
 .overview-hero__orbits { position: absolute; right: -10%; top: 50%; z-index: -2; width: min(59vw, 720px); aspect-ratio: 1; transform: translateY(-48%); }
