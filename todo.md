@@ -70,3 +70,4 @@
 - [x] Remove only the user-identified empty or non-substantive repository rows from the Stack ledger while preserving all other Stack content.
 - [x] Remove the additional user-identified low-signal Stack rows: xmo-image, video, stacks, snake-game, and littilelilly-photos.
 - [x] Audit the supplied GitHub organizations and add only verified substantive organization-owned repositories to the portfolio Stack ledger.
+- [x] Remove the Activity page completely, including its route, navigation entry, and unused page source.

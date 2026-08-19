@@ -153,10 +153,9 @@ export default function Home() {
         <nav className="atlas-gateway" aria-label="Source atlas proof modes">
           <span>ATLAS / PROOF MODES</span>
           <Link href="/projects"><b>01</b> Registry</Link>
-          <Link href="/activity"><b>02</b> Activity</Link>
-          <Link href="/network"><b>03</b> Network</Link>
-          <Link href="/stack"><b>04</b> Stack</Link>
-          <Link href="/contact"><b>05</b> Contact</Link>
+          <Link href="/network"><b>02</b> Network</Link>
+          <Link href="/stack"><b>03</b> Stack</Link>
+          <Link href="/contact"><b>04</b> Contact</Link>
         </nav>
 
         <div className="discipline-grid">

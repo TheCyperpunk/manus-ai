@@ -6,10 +6,9 @@ import { useState } from "react";
 const navigation = [
   { href: "/", label: "Overview", index: "00" },
   { href: "/projects", label: "Projects", index: "01" },
-  { href: "/activity", label: "Activity", index: "02" },
-  { href: "/participation", label: "Participation", index: "03" },
-  { href: "/stack", label: "Stack", index: "04" },
-  { href: "/contact", label: "Contact", index: "05" },
+  { href: "/participation", label: "Participation", index: "02" },
+  { href: "/stack", label: "Stack", index: "03" },
+  { href: "/contact", label: "Contact", index: "04" },
 ];
 
 export default function PortfolioShell({ children }: { children: React.ReactNode }) {
