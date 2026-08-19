@@ -187,7 +187,7 @@ export default function Home() {
           })}
         </div>
         <Link href="/projects" className="discipline-grid__more">
-          <span><i /> VIEW MORE PROJECTS</span><ArrowUpRight size={16} />
+          <span>MORE PROJECT WORK</span><ArrowUpRight size={16} />
         </Link>
       </section>
 
