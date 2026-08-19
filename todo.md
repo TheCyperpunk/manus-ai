@@ -101,3 +101,4 @@
 - [x] Remove both Overview Signal Field label rails and the left-side vertical guide line while keeping the large edge-to-edge monogram background.
 - [x] Remove the large decorative S glyph behind the Overview hero controls while preserving the remaining background treatment.
 - [x] Restore the decorative S glyph only on the right-side Overview counter-field while leaving the left-side S removed.
+- [x] Remove the dedicated Contact page content and make Contact navigation redirect to the contact section at the bottom of Overview.

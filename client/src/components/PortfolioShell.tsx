@@ -8,7 +8,7 @@ const navigation = [
   { href: "/projects", label: "Projects", index: "01" },
   { href: "/participation", label: "Participation", index: "02" },
   { href: "/stack", label: "Stack", index: "03" },
-  { href: "/contact", label: "Contact", index: "04" },
+  { href: "/#contact-switchboard", label: "Contact", index: "04" },
 ];
 
 export default function PortfolioShell({ children }: { children: React.ReactNode }) {
@@ -25,15 +25,19 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
             <span>SANGEETH<span>//</span>K</span><i />
           </Link>
           <nav className="atlas-topbar__links" aria-label="Portfolio navigation">
-            {navigation.map((item) => <Link key={item.href} href={item.href} className={activeFor(item.href) ? "is-active" : ""}><small>{item.index}</small>{item.label}</Link>)}
+            {navigation.map((item) => item.href.includes("#")
+              ? <a key={item.href} href={item.href}><small>{item.index}</small>{item.label}</a>
+              : <Link key={item.href} href={item.href} className={activeFor(item.href) ? "is-active" : ""}><small>{item.index}</small>{item.label}</Link>)}
           </nav>
           <div className="atlas-topbar__actions">
-            <Link href="/contact" className="atlas-topbar__status"><i />Open to collaboration</Link>
+            <a href="/#contact-switchboard" className="atlas-topbar__status"><i />Open to collaboration</a>
             <button type="button" className="atlas-topbar__menu" onClick={() => setMenuOpen((value) => !value)} aria-expanded={menuOpen} aria-controls="atlas-mobile-navigation" aria-label="Toggle portfolio navigation">{menuOpen ? <X size={18} /> : <Menu size={18} />}</button>
           </div>
         </div>
         {menuOpen && <nav id="atlas-mobile-navigation" className="atlas-topbar__drawer" aria-label="Portfolio navigation">
-          {navigation.map((item) => <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} className={activeFor(item.href) ? "is-active" : ""}><span>{item.index}</span>{item.label}<ArrowUpRight size={14} /></Link>)}
+          {navigation.map((item) => item.href.includes("#")
+            ? <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}><span>{item.index}</span>{item.label}<ArrowUpRight size={14} /></a>
+            : <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} className={activeFor(item.href) ? "is-active" : ""}><span>{item.index}</span>{item.label}<ArrowUpRight size={14} /></Link>)}
           <a href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer"><Github size={15} /> @TheCyperpunk <ArrowUpRight size={14} /></a>
         </nav>}
       </header>

@@ -110,6 +110,20 @@ export default function Home() {
     }
   }, []);
 
+  useEffect(() => {
+    if (window.location.hash !== "#contact-switchboard") return;
+
+    const scrollFrame = window.requestAnimationFrame(() => {
+      const contactSwitchboard = document.getElementById("contact-switchboard");
+      contactSwitchboard?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start",
+      });
+    });
+
+    return () => window.cancelAnimationFrame(scrollFrame);
+  }, []);
+
   const handleHeroPointerMove = (event: ReactPointerEvent<HTMLElement>) => {
     if (event.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -244,7 +258,7 @@ export default function Home() {
           <Link href="/projects"><b>01</b> Registry</Link>
           <Link href="/network"><b>02</b> Network</Link>
           <Link href="/stack"><b>03</b> Stack</Link>
-          <Link href="/contact"><b>04</b> Contact</Link>
+          <a href="/#contact-switchboard"><b>04</b> Contact</a>
         </nav>
 
         <div className="discipline-grid">
@@ -338,7 +352,7 @@ export default function Home() {
         <div className="overview-outro__rail" aria-hidden="true"><span>S//</span><i /><i /><i /><i /></div>
       </section>
 
-      <section className="contact-switchboard overview-switchboard" aria-labelledby="contact-switchboard-title">
+      <section id="contact-switchboard" className="contact-switchboard overview-switchboard" aria-labelledby="contact-switchboard-title">
         <div className="overview-switchboard__background" aria-hidden="true">
           <i className="overview-switchboard__orbit" />
           <span className="overview-switchboard__watermark">S//</span>
