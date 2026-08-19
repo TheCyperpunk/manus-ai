@@ -44,10 +44,25 @@ const deeplyAuditedProjectEvidence: Record<string, { source: string; technologie
   TeleCloneChat: { source: "CODE + MANIFEST / TeleCloneChat", technologies: ["Next.js", "React", "TypeScript", "Drizzle ORM", "Neon", "TanStack Query", "Framer Motion", "Tailwind CSS", "Radix UI", "Zod"] },
 };
 
-const projectStackLedger = stackRepositoryAudit.repositories.map((repository, index) => {
+// Proof in Motion — hide only the user-identified entries that do not communicate a substantive project stack; retain all other audited repository evidence.
+const excludedStackLedgerRepositories = new Set([
+  "car",
+  "carrrr",
+  "littlenilly-photos",
+  "loginimage",
+  "matt",
+  "payfi",
+  "photo",
+  "photo-drive",
+  "schoolapp",
+]);
+
+const projectStackLedger = stackRepositoryAudit.repositories
+  .filter((repository) => !excludedStackLedgerRepositories.has(repository.name))
+  .map((repository, index) => {
   const audited = deeplyAuditedProjectEvidence[repository.name];
   return { code: `P.${String(index + 1).padStart(2, "0")}`, title: repository.name, url: repository.url, source: audited?.source ?? repository.source, technologies: audited?.technologies ?? [...repository.technologies] };
-});
+  });
 
 // Public repository snapshot captured 19 Aug 2026. It only renders when the browser-side GitHub request is unavailable.
 const stackInstrumentSnapshot = {
@@ -87,9 +102,9 @@ export default function Stack() {
       <a className="stack-topology__source" href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer"><Waypoints size={15} /><span>VERIFIED INPUT</span><b>Public profile README · technical skills matrix</b><ArrowUpRight size={15} /></a>
     </section>
     <section className="stack-ledger" aria-labelledby="stack-ledger-title">
-      <header className="stack-ledger__head"><div><p className="atlas-kicker"><i />COMPLETE PROJECT STACK LEDGER</p><h2 id="stack-ledger-title">Stack use,<br /><em>by project.</em></h2></div><p>Every original public repository is represented below. Each row carries GitHub’s public source and primary-language evidence; six project rows retain the deeper code, manifest, and README audit. The public-organization audit returned no membership, so no organization-owned work is inferred.</p></header>
+      <header className="stack-ledger__head"><div><p className="atlas-kicker"><i />PROJECT STACK LEDGER</p><h2 id="stack-ledger-title">Stack use,<br /><em>by project.</em></h2></div><p>Each selected repository row carries GitHub’s public source and primary-language evidence; six project rows retain the deeper code, manifest, and README audit. Entries without a substantive project stack signal are intentionally omitted. The public-organization audit returned no membership, so no organization-owned work is inferred.</p></header>
       <div className="stack-ledger__list">{projectStackLedger.map((project) => <article key={project.code}><span>{project.code}</span><div><p>{project.source}</p><h3><a href={project.url} target="_blank" rel="noreferrer">{project.title} <ArrowUpRight size={14} /></a></h3></div><div className="stack-ledger__chips">{project.technologies.map((technology) => <span key={technology}><b>{"</>"}</b>{technology}</span>)}</div></article>)}</div>
-      <a className="stack-ledger__source" href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer"><Waypoints size={15} /><span>GITHUB SOURCE</span><b>{stackRepositoryAudit.eligibleRepositoryCount} original public repositories · 6 deep code/manifest/README audits · no public organization membership</b><ArrowUpRight size={15} /></a>
+      <a className="stack-ledger__source" href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer"><Waypoints size={15} /><span>GITHUB SOURCE</span><b>{projectStackLedger.length} selected project repositories from {stackRepositoryAudit.eligibleRepositoryCount} original public repositories · 6 deep code/manifest/README audits · no public organization membership</b><ArrowUpRight size={15} /></a>
     </section>
     <section className="recent-surface"><div className="recent-surface__head"><div><p className="atlas-kicker">S// 03 · RECENT BUILD SURFACES</p><h2>What moved<br /><em>most recently.</em></h2></div><span>public repository trace · sorted by latest push / update</span></div><div className="recent-surface__list">{recentlyPushed.map((repo, index) => <a href={repo.html_url} target="_blank" rel="noreferrer" key={repo.id}><span className="recent-surface__index">R// {String(index + 1).padStart(2, "0")}</span><span>{repo.language || "Unclassified"}</span><b>{repo.name}</b><time>{new Date(repo.pushed_at || repo.updated_at).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}</time><ArrowUpRight size={15} /></a>)}</div></section>
     <AtlasFooter />
