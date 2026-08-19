@@ -98,3 +98,4 @@
 - [x] Mirror the Signal Monogram Field to the left as a restrained counterweight, add pointer parallax, extend the visual language to case-study headers, and add a first-visit intro reveal.
 - [x] Reposition the visually prominent Overview Signal Monogram Field so it clearly anchors the left side behind the hero copy, as shown in the supplied reference.
 - [x] Extend the Overview Signal Monogram Field so its visible geometry deliberately meets both hero-frame edges rather than appearing cropped or disconnected.
+- [x] Remove both Overview Signal Field label rails and the left-side vertical guide line while keeping the large edge-to-edge monogram background.

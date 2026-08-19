@@ -68,14 +68,6 @@
   opacity: .64;
 }
 
-.signal-monogram-field__axis--vertical {
-  top: 9%;
-  left: 15%;
-  width: 1px;
-  height: 82%;
-  background: linear-gradient(180deg, transparent, rgba(184,255,59,.28) 18%, rgba(184,255,59,.08) 82%, transparent);
-}
-
 .signal-monogram-field__axis--horizontal { left: 0; bottom: 16%; width: min(52vw, 760px); height: 1px; }
 
 .signal-monogram-field__cuts {
@@ -101,24 +93,6 @@
 .signal-monogram-field__cuts i:nth-child(2) { height: 89%; opacity: .72; }
 .signal-monogram-field__cuts i:nth-child(3) { height: 43%; opacity: .56; }
 
-.signal-monogram-field__rail {
-  position: absolute;
-  top: 12%;
-  left: 4.5%;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 5px 7px;
-  border-top: 1px solid rgba(184,255,59,.28);
-  border-bottom: 1px solid rgba(184,255,59,.09);
-  color: rgba(222,235,206,.76);
-  background: rgba(10,13,9,.54);
-  font: 8px var(--mono);
-  letter-spacing: .1em;
-}
-
-.signal-monogram-field__rail b { color: var(--lime); font-weight: 400; }
-
 .signal-monogram-field--right .signal-monogram-field__glow {
   left: auto;
   right: -10%;
@@ -137,10 +111,8 @@
 
 .signal-monogram-field--right .signal-monogram-field__glyph span:nth-child(2) { color: rgba(184,255,59,.082); }
 .signal-monogram-field--right .signal-monogram-field__glyph i { color: rgba(184,255,59,.2); }
-.signal-monogram-field--right .signal-monogram-field__axis--vertical { left: auto; right: 15%; }
 .signal-monogram-field--right .signal-monogram-field__axis--horizontal { left: auto; right: 0; width: min(52vw, 760px); }
 .signal-monogram-field--right .signal-monogram-field__cuts { left: auto; right: 0; transform: skewX(-13deg); }
-.signal-monogram-field--right .signal-monogram-field__rail { left: auto; right: 4.5%; }
 
 @media (prefers-reduced-motion: no-preference) {
   .signal-monogram-field__glyph { animation: signal-monogram-drift 18s var(--ease-in-out) infinite alternate; }
@@ -159,39 +131,30 @@
 @media (max-width: 820px) {
   .signal-monogram-field { inset: 0 auto; left: 50%; width: 100vw; }
   .signal-monogram-field__glyph { right: auto; left: -9%; bottom: 2%; font-size: clamp(300px, 62vw, 540px); opacity: .84; }
-  .signal-monogram-field__axis--vertical { right: auto; left: 10%; height: 71%; }
   .signal-monogram-field__axis--horizontal { right: auto; left: 0; bottom: 12%; width: 75vw; }
   .signal-monogram-field__cuts { right: auto; left: 0; width: 49vw; height: 26%; }
-  .signal-monogram-field__rail { top: 8%; right: auto; left: 0; }
   .signal-monogram-field__glyph { left: -9%; }
-  .signal-monogram-field__axis--vertical { left: 8%; }
   .signal-monogram-field__axis--horizontal { left: -14%; }
   .signal-monogram-field__cuts { left: -11%; }
   .signal-monogram-field--right { opacity: .32; }
   .signal-monogram-field--right .signal-monogram-field__glyph { left: auto; right: -27%; bottom: 8%; }
-  .signal-monogram-field--right .signal-monogram-field__axis--vertical { left: auto; right: 10%; }
   .signal-monogram-field--right .signal-monogram-field__axis--horizontal { left: auto; right: -9%; }
   .signal-monogram-field--right .signal-monogram-field__cuts { left: auto; right: -4%; }
-  .signal-monogram-field--right .signal-monogram-field__rail { left: auto; right: 0; }
 }
 
 @media (max-width: 520px) {
   .signal-monogram-field { inset: 0 auto; left: 50%; width: 100vw; }
   .signal-monogram-field__glow { left: -36%; right: auto; top: 21%; width: 145vw; opacity: .77; }
   .signal-monogram-field__glyph { right: auto; left: -14%; bottom: 5%; font-size: 333px; opacity: .66; }
-  .signal-monogram-field__axis--vertical { right: auto; left: 7%; top: 18%; height: 68%; opacity: .45; }
   .signal-monogram-field__axis--horizontal { right: auto; left: 0; bottom: 16%; width: 100vw; opacity: .5; }
   .signal-monogram-field__cuts { right: auto; left: 0; bottom: 17%; width: 53vw; height: 20%; gap: 13px; opacity: .72; }
   .signal-monogram-field__cuts i { width: 18px; }
-  .signal-monogram-field__rail { display: none; }
   .signal-monogram-field__glyph { left: -14%; }
-  .signal-monogram-field__axis--vertical { left: 7%; }
   .signal-monogram-field__axis--horizontal { left: 0; }
   .signal-monogram-field__cuts { left: 0; }
   .signal-monogram-field--right { opacity: .26; }
   .signal-monogram-field--right .signal-monogram-field__glow { left: auto; right: -67%; }
   .signal-monogram-field--right .signal-monogram-field__glyph { left: auto; right: -53%; bottom: 9%; }
-  .signal-monogram-field--right .signal-monogram-field__axis--vertical { left: auto; right: 8%; }
   .signal-monogram-field--right .signal-monogram-field__axis--horizontal { left: auto; right: -14%; }
   .signal-monogram-field--right .signal-monogram-field__cuts { left: auto; right: -8%; }
   .signal-monogram-field--right .signal-monogram-field__rail { left: auto; right: 1%; }

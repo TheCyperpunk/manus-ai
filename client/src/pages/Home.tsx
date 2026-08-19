@@ -1,7 +1,7 @@
 /**
  * Proof in Motion / Overview: portrait-led personal dossier, Signal Lime accents,
  * kinetic typography, and component-first evidence rather than project imagery.
- * Hero constraint: preserve its copy, portrait, actions, and layout; anchor Signal Field 01 visibly on the left behind the hero copy, keep a quieter right counter-field, and retain pointer parallax plus a one-time initialization reveal.
+ * Hero constraint: preserve its copy, portrait, actions, and layout; use edge-to-edge mirrored SK/ fields without label rails or vertical guide axes, and retain pointer parallax plus a one-time initialization reveal.
  */
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import { Link } from "wouter";
@@ -146,22 +146,18 @@ export default function Home() {
       <section ref={heroRef} className="overview-hero" onPointerMove={handleHeroPointerMove} onPointerLeave={resetHeroParallax}>
         {introVisible && <div className="overview-intro-reveal" aria-hidden="true"><span className="overview-intro-reveal__index">S// 00</span><strong>INITIALIZING<br />SOURCE ATLAS</strong><i /><span className="overview-intro-reveal__status">PUBLIC SIGNAL / READY</span></div>}
         <div className="overview-hero__grid" aria-hidden="true" />
-        <div className="signal-monogram-field" aria-hidden="true">
-          <div className="signal-monogram-field__glow" />
-          <div className="signal-monogram-field__glyph"><span>S</span><span>K</span><i>/</i></div>
-          <div className="signal-monogram-field__axis signal-monogram-field__axis--vertical" />
-          <div className="signal-monogram-field__axis signal-monogram-field__axis--horizontal" />
-          <div className="signal-monogram-field__cuts"><i /><i /><i /></div>
-          <div className="signal-monogram-field__rail"><span>SK / SIGNAL FIELD</span><b>01</b></div>
-        </div>
-        <div className="signal-monogram-field signal-monogram-field--right" aria-hidden="true">
-          <div className="signal-monogram-field__glow" />
-          <div className="signal-monogram-field__glyph"><span>S</span><span>K</span><i>/</i></div>
-          <div className="signal-monogram-field__axis signal-monogram-field__axis--vertical" />
-          <div className="signal-monogram-field__axis signal-monogram-field__axis--horizontal" />
-          <div className="signal-monogram-field__cuts"><i /><i /><i /></div>
-          <div className="signal-monogram-field__rail"><span>SK / COUNTER FIELD</span><b>02</b></div>
-        </div>
+          <div className="signal-monogram-field" aria-hidden="true">
+            <div className="signal-monogram-field__glow" />
+            <div className="signal-monogram-field__glyph"><span>S</span><span>K</span><i>/</i></div>
+            <div className="signal-monogram-field__axis signal-monogram-field__axis--horizontal" />
+            <div className="signal-monogram-field__cuts"><i /><i /><i /></div>
+          </div>
+          <div className="signal-monogram-field signal-monogram-field--right" aria-hidden="true">
+            <div className="signal-monogram-field__glow" />
+            <div className="signal-monogram-field__glyph"><span>S</span><span>K</span><i>/</i></div>
+            <div className="signal-monogram-field__axis signal-monogram-field__axis--horizontal" />
+            <div className="signal-monogram-field__cuts"><i /><i /><i /></div>
+          </div>
         <div className="overview-hero__orbits" aria-hidden="true">
           <motion.i animate={{ rotate: 360 }} transition={{ duration: 34, repeat: Infinity, ease: "linear" }} />
           <motion.i animate={{ rotate: -360 }} transition={{ duration: 22, repeat: Infinity, ease: "linear" }} />
