@@ -1,7 +1,7 @@
 /**
  * Proof in Motion / Overview: portrait-led personal dossier, Signal Lime accents,
  * kinetic typography, and component-first evidence rather than project imagery.
- * Hero constraint: preserve its copy, portrait, actions, and layout; use mirrored signal fields, pointer parallax, and a one-time initialization reveal without changing foreground content.
+ * Hero constraint: preserve its copy, portrait, actions, and layout; anchor Signal Field 01 visibly on the left behind the hero copy, keep a quieter right counter-field, and retain pointer parallax plus a one-time initialization reveal.
  */
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import { Link } from "wouter";
@@ -154,7 +154,7 @@ export default function Home() {
           <div className="signal-monogram-field__cuts"><i /><i /><i /></div>
           <div className="signal-monogram-field__rail"><span>SK / SIGNAL FIELD</span><b>01</b></div>
         </div>
-        <div className="signal-monogram-field signal-monogram-field--left" aria-hidden="true">
+        <div className="signal-monogram-field signal-monogram-field--right" aria-hidden="true">
           <div className="signal-monogram-field__glow" />
           <div className="signal-monogram-field__glyph"><span>S</span><span>K</span><i>/</i></div>
           <div className="signal-monogram-field__axis signal-monogram-field__axis--vertical" />
