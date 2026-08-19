@@ -8,3 +8,7 @@
 - [x] Analyze the supplied open-work reference and define an original portfolio adaptation.
 - [x] Add a Proof in Motion availability and collaboration section.
 - [x] Validate the new section locally without pushing code to GitHub.
+- [x] Collect public GitHub profile, repositories, organizations, languages, and contribution evidence.
+- [x] Define routes and page-specific GitHub evidence treatments.
+- [x] Build the multi-page GitHub-first portfolio experience.
+- [x] Validate routed pages and responsive layouts without pushing code to GitHub.

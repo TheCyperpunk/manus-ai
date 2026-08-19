@@ -96,3 +96,13 @@ The interaction additions are intentionally constrained: radial progress signals
 | OGBlocks | Beam-border evidence panel, floating capability chips, magnetic contact action, bento contact field |
 | Hover.dev | Glare-aware technical cards, responsive hover surface, compact link feedback |
 | Midhun P M | Capability filtering, practical tooling detail, impact/availability hierarchy, concise source-driven project evidence |
+
+## GitHub-First Multi-Page Architecture
+
+The portfolio now behaves as a **source atlas**, not a scrolling brochure. The overview is intentionally concise and sends visitors into distinct proof modes: **Projects** is a filterable repository registry; **Activity** is a contribution ledger with public-event and heatmap evidence; **Network** separates verified public organization membership from public cross-repository collaboration; **Stack** visualizes the language and system profile derived from repositories; **Open** retains the availability console; and **Contact** remains a direct channel.
+
+Each page keeps the near-black canvas, Signal Lime as an evidence highlighter, monospaced source metadata, and subtle movement. Page silhouettes vary by proof type: repository registry cards, ledger rows, a network dossier, and a language instrument panel. GitHub data is fetched from public endpoints at visit time wherever the API supports it; derived labels must name what they measure precisely, and no unavailable activity is represented as fact.
+
+- Persistent navigation must frame—not cover—the primary reading lane; the fixed sidebar remains a source index while the content column begins in protected visual space.
+- Each route owns one dominant proof instrument. Projects begins with live-inventory-curated source dossiers before the complete archive, while activity, network, stack, open, and contact use a ledger, dossier, language instrument, availability console, and command-channel grid respectively.
+- Signal rails, compact source tags, and split-frame `S//` markers are structural wayfinding, not ambient decoration.

@@ -6,9 +6,16 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Projects from "./pages/Projects";
+import Activity from "./pages/Activity";
+import Network from "./pages/Network";
+import Stack from "./pages/Stack";
+import Open from "./pages/Open";
+import Contact from "./pages/Contact";
+import PortfolioShell from "./components/PortfolioShell";
 
 function Router() {
-  return <Switch><Route path="/" component={Home} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch>;
+  return <PortfolioShell><Switch><Route path="/" component={Home} /><Route path="/projects" component={Projects} /><Route path="/activity" component={Activity} /><Route path="/network" component={Network} /><Route path="/stack" component={Stack} /><Route path="/open" component={Open} /><Route path="/contact" component={Contact} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></PortfolioShell>;
 }
 
 export default function App() {
