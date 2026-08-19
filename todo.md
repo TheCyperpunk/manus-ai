@@ -68,3 +68,4 @@
 - [x] Re-audit videoplatform’s language and source evidence, then correct only its Stack ledger row.
 - [x] Audit every eligible original public repository individually and replace each Stack row with only verified language, code, manifest, configuration, and documentation signals.
 - [x] Remove only the user-identified empty or non-substantive repository rows from the Stack ledger while preserving all other Stack content.
+- [x] Remove the additional user-identified low-signal Stack rows: xmo-image, video, stacks, snake-game, and littilelilly-photos.

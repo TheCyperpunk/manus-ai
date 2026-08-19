@@ -48,13 +48,17 @@ const deeplyAuditedProjectEvidence: Record<string, { source: string; technologie
 const excludedStackLedgerRepositories = new Set([
   "car",
   "carrrr",
-  "littlenilly-photos",
+  "littilelilly-photos",
   "loginimage",
   "matt",
   "payfi",
   "photo",
   "photo-drive",
   "schoolapp",
+  "snake-game",
+  "stacks",
+  "video",
+  "xmo-image",
 ]);
 
 const projectStackLedger = stackRepositoryAudit.repositories
