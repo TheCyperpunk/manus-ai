@@ -61,3 +61,4 @@
 - [x] Add the existing S// collaboration-hero watermark and subtle structural background behind the Overview switchboard while preserving its cards and inset frame.
 - [x] Remove only the Overview “Bring the hard constraint” collaboration content while retaining the thin S// signal rail and unchanged switchboard.
 - [x] Match only the retained Overview S// separator’s framing and proportions to the supplied thin-divider reference without changing the switchboard.
+- [x] Move the existing Activity contribution calendar into Projects between the curated cards and repository registry controls, without any design or content changes.
