@@ -76,3 +76,4 @@
 - [x] Move the Overview Projects button to the right beneath the cards and reduce its compact dimensions.
 - [x] Further reduce the Overview Projects button dimensions and soften its green background and glow opacity.
 - [x] Rename the Overview action to “MORE PROJECT WORK,” remove its dot and hover effect, and apply the quieter left-rail border treatment.
+- [x] Add a compact professional-link row under the Overview hero actions for GitHub, LinkedIn, Devfolio, Unstop, and the resume.

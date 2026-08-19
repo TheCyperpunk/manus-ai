@@ -8,18 +8,23 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   Award,
+  Code2,
+  FileText,
   Github,
   GraduationCap,
+  Linkedin,
   Mail,
   MapPin,
   Orbit,
   Phone,
   Sparkles,
+  Trophy,
   Workflow,
 } from "lucide-react";
 import { githubHandle, useGithubSource } from "@/lib/github-source";
 import "./overview.css";
 import "./overview-project-action.css";
+import "./overview-hero-links.css";
 
 const disciplines = [
   {
@@ -98,11 +103,21 @@ export default function Home() {
           <p className="overview-lede">
             Sangeeth Karunakaran is a full-stack developer from Kerala building web products across interface engineering, applied AI, and Web3. The work prioritizes clear systems, dependable implementation, and interactions that make complex workflows usable.
           </p>
-          <div className="overview-actions">
-            <Link href="/contact" className="overview-button">Start a conversation <ArrowDownRight size={17} /></Link>
-            <a href={`https://github.com/${githubHandle}`} target="_blank" rel="noreferrer" className="overview-link">Read the public trail <ArrowUpRight size={15} /></a>
-          </div>
-        </motion.div>
+            <div className="overview-actions">
+              <Link href="/contact" className="overview-button">Start a conversation <ArrowDownRight size={17} /></Link>
+              <a href={`https://github.com/${githubHandle}`} target="_blank" rel="noreferrer" className="overview-link">Read the public trail <ArrowUpRight size={15} /></a>
+            </div>
+            <div className="overview-profile-links" aria-label="Professional links">
+              <span>FIND ME ON</span>
+              <div>
+                <a href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer" aria-label="GitHub profile" title="GitHub"><Github size={16} /></a>
+                <a href="https://www.linkedin.com/in/sangeeth-karunakaran-a60984293/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile" title="LinkedIn"><Linkedin size={15} /></a>
+                <a href="https://devfolio.co/@sangeethkarun" target="_blank" rel="noreferrer" aria-label="Devfolio profile" title="Devfolio"><Code2 size={16} /></a>
+                <a href="https://unstop.com/u/sangekar4788" target="_blank" rel="noreferrer" aria-label="Unstop profile" title="Unstop"><Trophy size={15} /></a>
+                <a href="https://sangeethkarunakaran.vercel.app/resume.pdf" target="_blank" rel="noreferrer" aria-label="Open resume PDF" title="Resume"><FileText size={15} /></a>
+              </div>
+            </div>
+          </motion.div>
 
         <motion.aside
           className="persona-engine"

@@ -1,0 +1,49 @@
+/* Proof in Motion / Hero Links: restrained social controls, mono labels, and Signal Lime reserved for active external pathways. */
+.overview-profile-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.overview-profile-links > span {
+  color: #8c9388;
+  font: 9px var(--mono);
+  letter-spacing: .07em;
+  white-space: nowrap;
+}
+
+.overview-profile-links > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.overview-profile-links a {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(226, 232, 221, .18);
+  background: rgba(15, 18, 15, .42);
+  color: #c4cbc0;
+  transition: border-color 160ms var(--ease-out), color 160ms var(--ease-out), background 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+
+.overview-profile-links a:hover {
+  border-color: rgba(184, 255, 59, .52);
+  background: rgba(184, 255, 59, .07);
+  color: var(--lime);
+  transform: translateY(-2px);
+}
+
+.overview-profile-links a:active { transform: scale(.97); }
+
+.overview-profile-links a:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .overview-profile-links { align-items: flex-start; flex-direction: column; gap: 10px; }
+}
