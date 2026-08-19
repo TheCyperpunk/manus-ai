@@ -4,18 +4,28 @@
  */
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
+  Activity,
   ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
+  BrainCircuit,
+  CircuitBoard,
   Code2,
+  Cpu,
   Github,
   GitPullRequest,
+  Globe2,
   Layers3,
   Mail,
   MapPin,
   Menu,
+  Network,
   Phone,
+  Radio,
+  ShieldCheck,
+  Sparkles,
   Terminal,
   Trophy,
   X,
@@ -56,19 +66,64 @@ const featuredProjects = [
   },
 ];
 
+const projectArtifacts: Record<string, { label: string; status: string; lines: string[] }> = {
+  "Onchain SIP": { label: "contract route", status: "verified", lines: ["wallet: connected", "sip.deposit() → 0x8b…c91", "execution: confirmed"] },
+  Auradesk: { label: "local model route", status: "private", lines: ["vision + chat: online", "rag.index: 2 sources", "ollama: local runtime"] },
+  ZeroHour: { label: "incident route", status: "active", lines: ["report intake: received", "priority: rapid retrieval", "coordination: dispatched"] },
+};
+
 const skillRows = [
   {
     label: "Frontend",
-    items: ["JavaScript", "TypeScript", "React", "Next.js", "Svelte", "Redux", "Tailwind", "Shadcn/UI", "Vite"],
+    items: ["JavaScript", "TypeScript", "React", "Next.js", "Svelte", "Redux", "Tailwind", "Shadcn/UI", "Chakra UI", "Aceternity UI", "Vite", "Webpack", "Babel", "ESLint"],
   },
   {
     label: "Backend + infra",
-    items: ["Node.js", "Express", "MongoDB", "Firebase", "Azure", "Docker", "Kubernetes", "Git"],
+    items: ["Node.js", "Express", "MongoDB", "Firebase", "Azure", "Vercel", "Netlify", "Docker", "Kubernetes", "Git"],
   },
   {
     label: "AI + Web3",
-    items: ["OpenAI API", "LangChain", "Ollama", "FAISS", "ChromaDB", "Solidity", "Hardhat", "Ethers.js"],
+    items: ["OpenAI API", "Hugging Face", "LangChain", "Ollama", "DeepSeek", "FAISS", "ChromaDB", "PyMuPDF", "Tesseract OCR", "Solidity", "Hardhat", "Ethers.js", "ERC-20", "ERC-721"],
   },
+];
+
+const capabilityGroups = {
+  frontend: {
+    icon: Globe2,
+    label: "Interface systems",
+    title: "The surface where complex work becomes clear.",
+    body: "Modern frontend craft across React, Next.js, Svelte, TypeScript, accessible component systems, and performance-minded tooling.",
+    proof: "Responsive product interfaces, local AI workspaces, and wallet-aware app flows.",
+    tools: ["React", "Next.js", "Svelte", "TypeScript", "Redux", "Tailwind CSS", "Shadcn/UI", "Chakra UI", "Aceternity UI", "Vite", "Webpack", "Babel", "ESLint"],
+  },
+  intelligence: {
+    icon: BrainCircuit,
+    label: "AI systems",
+    title: "Private models, useful retrieval, deliberate automation.",
+    body: "Local-first and API-backed AI workflows built around real retrieval, multimodal input, OCR, and interfaces people can actually operate.",
+    proof: "Auradesk connects vision and chat models with RAG, STT, TTS, and web-search services via local Ollama models.",
+    tools: ["OpenAI API", "Hugging Face", "LangChain", "Ollama", "DeepSeek", "FAISS", "ChromaDB", "Python", "PyMuPDF", "Tesseract OCR", "Streamlit", "REST APIs"],
+  },
+  web3: {
+    icon: CircuitBoard,
+    label: "On-chain systems",
+    title: "Trust moved from a promise into executable logic.",
+    body: "Smart-contract development and product integration where wallet state, contract calls, and transparent transactions share one understandable surface.",
+    proof: "Onchain SIP combines recurring investment flows, wallet authentication, and transparent smart-contract execution.",
+    tools: ["Solidity", "Hardhat", "Ethers.js", "Web3.js", "Smart Contract Testing", "Wallet Integration", "DeFi", "On-chain Transactions", "ERC-20", "ERC-721"],
+  },
+};
+
+const architectureModes = [
+  { id: "onchain", label: "Onchain SIP", eyebrow: "Wallet → contract → transparent flow", title: "Investment logic, made inspectable.", body: "Recurring deposits enter through a wallet-aware interface, pass to Solidity contracts, and surface as transparent on-chain activity.", nodes: ["React interface", "Wallet auth", "Solidity contract", "Ethers.js"], stack: ["Solidity", "Hardhat", "React", "Node.js", "Ethers.js", "Web3.js"] },
+  { id: "auradesk", label: "Auradesk", eyebrow: "Interface → local models → multimodal tools", title: "A private desktop for practical AI.", body: "A Svelte desktop UI orchestrates local Ollama models, retrieval, speech, vision, and web-aware tools without moving the core experience out of the user’s control.", nodes: ["Svelte desktop", "Ollama", "RAG memory", "Voice + vision"], stack: ["Svelte", "Docker", "Ollama", "TypeScript", "Python", "REST APIs"] },
+  { id: "zerohour", label: "ZeroHour", eyebrow: "Report intake → fast retrieval → coordination", title: "Coordination that does not wait for a dashboard.", body: "A CLI-based workflow turns urgent reporting into structured, retrievable operational data when rapid response matters more than interface ornament.", nodes: ["CLI input", "Automation", "REST APIs", "Incident record"], stack: ["Python", "Shell scripting", "CLI automation", "API integration"] },
+];
+
+const buildSignals = [
+  { index: "01", tag: "Product surface", title: "Make the next action obvious.", body: "Responsive interfaces built across React, Next.js, Svelte, Tailwind CSS, and component systems—structured around the workflow rather than the framework.", icon: Sparkles },
+  { index: "02", tag: "System backbone", title: "Keep the data path honest.", body: "Node.js, Express, MongoDB, Firebase, Docker, Kubernetes, and cloud tooling used to connect application ideas to dependable operations.", icon: Network },
+  { index: "03", tag: "Applied intelligence", title: "Use the model where it earns its place.", body: "RAG, local LLMs, OCR, and multimodal tools used to solve the information-retrieval and interaction problems inside real products.", icon: Cpu },
 ];
 
 const experiences = [
@@ -122,6 +177,7 @@ function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
 function TiltProjectCard({ project, delay }: { project: (typeof featuredProjects)[number]; delay: number }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const artifact = projectArtifacts[project.title];
   const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [5, -5]), { stiffness: 180, damping: 18 });
   const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-5, 5]), { stiffness: 180, damping: 18 });
 
@@ -149,6 +205,10 @@ function TiltProjectCard({ project, delay }: { project: (typeof featuredProjects
           <p className="eyebrow">{project.type}</p>
           <h3>{project.title}</h3>
           <p className="project-card__description">{project.description}</p>
+          <div className="project-artifact">
+            <div className="project-artifact__head"><img src="/manus-storage/sangeeth-signal-mark_5302d470.png" alt="" /><span>{artifact.label}</span><b>{artifact.status}</b></div>
+            {artifact.lines.map((line) => <p key={line}>{line}</p>)}
+          </div>
           <div className="chip-row">
             {project.stack.map((item) => <span className="stack-chip" key={item}>{item}</span>)}
           </div>
@@ -158,6 +218,93 @@ function TiltProjectCard({ project, delay }: { project: (typeof featuredProjects
         </div>
       </motion.article>
     </Reveal>
+  );
+}
+
+function MagneticAction({ href, children, className }: { href: string; children: React.ReactNode; className: string }) {
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  return (
+    <motion.a
+      href={href}
+      className={className}
+      animate={offset}
+      transition={{ type: "spring", stiffness: 330, damping: 18, mass: 0.35 }}
+      onMouseMove={(event) => {
+        const rect = event.currentTarget.getBoundingClientRect();
+        setOffset({ x: (event.clientX - rect.left - rect.width / 2) * 0.12, y: (event.clientY - rect.top - rect.height / 2) * 0.16 });
+      }}
+      onMouseLeave={() => setOffset({ x: 0, y: 0 })}
+    >
+      {children}
+    </motion.a>
+  );
+}
+
+function CapabilityMatrix() {
+  return (
+    <section id="stack" className="capability-section section-rail" aria-labelledby="capability-title">
+      <Reveal className="capability-section__heading">
+        <div><p className="section-number">05 / CAPABILITY MATRIX</p><h2 id="capability-title">The right tools,<br /><em>in the right place.</em></h2></div>
+        <p>Filter the systems I build across—the technologies below are drawn from the resume, then framed by the job they are useful for.</p>
+      </Reveal>
+      <Reveal delay={0.08} className="capability-tabs-wrap">
+        <Tabs defaultValue="frontend" className="capability-tabs">
+          <TabsList className="capability-tabs__list" aria-label="Capability areas">
+            {Object.entries(capabilityGroups).map(([key, group]) => {
+              const Icon = group.icon;
+              return <TabsTrigger value={key} className="capability-tabs__trigger" key={key}><Icon size={15} /> {group.label}</TabsTrigger>;
+            })}
+          </TabsList>
+          {Object.entries(capabilityGroups).map(([key, group]) => {
+            const Icon = group.icon;
+            return (
+              <TabsContent value={key} className="capability-tabs__content" key={key}>
+                <div className="capability-panel">
+                  <div className="capability-panel__stamp"><Icon size={23} /><span>0{Object.keys(capabilityGroups).indexOf(key) + 1}</span></div>
+                  <div className="capability-panel__statement"><p className="eyebrow">{group.label}</p><h3>{group.title}</h3><p>{group.body}</p></div>
+                  <div className="capability-panel__proof"><ShieldCheck size={18} /><p>{group.proof}</p></div>
+                  <div className="capability-panel__tools">{group.tools.map((tool) => <span key={tool}>{tool}</span>)}</div>
+                </div>
+              </TabsContent>
+            );
+          })}
+        </Tabs>
+      </Reveal>
+    </section>
+  );
+}
+
+function ArchitectureSignal() {
+  const [activeMode, setActiveMode] = useState(architectureModes[0]);
+  return (
+    <section id="signals" className="architecture-section section-rail" aria-labelledby="architecture-title">
+      <Reveal className="architecture-section__heading">
+        <div><p className="section-number">06 / SIGNAL ARCHITECTURE</p><h2 id="architecture-title">From intent<br />to <em>execution.</em></h2></div>
+        <p>Three projects, mapped as the actual technical systems behind their visible interfaces.</p>
+      </Reveal>
+      <div className="architecture-layout">
+        <Reveal className="architecture-switcher" delay={0.05}>
+          {architectureModes.map((mode, index) => <button key={mode.id} className={activeMode.id === mode.id ? "architecture-switcher__item architecture-switcher__item--active" : "architecture-switcher__item"} type="button" onClick={() => setActiveMode(mode)}><span>0{index + 1}</span>{mode.label}<ArrowUpRight size={14} /></button>)}
+        </Reveal>
+        <Reveal className="signal-map" delay={0.12}>
+          <div className="signal-map__field" data-mode={activeMode.id}>
+            <div className="signal-map__grid" aria-hidden="true" />
+            <div className="signal-map__orbit signal-map__orbit--one" aria-hidden="true" />
+            <div className="signal-map__orbit signal-map__orbit--two" aria-hidden="true" />
+            <span className="signal-map__beam signal-map__beam--one" aria-hidden="true" />
+            <span className="signal-map__beam signal-map__beam--two" aria-hidden="true" />
+            <div className="signal-map__core"><Radio size={24} /><span>RUN</span></div>
+            {activeMode.nodes.map((node, index) => <div className={`signal-map__node signal-map__node--${index + 1}`} key={node}><i>{index + 1}</i><span>{node}</span></div>)}
+          </div>
+          <div className="signal-map__caption"><span>{activeMode.eyebrow}</span><em>Animated system route</em></div>
+        </Reveal>
+        <Reveal className="architecture-brief" delay={0.18}>
+          <p className="eyebrow">{activeMode.eyebrow}</p><h3>{activeMode.title}</h3><p>{activeMode.body}</p>
+          <div className="architecture-brief__chips">{activeMode.stack.map((item) => <span key={item}>{item}</span>)}</div>
+          <a href="#work" className="source-link">See the project context <ArrowDownRight size={15} /></a>
+        </Reveal>
+      </div>
+    </section>
   );
 }
 
@@ -213,7 +360,8 @@ export default function Home() {
   const closeMenu = () => setMenuOpen(false);
   const navItems = [
     ["Work", "#work"],
-    ["Skills", "#skills"],
+    ["Stack", "#stack"],
+    ["Signals", "#signals"],
     ["Proof", "#proof"],
     ["Contact", "#contact"],
   ];
@@ -259,7 +407,7 @@ export default function Home() {
             <Reveal delay={0.48} className="hero__bottom">
               <p className="hero__intro">Full-stack developer making scalable products at the intersection of modern frontend systems, LLM tooling, and on-chain infrastructure.</p>
               <div className="hero__actions">
-                <a href="#work" className="button button--primary">Trace the build <ArrowDownRight size={18} /></a>
+                <MagneticAction href="#work" className="button button--primary magnetic-action">Trace the build <ArrowDownRight size={18} /></MagneticAction>
                 <a href={githubUrl} target="_blank" rel="noreferrer" className="text-action">Explore GitHub <ArrowUpRight size={16} /></a>
               </div>
             </Reveal>
@@ -331,7 +479,7 @@ export default function Home() {
         </section>
 
         <section id="skills" className="skills-section section-rail">
-          <Reveal className="skills-section__heading"><p className="section-number">04 / THE WORKBENCH</p><h2>A stack for<br /><em>making things real.</em></h2></Reveal>
+          <Reveal className="skills-section__heading"><p className="section-number">04 / THE WORKBENCH</p><h2>A stack for<br /><em>making things real.</em></h2><p>From the interface layer to local models, OCR utilities, deployment, and contract interaction—the tooling is selected for what the system needs next.</p></Reveal>
           <div className="skills-rows">
             {skillRows.map((row, index) => (
               <Reveal className="skill-row" delay={index * 0.07} key={row.label}>
@@ -344,22 +492,40 @@ export default function Home() {
           </div>
         </section>
 
+        <CapabilityMatrix />
+
         <section className="method-section section-rail">
-          <Reveal className="method-aside"><span className="method-aside__line" /><p className="section-number">05 / HOW I WORK</p><p className="method-aside__quote">“Build close to real users. Keep the stack pragmatic.”</p></Reveal>
+          <Reveal className="method-aside"><span className="method-aside__line" /><p className="section-number">07 / HOW I WORK</p><p className="method-aside__quote">“Build close to real users. Keep the stack pragmatic.”</p></Reveal>
           <Reveal className="method-copy" delay={0.08}><h2>The useful version<br />is the <em>finished one.</em></h2><p>I like working close to the actual problem: tracing a workflow, choosing the smallest sensible stack, and making a system clear enough that someone else can trust it. New frameworks are useful only when they earn their place.</p><p>That means thinking past the demo. I care about error states, deployment, the messy data paths, and what happens when a real person returns to a tool next week. Every project is both a product and a way to get better at the next one.</p></Reveal>
         </section>
 
+        <ArchitectureSignal />
+
         <section className="experience-section section-rail">
-          <Reveal className="experience-section__heading"><div><p className="section-number">06 / FIELD NOTES</p><h2>Hands-on<br /><em>by default.</em></h2></div><p>Three internships across full-stack and frontend product work, running alongside a B.Tech in Computer Science.</p></Reveal>
+          <Reveal className="experience-section__heading"><div><p className="section-number">08 / FIELD NOTES</p><h2>Hands-on<br /><em>by default.</em></h2></div><p>Three internships across full-stack and frontend product work, running alongside a B.Tech in Computer Science.</p></Reveal>
           <div className="experience-list">
             {experiences.map((experience, index) => <Reveal delay={index * 0.08} className="experience-item" key={experience.company}><span className="experience-item__index">0{index + 1}</span><div><h3>{experience.role}</h3><p>{experience.company} · {experience.duration}</p></div><p className="experience-item__note">{experience.note}</p><ArrowUpRight size={19} /></Reveal>)}
           </div>
-          <Reveal className="education-card" delay={0.12}><Layers3 size={20} /><div><p className="eyebrow">Education</p><h3>B.Tech, Computer Science & Engineering</h3><p>APJ Abdul Kalam Technological University · 2022–2026</p></div><span>KERALA / IN</span></Reveal>
+          <Reveal className="education-card" delay={0.12}><Layers3 size={20} /><div><p className="eyebrow">Education</p><h3>B.Tech, Computer Science & Engineering</h3><p>APJ Abdul Kalam Technological University · 2022–2026</p><p>Higher Secondary Education · Vijaya HSS, Pulpally · 2019–2020</p></div><span>KERALA / IN</span></Reveal>
+        </section>
+
+        <section className="buildlog-section section-rail" aria-labelledby="buildlog-title">
+          <Reveal className="buildlog-section__heading"><div><p className="section-number">09 / BUILD LOG</p><h2 id="buildlog-title">More than<br /><em>the interface.</em></h2></div><p>Concrete capabilities from the resume, presented as the product decisions and systems they support.</p></Reveal>
+          <div className="buildlog-grid">
+            {buildSignals.map((signal, index) => {
+              const Icon = signal.icon;
+              return <Reveal className="buildlog-card" delay={index * 0.08} key={signal.index}>
+                <div className="buildlog-card__flare" aria-hidden="true" />
+                <div className="buildlog-card__top"><span>{signal.index}</span><Icon size={22} /></div>
+                <p className="eyebrow">{signal.tag}</p><h3>{signal.title}</h3><p>{signal.body}</p><div className="buildlog-card__line"><i /><span>System trace active</span></div>
+              </Reveal>;
+            })}
+          </div>
         </section>
 
         <section id="contact" className="contact-section section-rail">
           <div className="contact-section__orb" aria-hidden="true" />
-          <Reveal className="contact-section__content"><p className="section-number">07 / CONTACT</p><h2>Have a problem<br />worth <em>building?</em></h2><p className="contact-section__intro">Have a project in mind, or just want to say hi? I read everything and reply fast.</p><a href="mailto:sangeethkarunakaran16@gmail.com" className="button button--primary button--large">Start a conversation <ArrowRight size={21} /></a></Reveal>
+          <Reveal className="contact-section__content"><p className="section-number">10 / CONTACT</p><h2>Have a problem<br />worth <em>building?</em></h2><p className="contact-section__intro">For full-stack product work, AI-enabled interfaces, or Web3 systems that need to become usable—send the first signal.</p><div className="contact-signal"><img src="/manus-storage/sangeeth-signal-mark_5302d470.png" alt="" /><span>S//K signal channel · open</span></div><MagneticAction href="mailto:sangeethkarunakaran16@gmail.com" className="button button--primary button--large magnetic-action">Start a conversation <ArrowRight size={21} /></MagneticAction></Reveal>
           <Reveal className="contact-section__details" delay={0.1}><a href="mailto:sangeethkarunakaran16@gmail.com"><Mail size={18} />sangeethkarunakaran16@gmail.com<ArrowUpRight size={15} /></a><a href="tel:+919539432154"><Phone size={18} />+91 95394 32154<ArrowUpRight size={15} /></a><span><MapPin size={18} />Sulthan Bathery, Wayanad, Kerala</span><a href={githubUrl} target="_blank" rel="noreferrer"><Github size={18} />github.com/TheCyperpunk<ArrowUpRight size={15} /></a></Reveal>
         </section>
       </main>

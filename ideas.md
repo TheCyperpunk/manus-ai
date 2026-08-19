@@ -79,3 +79,20 @@ The mark is an asymmetric, split-frame **S**: two offset signal brackets joined 
 ## Style Decisions
 
 - Proof modules must always show meaningful evidence. The GitHub proof panel uses live public repository metadata when available and a named, credible source-project fallback rather than decorative placeholder data.
+- Project panels foreground product-specific artifacts—transaction and contract states, local-model routes, and incident-report traces—above ambient technical imagery.
+- The split-frame S signal recurs in numbered rails, project artifact headers, proof cards, and the contact channel as a functional identity cue.
+- Evidence sections deliberately rotate between a project dossier, recognition ledger, activity panel, capability switchboard, system map, field notes, and command-log silhouette to keep the page nonlinear without breaking visual continuity.
+
+## Expansion Plan — Evidence Interface
+
+The next iteration keeps the existing vertical evidence tape but introduces three new interactive layers. First, a **capability matrix** will use accessible tabs to turn the resume’s expanded frontend, AI systems, and Web3 stack into a purposeful, filterable system view rather than a static logo wall. Second, an **architecture signal** panel will visualize the verified project mechanics—wallet to contract, multimodal interface to local model, and report intake to coordination flow—through orbiting nodes and animated connector beams. Third, a compact **build log** will turn the project detail from the resume into a scroll-led sequence of execution artifacts.
+
+The interaction additions are intentionally constrained: radial progress signals, an animated beam route, lens-like card emphasis, a project mode switch, magnetic primary actions, and a bento-styled contact grid. Each reveals a concrete technical detail or action, reinforces Signal Lime as a status color, and is disabled or simplified under reduced-motion preferences.
+
+| Reference | New integration |
+| --- | --- |
+| Magic UI | Orbiting node field, animated beam route, border beam, number ticker, active pattern layer |
+| Annnimate | Scroll-led build-log chapters, spotlight lens emphasis, expanding project panel rhythm |
+| OGBlocks | Beam-border evidence panel, floating capability chips, magnetic contact action, bento contact field |
+| Hover.dev | Glare-aware technical cards, responsive hover surface, compact link feedback |
+| Midhun P M | Capability filtering, practical tooling detail, impact/availability hierarchy, concise source-driven project evidence |
