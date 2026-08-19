@@ -58,3 +58,4 @@
 - [x] Recompose Contact to match the supplied hero and wide channel-switchboard references without removing the existing dark background treatment.
 - [x] Move only the existing channel switchboard to the bottom of Overview while leaving the Contact hero background and composition unchanged.
 - [x] Constrain only the Overview channel switchboard to the reference’s inset left and right margins without changing its content or visual treatment.
+- [x] Add the existing S// collaboration-hero watermark and subtle structural background behind the Overview switchboard while preserving its cards and inset frame.

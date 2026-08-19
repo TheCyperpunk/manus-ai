@@ -231,6 +231,10 @@ export default function Home() {
       </section>
 
       <section className="contact-switchboard overview-switchboard" aria-labelledby="contact-switchboard-title">
+        <div className="overview-switchboard__background" aria-hidden="true">
+          <i className="overview-switchboard__orbit" />
+          <span className="overview-switchboard__watermark">S//</span>
+        </div>
         <header className="contact-switchboard__head">
           <div>
             <p className="atlas-kicker"><i /> CHANNEL SWITCHBOARD</p>

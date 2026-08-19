@@ -1,6 +1,11 @@
 /* Proof in Motion / Overview: portrait is a single personal anchor; the visual system uses kinetic type, rails, interface geometry, and source-atlas routing. */
 .overview-main { background: #0a0b0a; color: #eef0e9; overflow: hidden; }
-.overview-main .overview-switchboard { width: calc(100% - 152px); max-width: none; margin-left: auto; margin-right: auto; }
+.overview-main .overview-switchboard { position: relative; isolation: isolate; width: calc(100% - 152px); max-width: none; margin-left: auto; margin-right: auto; overflow: hidden; }
+.overview-switchboard__background { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.overview-switchboard__background::before { content: ""; position: absolute; right: -8%; bottom: -38%; width: min(42vw, 620px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(184,255,59,.09) 0 22%, rgba(184,255,59,.028) 44%, transparent 69%); filter: blur(3px); }
+.overview-switchboard__orbit { position: absolute; right: 8%; bottom: -34%; width: min(38vw, 540px); aspect-ratio: 1; border: 1px solid rgba(184,255,59,.14); border-radius: 50%; box-shadow: 0 0 0 46px rgba(184,255,59,.018), 0 0 0 92px rgba(184,255,59,.011); }
+.overview-switchboard__watermark { position: absolute; right: clamp(-24px, -1vw, -8px); bottom: clamp(-57px, -3vw, -28px); color: rgba(184,255,59,.07); font: 700 clamp(210px, 31vw, 500px)/.62 var(--display); letter-spacing: -.17em; user-select: none; }
+.overview-switchboard > .contact-switchboard__head, .overview-switchboard > .contact-switchboard__grid { position: relative; z-index: 1; }
 .overview-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(330px, .42fr); gap: clamp(44px, 9vw, 150px); width: min(1100px, calc(100% - 48px)); min-height: min(820px, calc(100vh - 59px)); margin: 0 auto; padding: clamp(80px, 10vw, 142px) 0 72px; isolation: isolate; }
 .overview-hero__grid { position: absolute; inset: 0 -7vw; z-index: -3; opacity: .38; background-image: linear-gradient(rgba(241,243,236,.033) 1px, transparent 1px), linear-gradient(90deg, rgba(241,243,236,.033) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(90deg, black 0%, black 61%, transparent 96%); }
 .overview-hero__orbits { position: absolute; right: -10%; top: 50%; z-index: -2; width: min(59vw, 720px); aspect-ratio: 1; transform: translateY(-48%); }
