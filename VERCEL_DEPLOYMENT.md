@@ -33,7 +33,7 @@ Add both the apex domain and `www` if you want a clear canonical address, then s
 
 ## Post-deployment verification
 
-Use the Vercel deployment URL to test the Overview, Projects, Participation, Stack, a case-study URL, and the legacy `/contact` URL. The `/contact` URL must resolve to `/#contact-switchboard`; direct reloads on nested routes must continue to load the SPA rather than returning a 404. Confirm that the hero portrait and Signal mark load from the existing `/manus-storage/` paths, that the first navigation to a deferred route presents the Source Atlas loading skeleton where loading is perceptible, and that the live production site has no console errors.
+Use the Vercel deployment URL to test the Overview, Projects, Participation, Stack, a case-study URL, and the legacy `/contact` URL. The `/contact` URL must resolve to `/#contact-switchboard`; direct reloads on nested routes must continue to load the SPA rather than returning a 404. Confirm that the hero portrait, Signal mark, Devfolio mark, and Unstop mark load from their external CDN URLs, that the first navigation to a deferred route presents the Source Atlas loading skeleton where loading is perceptible, and that the live production site has no console errors.
 
 Vercel’s Git integration can deploy every subsequent push to the connected branch, so the normal release workflow is: test locally, commit the change, push `main`, then verify the new production deployment in the dashboard.[1]
 
