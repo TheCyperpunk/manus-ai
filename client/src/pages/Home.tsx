@@ -50,6 +50,12 @@ const disciplines = [
   },
 ];
 
+const overviewStack = [
+  "Shadcn/UI", "Vite", "JavaScript", "TypeScript", "React", "Next.js", "Svelte", "Redux", "Tailwind",
+  "MongoDB", "Firebase", "Azure", "Docker", "Kubernetes", "Git", "Node.js", "Express",
+  "OpenAI API", "LangChain", "Ollama", "FAISS", "ChromaDB", "Solidity", "Hardhat", "Ethers.js",
+];
+
 const timeline = [
   ["2022—2026", "B.Tech, Computer Science & Engineering", "APJ Abdul Kalam Technological University, Kerala"],
   ["8 months", "MERN Stack Developer Intern", "Ziuke — full-stack feature development and optimization"],
@@ -116,10 +122,20 @@ export default function Home() {
         </motion.aside>
       </section>
 
-      <section className="overview-meter" aria-label="Personal profile metrics">
-        <span>PROFILE SIGNAL / FULL-STACK · AI · WEB3</span>
-        <div><i style={{ width: "82%" }} /><i style={{ width: "58%" }} /><i style={{ width: "71%" }} /><i style={{ width: "46%" }} /><i style={{ width: "90%" }} /><i style={{ width: "64%" }} /></div>
-        <span>PUBLIC PROFILE / @{profile.login || githubHandle}</span>
+      <section className="overview-stack-strip" aria-label="Technology stack">
+        <div className="overview-stack-strip__inner">
+          <span className="overview-stack-strip__label">STACK / FULL-SPECTRUM BUILD</span>
+          <div className="overview-stack-strip__viewport">
+            <div className="overview-stack-strip__track">
+              {[0, 1].map((pass) => (
+                <div className="overview-stack-strip__group" aria-hidden={pass === 1} key={pass}>
+                  {overviewStack.map((technology) => <span key={`${pass}-${technology}`}>{technology}</span>)}
+                </div>
+              ))}
+            </div>
+          </div>
+          <Link href="/stack" className="overview-stack-strip__link">FULL STACK <ArrowUpRight size={12} /></Link>
+        </div>
       </section>
 
       <section className="about-dossier">
