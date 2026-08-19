@@ -36,6 +36,18 @@
   .contact-channel b, .contact-channel--email b { font-size: 10px; }
 }
 
+@media (min-width: 701px) {
+  .contact-signal__content {
+    grid-template-columns: minmax(0, 1fr) minmax(225px, 300px) !important;
+    gap: clamp(32px, 5vw, 64px) !important;
+    padding: clamp(56px, 8vw, 100px) clamp(30px, 5vw, 72px) clamp(52px, 7vw, 86px) !important;
+  }
+
+  .contact-signal__statement { width: 100% !important; max-width: 500px !important; min-width: 0 !important; }
+  .contact-signal__context { width: 100% !important; max-width: 300px !important; min-width: 0 !important; padding-top: clamp(24px, 5vw, 62px) !important; }
+  .contact-signal__context > p { overflow-wrap: anywhere; }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .contact-signal__statement, .contact-signal__context { animation: contact-signal-in .56s var(--ease-out) both; }
   .contact-signal__context { animation-delay: 70ms; }
