@@ -77,7 +77,8 @@ export default function Home() {
           transition={{ duration: 0.62, ease: [0.23, 1, 0.32, 1] }}
         >
           <p className="overview-kicker"><i /> 01 / ABOUT THE PRACTICE</p>
-          <h1>Building the <em>felt</em> layer of systems.</h1>
+          <h1 className="sr-only">Sangeeth Karunakaran — Full-Stack Developer</h1>
+          <p className="overview-role">FULL-STACK DEVELOPER <span>·</span> AI SYSTEMS <span>·</span> WEB3</p>
           <p className="overview-lede">
             Sangeeth Karunakaran is a full-stack developer from Kerala working across web interfaces, AI-driven tools, and Web3 systems. The practice is equal parts product craft, technical curiosity, and the discipline to make complex technology usable.
           </p>

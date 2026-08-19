@@ -20,3 +20,5 @@
 - [x] Prepare the supplied portrait for use as a portfolio asset.
 - [x] Replace project-forward Overview copy with an animated About-led composition.
 - [x] Validate the reworked Overview locally without pushing code to GitHub.
+- [x] Remove the oversized Overview hero headline and rebalance its portrait-led composition.
+- [x] Verify the simplified Overview locally without pushing code to GitHub.
