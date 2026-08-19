@@ -32,3 +32,6 @@
 - [x] Audit public repositories, organization work, source code, and documentation for portfolio-grade evidence.
 - [x] Select and implement the strongest verified project dossiers on the Projects page.
 - [x] Validate the curated Projects page locally and save a checkpoint.
+- [x] Consolidate verified architecture, documentation, and source evidence for Onchain SIP, XMO Messenger, and SorobanVault.
+- [x] Create three linked technical case-study routes with reusable source-atlas components.
+- [x] Validate the case-study routes locally and save a checkpoint.

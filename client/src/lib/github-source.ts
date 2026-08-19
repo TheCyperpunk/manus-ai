@@ -63,6 +63,7 @@ export type FeaturedDossier = {
   tags: string[];
   repositoryUrl: string;
   liveUrl?: string;
+  caseStudyHref?: string;
 };
 
 export type GithubSource = {
@@ -162,6 +163,7 @@ export const featuredDossiers: FeaturedDossier[] = [
     tags: ["TypeScript", "Solidity", "Wagmi"],
     repositoryUrl: "https://github.com/TheCyperpunk/collegeproject",
     liveUrl: "https://onchainsip.vercel.app",
+    caseStudyHref: "/case-studies/onchain-sip",
   },
   {
     index: "02",
@@ -173,6 +175,7 @@ export const featuredDossiers: FeaturedDossier[] = [
     proof: "47 COMMITS · MAINTAINED 15 AUG 2026",
     tags: ["TypeScript", "Next.js", "GSAP"],
     repositoryUrl: "https://github.com/TheCyperpunk/award-experiment",
+    caseStudyHref: "/case-studies/xmo-messenger",
   },
   {
     index: "03",
@@ -184,6 +187,7 @@ export const featuredDossiers: FeaturedDossier[] = [
     proof: "RUST 80.8% · SOLIDITY 15.3% · CARGO TEST",
     tags: ["Rust", "Soroban", "Solidity"],
     repositoryUrl: "https://github.com/TheCyperpunk/SorobanVault-",
+    caseStudyHref: "/case-studies/soroban-vault",
   },
 ];
 

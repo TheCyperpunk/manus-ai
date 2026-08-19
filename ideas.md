@@ -122,3 +122,6 @@ The source atlas now exchanges its persistent side index for a **compact horizon
 - Signal Lime remains reserved for status and verified proof, while authored distinctiveness comes from rail geometry, source-index typography, and artifact-led microcopy.
 - Projects uses authored source intervals—application surfaces, protocol work, and utilities—so the public archive is a navigable evidence tape rather than an uninterrupted card grid.
 - Curated project dossiers lead with a concrete product artifact, source trace, or contract/build signal before descriptive copy; Signal Lime marks only verified statuses, counts, and proof stamps.
+- Each case study keeps the shared evidence tape but begins with a **project-specific dominant proof instrument**: a contract-state lifecycle for Onchain SIP, a browser-to-native handoff trace for XMO Messenger, and a token-policy transfer manifold for SorobanVault.
+- The `S//` split frame governs proof-section transitions, artifact corners, trace checkpoints, and evidence dividers. It must remain structural even when the underlying project mechanics change.
+- A repeated section title is permitted only when its project-specific trace, connector geometry, and evidence mode are visibly distinct; swapping case-study copy alone must never make two dossiers interchangeable.
