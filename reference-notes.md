@@ -19,3 +19,7 @@ The component library surfaces suitable building blocks: orbiting circles, anima
 ## Structural and interaction references
 
 The component catalog adds magnetic buttons, beam-border cards, floating chips, expanding cards and links, parallax scroll, circular stats, dock navigation, bento contact grids, and experience lists. The hover library confirms a broad React and Framer Motion-oriented component vocabulary across hero, card, navigation, tab, carousel, progress, and 3D treatments. The implementation should borrow a small, coherent subset: beam-border technical panels, magnetic primary actions, hover-reactive cards, radial statistics, a bento contact field, and an expandable project-view switch.
+
+## Availability reference — Midhun P M / Open
+
+The supplied open-work page frames availability through evidence instead of generic service claims: a compact opening statement, live public profile metrics, primary-language distribution, recent repositories, project usage signals, recognition, and academic status. The adaptation will retain that proof-led invitation but use Sangeeth’s own verified internship, project, awards, graduation, and public GitHub evidence. It will become an original **Open Channel** module: current build focus, collaboration fit, concise availability status, and a contact action, presented as a lime-bordered signal console rather than a duplicated dashboard.

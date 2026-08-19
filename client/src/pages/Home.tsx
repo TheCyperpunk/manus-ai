@@ -308,6 +308,36 @@ function ArchitectureSignal() {
   );
 }
 
+function OpenChannel({ github }: { github: { repos: number; stars: number; followers: number; following: number } }) {
+  const collaborationFits = [
+    { code: "01", title: "Product systems", copy: "End-to-end web products with clear interfaces, steady data paths, and room to grow." },
+    { code: "02", title: "Applied AI", copy: "Useful retrieval, local model workflows, multimodal tools, and private-first AI surfaces." },
+    { code: "03", title: "On-chain UX", copy: "Wallet-aware product flows and smart-contract integrations that feel understandable in use." },
+  ];
+  return (
+    <section id="open" className="open-channel section-rail" aria-labelledby="open-title">
+      <Reveal className="open-channel__status"><span><Activity size={15} /> Signal status</span><strong>OPEN FOR COLLABORATION</strong><span>Kerala, India · Remote-ready</span></Reveal>
+      <div className="open-channel__grid">
+        <Reveal className="open-channel__intro" delay={0.04}>
+          <p className="section-number">10 / OPEN CHANNEL</p><h2 id="open-title">Let’s make<br />something <em>useful.</em></h2>
+          <p>I’m available for thoughtful product conversations, internships, and build-focused collaborations across frontend systems, AI tooling, and Web3.</p>
+          <MagneticAction href="mailto:sangeethkarunakaran16@gmail.com" className="open-channel__action">Open a conversation <ArrowUpRight size={17} /></MagneticAction>
+        </Reveal>
+        <Reveal className="open-channel__console" delay={0.1}>
+          <div className="open-channel__console-head"><div><img src="/manus-storage/sangeeth-signal-mark_5302d470.png" alt="" /><span>S//K availability record</span></div><b>live</b></div>
+          <div className="open-channel__metrics">
+            <div><strong>03</strong><span>featured systems</span></div><div><strong>03</strong><span>internships</span></div><div><strong>02</strong><span>first prizes</span></div><div><strong>2026</strong><span>graduation</span></div>
+          </div>
+          <div className="open-channel__github"><Github size={17} /><div><strong>@TheCyperpunk</strong><span>public source signal · {github.repos} repositories · {github.stars} stars</span></div><a href={githubUrl} target="_blank" rel="noreferrer" aria-label="View GitHub profile"><ArrowUpRight size={16} /></a></div>
+        </Reveal>
+      </div>
+      <div className="open-channel__fit-list">
+        {collaborationFits.map((fit, index) => <Reveal className="open-channel__fit" delay={0.08 + index * 0.06} key={fit.code}><span>{fit.code}</span><div><h3>{fit.title}</h3><p>{fit.copy}</p></div><ArrowUpRight size={18} /></Reveal>)}
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -363,6 +393,7 @@ export default function Home() {
     ["Stack", "#stack"],
     ["Signals", "#signals"],
     ["Proof", "#proof"],
+    ["Open", "#open"],
     ["Contact", "#contact"],
   ];
 
@@ -522,6 +553,8 @@ export default function Home() {
             })}
           </div>
         </section>
+
+        <OpenChannel github={github} />
 
         <section id="contact" className="contact-section section-rail">
           <div className="contact-section__orb" aria-hidden="true" />
