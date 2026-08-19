@@ -1,0 +1,3 @@
+- [x] Verify the requested GitHub repository is accessible.
+- [ ] Replace the existing origin remote and configure the main branch.
+- [ ] Push the completed portfolio source and confirm the result.
