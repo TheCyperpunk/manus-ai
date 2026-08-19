@@ -93,7 +93,6 @@ export default function Home() {
           <div className="signal-monogram-field__axis signal-monogram-field__axis--vertical" />
           <div className="signal-monogram-field__axis signal-monogram-field__axis--horizontal" />
           <div className="signal-monogram-field__cuts"><i /><i /><i /></div>
-          <div className="signal-monogram-field__cross"><i /><i /><i /><i /></div>
           <div className="signal-monogram-field__rail"><span>SK / SIGNAL FIELD</span><b>01</b></div>
         </div>
         <div className="overview-hero__orbits" aria-hidden="true">
