@@ -45,3 +45,5 @@
 - [x] Add the supplied technology labels and GitHub-source action to the three existing Overview project cards without changing their design.
 - [x] Replace the Overview Profile Signal meter with a single-line strip containing the previously established technology stack.
 - [x] Expand the Stack page with additional public GitHub-derived technology and repository evidence while preserving its existing design.
+- [x] Recheck the expanded Stack page against public GitHub evidence and correct any verified omissions without changing its design.
+- [x] Apply the validated Source Atlas refinements to Stack proof instruments, evidence intervals, recent-build ledger, and brand framing.

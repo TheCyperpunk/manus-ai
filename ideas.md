@@ -131,3 +131,9 @@ The source atlas now exchanges its persistent side index for a **compact horizon
 - Portfolio project cards retain supplied copy verbatim, but begin with a project-specific source trace before the descriptive summary: contract lifecycle for Onchain SIP, local-runtime retrieval for Auradesk, and CLI incident flow for ZeroHour.
 - The Overview project band behaves as an offset evidence tape rather than a uniform card row. Subtle vertical stagger, connector traces, and split-frame corners make each surface a distinct instrument.
 - `S//` geometry must frame practical proof data—source type, implementation route, and system handoff—not simply decorate card edges.
+
+## Style Decisions
+
+- The Stack route's language distribution must read as a custom **language instrument**, framed by public-metadata stamps, source rails, and split-frame `S//` geometry rather than a conventional dashboard chart alone.
+- Long technical inventories must be divided into indexed, rail-led source intervals; profile declarations are explicitly labeled as such and remain distinct from repository-derived proof.
+- On Stack, the `S//` identity recurs at proof-section boundaries, instrument corners, ledger groups, and recent-build trace markers; the compact header lockup is echoed by route-specific source framing rather than replaced.
