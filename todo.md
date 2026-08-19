@@ -52,4 +52,5 @@
 - [x] Replace the Network route content with a participation page grounded in the supplied LinkedIn event posts.
 - [x] Move the participation ledger to a dedicated Participation route and refine its evidence intervals with source artifacts and stronger S// structural framing.
 - [x] Add the remaining ten user-supplied LinkedIn participation records to the existing Participation ledger.
-- [ ] Optimize the Projects repository inventory so verified data is visible immediately and live refreshes do not leave a prolonged loading state.
+- [x] Optimize the Projects repository inventory so verified data is visible immediately and live refreshes do not leave a prolonged loading state.
+- [x] Recompose the Contact route into a reference-led collaboration page with clear, verified contact channels while retaining the Proof in Motion design system.

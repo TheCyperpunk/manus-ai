@@ -1,0 +1,51 @@
+/* Proof in Motion Contact — scoped responsive rules preserve the reference-led signal field, S// watermark, and direct-channel hierarchy. */
+
+@media (max-width: 1000px) {
+  .contact-signal__content {
+    grid-template-columns: minmax(0, 1fr) minmax(250px, .48fr);
+    gap: clamp(38px, 7vw, 70px);
+  }
+
+  .contact-signal__context { padding-top: 60px; }
+
+  .contact-switchboard__grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .contact-channel--email { grid-column: span 6; }
+  .contact-channel--phone, .contact-channel--github, .contact-channel--location { grid-column: span 2; }
+}
+
+@media (max-width: 700px) {
+  .contact-page { padding-top: 66px; }
+  .contact-signal { width: calc(100vw - 48px) !important; max-width: none !important; min-height: 622px !important; box-sizing: border-box !important; }
+  .contact-signal__rail { grid-template-columns: 1fr auto; min-height: 34px; padding: 0 16px; }
+  .contact-signal__rail > span, .contact-signal__rail > i { display: none; }
+  .contact-signal__content { display: block !important; position: relative !important; min-height: 587px !important; padding: 0 !important; }
+  .contact-signal__statement { position: absolute !important; top: 57px !important; right: 20px !important; left: 20px !important; display: block !important; width: auto !important; margin: 0 !important; padding: 0 !important; transform: none !important; text-align: left !important; }
+  .contact-signal h1 { width: 100% !important; max-width: none !important; margin: 0 !important; font-size: clamp(43px, 12vw, 54px) !important; text-align: left !important; }
+  .contact-signal h1 > span { width: 100%; text-align: left !important; }
+  .contact-signal__context { position: absolute !important; top: 254px !important; right: 20px !important; left: 20px !important; width: auto !important; max-width: 365px !important; margin: 0 !important; padding-top: 0 !important; transform: none !important; }
+  .contact-signal__context > p { font-size: 14px; }
+  .contact-signal__status { margin-top: 31px; }
+  .contact-signal__watermark { right: -2px; bottom: -15px; font-size: 255px; }
+  .contact-switchboard { padding-top: 65px; }
+  .contact-switchboard__head { grid-template-columns: 1fr; gap: 23px; padding-bottom: 25px; }
+  .contact-switchboard__head h2 { font-size: clamp(42px, 13vw, 64px); }
+  .contact-switchboard__head > p { margin: 0; }
+  .contact-switchboard__grid { grid-template-columns: 1fr; }
+  .contact-channel, .contact-channel--email, .contact-channel--phone, .contact-channel--github, .contact-channel--location { grid-column: auto; min-height: 194px; padding: 18px; border-bottom: 1px solid var(--line); }
+  .contact-channel--email { min-height: 218px; }
+  .contact-channel b, .contact-channel--email b { font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .contact-signal__statement, .contact-signal__context { animation: contact-signal-in .56s var(--ease-out) both; }
+  .contact-signal__context { animation-delay: 70ms; }
+  .contact-channel { animation: contact-signal-in .45s var(--ease-out) both; }
+  .contact-channel:nth-child(2) { animation-delay: 55ms; }
+  .contact-channel:nth-child(3) { animation-delay: 105ms; }
+  .contact-channel:nth-child(4) { animation-delay: 155ms; }
+}
+
+@keyframes contact-signal-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}

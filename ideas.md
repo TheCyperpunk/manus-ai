@@ -137,3 +137,7 @@ The source atlas now exchanges its persistent side index for a **compact horizon
 - The Stack route's language distribution must read as a custom **language instrument**, framed by public-metadata stamps, source rails, and split-frame `S//` geometry rather than a conventional dashboard chart alone.
 - Long technical inventories must be divided into indexed, rail-led source intervals; profile declarations are explicitly labeled as such and remain distinct from repository-derived proof.
 - On Stack, the `S//` identity recurs at proof-section boundaries, instrument corners, ledger groups, and recent-build trace markers; the compact header lockup is echoed by route-specific source framing rather than replaced.
+
+## Contact Reference — Ground-Truth Route Spec
+
+The supplied Contact reference defines the route’s composition: a wide, low-density collaboration field with a thin top signal rail, a large left-aligned multi-line statement, an offset right-hand context/action area, and a faint oversized `S//` watermark anchored to the lower edge. The Contact page will keep the established near-black canvas, Signal Lime status language, Space Grotesk / DM Sans / IBM Plex Mono type system, and thin evidence rules; however, it will replace the former uniform contact grid with a distinct **channel switchboard**. Verified email, phone, GitHub, and location information will become clearly labeled interaction channels beneath the primary collaboration invitation, with the email channel remaining the dominant action.
