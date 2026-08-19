@@ -110,6 +110,7 @@
 }
 
 .signal-monogram-field--right .signal-monogram-field__glyph span { color: rgba(184,255,59,.082); }
+.signal-monogram-field--right .signal-monogram-field__glyph span:first-child { margin-left: 0; color: rgba(184,255,59,.14); }
 .signal-monogram-field--right .signal-monogram-field__glyph i { color: rgba(184,255,59,.2); }
 .signal-monogram-field--right .signal-monogram-field__axis--horizontal { left: auto; right: 0; width: min(52vw, 760px); }
 .signal-monogram-field--right .signal-monogram-field__cuts { left: auto; right: 0; transform: skewX(-13deg); }
