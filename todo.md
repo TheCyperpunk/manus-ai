@@ -22,3 +22,6 @@
 - [x] Validate the reworked Overview locally without pushing code to GitHub.
 - [x] Remove the oversized Overview hero headline and rebalance its portrait-led composition.
 - [x] Verify the simplified Overview locally without pushing code to GitHub.
+- [ ] Map verified public contribution data into the annual activity grid.
+- [ ] Add the GitHub-style contribution calendar and activity metadata dashboard.
+- [ ] Validate the activity dashboard locally without pushing code to GitHub.

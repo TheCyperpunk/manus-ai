@@ -140,3 +140,19 @@ export const contributionSnapshot = {
   weeks: [14, 13, 4, 6, 0, 15, 2, 2, 1, 3, 16, 10, 4, 8, 3, 14, 5, 0, 9, 2, 0, 2, 1, 1, 12, 4, 3, 11, 5, 14, 4, 14, 26, 10, 4, 6, 2, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 8, 0, 1, 1],
 };
 
+export type ContributionDay = { date: string; count: number; level: 0 | 1 | 2 | 3 | 4 };
+
+// Verified GitHub GraphQL calendar capture: 17 Aug 2025–19 Aug 2026, collected 19 Aug 2026.
+const calendarIntensity = "00320000410001100000102000010000000004000000010000001100000000100001004200001101110010111000002200000110010400010011100000000000000030010000000000000100011000000000001000002300000002000100110000220001100000010400011000001122001142110300000000101011000110000000000000000000000000000010000000001000000000000000000000000000000000000000000000000002000011000000000010000001";
+const calendarCountEntries = "2:8,3:6,8:10,9:1,13:2,14:3,20:1,22:5,27:1,37:15,45:2,52:1,53:1,62:1,67:3,70:11,71:4,76:1,77:3,79:1,80:3,81:3,84:1,86:1,87:1,88:1,94:4,95:4,101:1,102:2,105:3,107:10,111:1,114:1,115:3,116:1,132:9,135:2,149:1,153:1,154:1,166:1,172:5,173:7,181:4,185:2,188:1,189:3,194:4,195:4,199:2,200:3,207:2,209:12,213:2,214:2,220:2,221:2,222:4,223:6,226:2,227:2,228:15,229:5,230:2,231:1,233:9,242:2,244:2,246:1,247:2,251:3,252:2,282:3,292:1,343:6,348:1,349:1,360:1,367:1";
+const calendarCounts = calendarCountEntries.split(",").reduce<Record<number, number>>((counts, entry) => {
+  const [index, value] = entry.split(":").map(Number);
+  counts[index] = value;
+  return counts;
+}, {});
+
+export const calendarDays: ContributionDay[] = calendarIntensity.split("").map((rawLevel, index) => ({
+  date: new Date(Date.UTC(2025, 7, 17 + index)).toISOString().slice(0, 10),
+  count: calendarCounts[index] ?? 0,
+  level: Number(rawLevel) as ContributionDay["level"],
+}));

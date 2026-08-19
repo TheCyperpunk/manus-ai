@@ -114,3 +114,9 @@ The source atlas now exchanges its persistent side index for a **compact horizon
 - The top navigation is a status instrument: route links retain numeric indexing only in active or hover states, the Open channel is visibly marked as live, and the GitHub action stays visually separate from internal routing.
 - Repository, activity, stack, and network surfaces use compact bordered instruments, tighter metadata, two-column repository records, and factual summary rows. The public GitHub data remains the primary content source.
 - At small widths, the header becomes an accessible menu control with a concise drawer, while the content keeps generous tap targets and a single-column evidence flow.
+
+## Style Decisions
+
+- Activity must read as an authored evidence trail: dated ledger clusters, source stamps, and split-frame rail markers break longer event feeds into distinct public proof intervals.
+- The `S//` identity is structural on every atlas route, appearing in header indices, source rails, and proof-card corners rather than operating only as a navigation mark.
+- Signal Lime remains reserved for status and verified proof, while authored distinctiveness comes from rail geometry, source-index typography, and artifact-led microcopy.
