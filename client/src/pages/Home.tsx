@@ -8,7 +8,6 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   Award,
-  Code2,
   FileText,
   Github,
   GraduationCap,
@@ -18,7 +17,6 @@ import {
   Orbit,
   Phone,
   Sparkles,
-  Trophy,
   Workflow,
 } from "lucide-react";
 import { githubHandle, useGithubSource } from "@/lib/github-source";
@@ -112,9 +110,9 @@ export default function Home() {
               <div>
                 <a href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer" aria-label="GitHub profile" title="GitHub"><Github size={16} /></a>
                 <a href="https://www.linkedin.com/in/sangeeth-karunakaran-a60984293/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile" title="LinkedIn"><Linkedin size={15} /></a>
-                <a href="https://devfolio.co/@sangeethkarun" target="_blank" rel="noreferrer" aria-label="Devfolio profile" title="Devfolio"><Code2 size={16} /></a>
-                <a href="https://unstop.com/u/sangekar4788" target="_blank" rel="noreferrer" aria-label="Unstop profile" title="Unstop"><Trophy size={15} /></a>
-                <a href="https://sangeethkarunakaran.vercel.app/resume.pdf" target="_blank" rel="noreferrer" aria-label="Open resume PDF" title="Resume"><FileText size={15} /></a>
+                <a href="https://devfolio.co/@sangeethkarun" target="_blank" rel="noreferrer" aria-label="Devfolio profile" title="Devfolio"><img className="overview-profile-links__mark overview-profile-links__mark--devfolio" src="/manus-storage/devfolio-logo_1bf044a9.svg" alt="" /></a>
+                <a href="https://unstop.com/u/sangekar4788" target="_blank" rel="noreferrer" aria-label="Unstop profile" title="Unstop"><img className="overview-profile-links__mark overview-profile-links__mark--unstop" src="/manus-storage/unstop-un-mark_ebe3e6cb.svg" alt="" /></a>
+                <a className="overview-profile-links__resume" href="https://sangeethkarunakaran.vercel.app/resume.pdf" target="_blank" rel="noreferrer" aria-label="Open resume PDF" title="Resume"><FileText size={14} /><span>RESUME</span></a>
               </div>
             </div>
           </motion.div>
