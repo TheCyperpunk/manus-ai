@@ -2,6 +2,7 @@
 import { ArrowUpRight, Braces, BrainCircuit, CloudCog, Code2, Database, GitBranch, TerminalSquare, Waypoints } from "lucide-react";
 import { AtlasFooter, AtlasPageHeader, SourceStatus } from "@/components/AtlasPage";
 import { useGithubMetrics, useGithubSource } from "@/lib/github-source";
+import { stackRepositoryAudit } from "@/lib/stack-repo-audit";
 
 const profileStackTopology = [
   {
@@ -34,14 +35,19 @@ const profileStackTopology = [
   },
 ];
 
-const projectStackLedger = [
-  { code: "P.01", title: "Onchain SIP", source: "CODE + MANIFEST / collegeproject", technologies: ["Next.js", "React", "TypeScript", "Solidity", "Hardhat", "Wagmi", "RainbowKit", "Ethers.js", "Viem", "OpenZeppelin", "Tailwind CSS", "Recharts"] },
-  { code: "P.02", title: "XMO Messenger", source: "CODE + MANIFEST / award-experiment", technologies: ["Next.js", "React", "TypeScript", "GSAP", "Tailwind CSS", "Netlify", "Android App Links"] },
-  { code: "P.03", title: "SorobanVault", source: "CODE + README / SorobanVault-", technologies: ["Rust", "Soroban SDK", "Soroban CLI", "Stellar", "Solidity", "Foundry", "Forge", "EVM", "WASM"] },
-  { code: "P.04", title: "Smart Energy Monitoring", source: "CODE + README / smart-energy-monitoring", technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Recharts", "Radix UI", "React Hook Form", "Zod", "Lucide"] },
-  { code: "P.05", title: "Video Search", source: "CODE + README / multi-api-video-search", technologies: ["TypeScript", "Node.js", "Express", "Axios", "Cheerio", "React", "Vite", "REST API"] },
-  { code: "P.06", title: "TeleCloneChat", source: "CODE + MANIFEST / TeleCloneChat", technologies: ["Next.js", "React", "TypeScript", "Drizzle ORM", "Neon", "TanStack Query", "Framer Motion", "Tailwind CSS", "Radix UI", "Zod"] },
-];
+const deeplyAuditedProjectEvidence: Record<string, { source: string; technologies: string[] }> = {
+  collegeproject: { source: "CODE + MANIFEST / collegeproject", technologies: ["Next.js", "React", "TypeScript", "Solidity", "Hardhat", "Wagmi", "RainbowKit", "Ethers.js", "Viem", "OpenZeppelin", "Tailwind CSS", "Recharts"] },
+  "award-experiment": { source: "CODE + MANIFEST / award-experiment", technologies: ["Next.js", "React", "TypeScript", "GSAP", "Tailwind CSS", "Netlify", "Android App Links"] },
+  "SorobanVault-": { source: "CODE + README / SorobanVault-", technologies: ["Rust", "Soroban SDK", "Soroban CLI", "Stellar", "Solidity", "Foundry", "Forge", "EVM", "WASM"] },
+  "smart-energy-monitoring": { source: "CODE + README / smart-energy-monitoring", technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Recharts", "Radix UI", "React Hook Form", "Zod", "Lucide"] },
+  "multi-api-video-search": { source: "CODE + README / multi-api-video-search", technologies: ["TypeScript", "Node.js", "Express", "Axios", "Cheerio", "React", "Vite", "REST API"] },
+  TeleCloneChat: { source: "CODE + MANIFEST / TeleCloneChat", technologies: ["Next.js", "React", "TypeScript", "Drizzle ORM", "Neon", "TanStack Query", "Framer Motion", "Tailwind CSS", "Radix UI", "Zod"] },
+};
+
+const projectStackLedger = stackRepositoryAudit.repositories.map((repository, index) => {
+  const audited = deeplyAuditedProjectEvidence[repository.name];
+  return { code: `P.${String(index + 1).padStart(2, "0")}`, title: repository.name, url: repository.url, source: audited?.source ?? repository.source, technologies: audited?.technologies ?? [...repository.technologies] };
+});
 
 // Public repository snapshot captured 19 Aug 2026. It only renders when the browser-side GitHub request is unavailable.
 const stackInstrumentSnapshot = {
@@ -81,9 +87,9 @@ export default function Stack() {
       <a className="stack-topology__source" href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer"><Waypoints size={15} /><span>VERIFIED INPUT</span><b>Public profile README · technical skills matrix</b><ArrowUpRight size={15} /></a>
     </section>
     <section className="stack-ledger" aria-labelledby="stack-ledger-title">
-      <header className="stack-ledger__head"><div><p className="atlas-kicker"><i />PROJECT STACK LEDGER</p><h2 id="stack-ledger-title">Stack use,<br /><em>by project.</em></h2></div><p>Each row is grounded in a public repository’s code, declared dependencies, build configuration, or README. The public-organization audit returned no membership, so no organization-owned work is inferred here.</p></header>
-      <div className="stack-ledger__list">{projectStackLedger.map((project) => <article key={project.code}><span>{project.code}</span><div><p>{project.source}</p><h3>{project.title}</h3></div><div className="stack-ledger__chips">{project.technologies.map((technology) => <span key={technology}><b>{"</>"}</b>{technology}</span>)}</div></article>)}</div>
-      <a className="stack-ledger__source" href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer"><Waypoints size={15} /><span>GITHUB SOURCE</span><b>Six audited project repositories · 60 original public repositories · no public organization membership</b><ArrowUpRight size={15} /></a>
+      <header className="stack-ledger__head"><div><p className="atlas-kicker"><i />COMPLETE PROJECT STACK LEDGER</p><h2 id="stack-ledger-title">Stack use,<br /><em>by project.</em></h2></div><p>Every original public repository is represented below. Each row carries GitHub’s public source and primary-language evidence; six project rows retain the deeper code, manifest, and README audit. The public-organization audit returned no membership, so no organization-owned work is inferred.</p></header>
+      <div className="stack-ledger__list">{projectStackLedger.map((project) => <article key={project.code}><span>{project.code}</span><div><p>{project.source}</p><h3><a href={project.url} target="_blank" rel="noreferrer">{project.title} <ArrowUpRight size={14} /></a></h3></div><div className="stack-ledger__chips">{project.technologies.map((technology) => <span key={technology}><b>{"</>"}</b>{technology}</span>)}</div></article>)}</div>
+      <a className="stack-ledger__source" href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer"><Waypoints size={15} /><span>GITHUB SOURCE</span><b>{stackRepositoryAudit.eligibleRepositoryCount} original public repositories · 6 deep code/manifest/README audits · no public organization membership</b><ArrowUpRight size={15} /></a>
     </section>
     <section className="recent-surface"><div className="recent-surface__head"><div><p className="atlas-kicker">S// 03 · RECENT BUILD SURFACES</p><h2>What moved<br /><em>most recently.</em></h2></div><span>public repository trace · sorted by latest push / update</span></div><div className="recent-surface__list">{recentlyPushed.map((repo, index) => <a href={repo.html_url} target="_blank" rel="noreferrer" key={repo.id}><span className="recent-surface__index">R// {String(index + 1).padStart(2, "0")}</span><span>{repo.language || "Unclassified"}</span><b>{repo.name}</b><time>{new Date(repo.pushed_at || repo.updated_at).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}</time><ArrowUpRight size={15} /></a>)}</div></section>
     <AtlasFooter />
