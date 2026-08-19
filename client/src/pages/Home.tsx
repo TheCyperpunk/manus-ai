@@ -200,7 +200,7 @@ export default function Home() {
           })}
         </div>
         <Link href="/projects" className="discipline-grid__more">
-          <span>MORE PROJECT</span><ArrowUpRight size={14} />
+          <span>MORE PROJECTS</span><ArrowUpRight size={14} />
         </Link>
       </section>
 
