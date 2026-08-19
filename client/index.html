@@ -9,9 +9,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      try {
+        if (window.localStorage.getItem("sangeeth-atlas-app-loader-seen")) {
+          document.documentElement.dataset.atlasBootSeen = "true";
+        }
+      } catch {}
+    </script>
+    <style>
+      /* Proof in Motion — document-level first-visit loader prevents a blank canvas before React and the app CSS arrive. */
+      #app-boot-loader { position: fixed; z-index: 9999; inset: 0; display: grid; grid-template-rows: auto 1fr auto; padding: clamp(22px, 3.2vw, 52px); overflow: hidden; background: #0a0a0b; color: #f2f3ed; font-family: "IBM Plex Mono", monospace; }
+      html[data-atlas-boot-seen="true"] #app-boot-loader { display: none; }
+      #app-boot-loader::before { content: "SK/"; position: absolute; right: -0.07em; bottom: -0.24em; color: rgba(184,255,59,.1); font: 700 clamp(190px, 34vw, 550px)/.72 "Space Grotesk", sans-serif; letter-spacing: -.16em; }
+      #app-boot-loader::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0, transparent 78px, rgba(242,243,237,.055) 79px, transparent 80px); opacity: .45; pointer-events: none; }
+      .app-boot-loader__top, .app-boot-loader__body, .app-boot-loader__foot { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 10px; letter-spacing: .1em; }
+      .app-boot-loader__top { color: #b8ff3b; }
+      .app-boot-loader__body { align-items: flex-start; justify-content: flex-end; flex-direction: column; max-width: 640px; }
+      .app-boot-loader__body strong { color: #f2f3ed; font: 600 clamp(38px, 7vw, 92px)/.82 "Space Grotesk", sans-serif; letter-spacing: -.075em; }
+      .app-boot-loader__body p { margin: 0; color: rgba(184,255,59,.76); font-size: 10px; letter-spacing: .1em; }
+      .app-boot-loader__pulse { display: inline-flex; width: 8px; height: 8px; border: 1px solid #b8ff3b; border-radius: 50%; box-shadow: 0 0 18px rgba(184,255,59,.6); animation: app-boot-pulse .8s ease-in-out infinite alternate; }
+      .app-boot-loader__rail { position: absolute; z-index: 1; right: 0; bottom: 28%; left: 0; height: 1px; overflow: hidden; background: rgba(242,243,237,.18); }
+      .app-boot-loader__rail i { display: block; width: 42%; height: 100%; background: #b8ff3b; box-shadow: 0 0 20px rgba(184,255,59,.75); transform: translateX(-112%); animation: app-boot-scan .72s cubic-bezier(.23,1,.32,1) infinite; }
+      #app-boot-loader.is-releasing { transform-origin: right center; animation: app-boot-release .46s cubic-bezier(.23,1,.32,1) forwards; }
+      @keyframes app-boot-pulse { to { transform: scale(1.7); opacity: .28; } }
+      @keyframes app-boot-scan { to { transform: translateX(290%); } }
+      @keyframes app-boot-release { to { transform: scaleX(0); } }
+      @media (max-width: 700px) { #app-boot-loader { padding: 22px; } .app-boot-loader__top, .app-boot-loader__body, .app-boot-loader__foot { font-size: 8px; } .app-boot-loader__body strong { font-size: clamp(36px, 13vw, 60px); } }
+      @media (prefers-reduced-motion: reduce) { #app-boot-loader *, #app-boot-loader::before, #app-boot-loader::after { animation: none !important; } }
+    </style>
     <title>Sangeeth Karunakaran — Full-stack developer</title>
   </head>
   <body>
+    <div id="app-boot-loader" role="status" aria-live="polite" aria-label="Loading Sangeeth Karunakaran portfolio">
+      <div class="app-boot-loader__top"><span>S// 00</span><span>INITIAL LOAD</span></div>
+      <div class="app-boot-loader__body"><p>INITIALIZING SOURCE ATLAS</p><strong>BUILDING<br />THE SIGNAL</strong><span class="app-boot-loader__pulse" aria-hidden="true"></span></div>
+      <div class="app-boot-loader__rail" aria-hidden="true"><i></i></div>
+      <div class="app-boot-loader__foot"><span>PUBLIC PORTFOLIO / READY</span><span>01</span></div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script defer src="%VITE_ANALYTICS_ENDPOINT%/umami" data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>

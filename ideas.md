@@ -117,6 +117,11 @@ The source atlas now exchanges its persistent side index for a **compact horizon
 
 ## Style Decisions
 
+- The first visit begins with a document-level Source Atlas boot signal before React mounts; it is brief, motion-safe, and never repeats once acknowledged locally.
+- The Overview hero pairs the personal dossier with a live public-source terminal that names the GitHub handle, public repository index, static build target, and current source status. The proof surface must remain factual when live data is unavailable by showing its cached or indexing state.
+- Overview project cards lead with mechanism-specific implementation paths—wallet-to-contract execution, local-model retrieval, and CLI incident flow—so their silhouettes and evidence modes are visibly non-interchangeable.
+- The pale Experience Trace retains its pacing contrast but carries `S//` resume-ledger framing and a source-verification stamp so it remains part of the same atlas.
+
 - Activity must read as an authored evidence trail: dated ledger clusters, source stamps, and split-frame rail markers break longer event feeds into distinct public proof intervals.
 - The `S//` identity is structural on every atlas route, appearing in header indices, source rails, and proof-card corners rather than operating only as a navigation mark.
 - Signal Lime remains reserved for status and verified proof, while authored distinctiveness comes from rail geometry, source-index typography, and artifact-led microcopy.
