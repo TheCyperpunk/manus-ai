@@ -4,17 +4,17 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 16px;
-  width: min(100%, 292px);
-  min-height: 64px;
-  margin: 18px 0 0 auto;
-  padding: 0 19px;
-  border: 1px solid rgba(184, 255, 59, .31);
+  gap: 13px;
+  width: min(100%, 244px);
+  min-height: 54px;
+  margin: 16px 0 0 auto;
+  padding: 0 16px;
+  border: 1px solid rgba(184, 255, 59, .18);
   border-left: 2px solid var(--lime);
   background:
-    radial-gradient(circle at 18% 50%, rgba(184, 255, 59, .20), transparent 56%),
-    linear-gradient(104deg, #1c2b12 0%, #11170e 57%, #0d0f0d 100%);
-  box-shadow: inset 0 0 28px rgba(184, 255, 59, .045), 0 13px 28px rgba(0, 0, 0, .18);
+    radial-gradient(circle at 18% 50%, rgba(184, 255, 59, .11), transparent 56%),
+    linear-gradient(104deg, #141b0e 0%, #0e120d 57%, #0b0c0b 100%);
+  box-shadow: inset 0 0 24px rgba(184, 255, 59, .025), 0 10px 22px rgba(0, 0, 0, .14);
   color: #eef3e8;
   overflow: hidden;
   transition: border-color 180ms var(--ease-out), background 180ms var(--ease-out), transform 180ms var(--ease-out);
@@ -25,7 +25,7 @@
 .discipline-grid__more span {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   color: var(--lime);
   font: 600 11px var(--mono);
   letter-spacing: .045em;
@@ -34,16 +34,16 @@
 .discipline-grid__more span i {
   width: 7px;
   height: 7px;
-  box-shadow: 0 0 11px rgba(184, 255, 59, .8);
+  box-shadow: 0 0 9px rgba(184, 255, 59, .55);
 }
 
 .discipline-grid__more svg { color: var(--lime); }
 
 .discipline-grid__more:hover {
-  border-color: rgba(184, 255, 59, .75);
+  border-color: rgba(184, 255, 59, .48);
   background:
-    radial-gradient(circle at 18% 50%, rgba(184, 255, 59, .30), transparent 60%),
-    linear-gradient(104deg, #273b16 0%, #151d10 57%, #0d0f0d 100%);
+    radial-gradient(circle at 18% 50%, rgba(184, 255, 59, .18), transparent 60%),
+    linear-gradient(104deg, #1b2812 0%, #11170e 57%, #0b0c0b 100%);
   transform: translateY(-2px);
 }
 
@@ -51,10 +51,10 @@
 
 @media (max-width: 520px) {
   .discipline-grid__more {
-    width: min(100%, 292px);
-    min-height: 62px;
-    margin-top: 18px;
-    padding: 0 18px;
+    width: min(100%, 244px);
+    min-height: 54px;
+    margin-top: 16px;
+    padding: 0 16px;
   }
 
   .discipline-grid__more span { font-size: 10px; }

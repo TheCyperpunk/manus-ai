@@ -74,3 +74,4 @@
 - [x] Add one Projects-page action beneath the three Overview project cards without altering those cards or their GitHub links.
 - [x] Replace the full-width Overview Projects action with a compact, readable dark-green and Signal Lime button.
 - [x] Move the Overview Projects button to the right beneath the cards and reduce its compact dimensions.
+- [x] Further reduce the Overview Projects button dimensions and soften its green background and glow opacity.
