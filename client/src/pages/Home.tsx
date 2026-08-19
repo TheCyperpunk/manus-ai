@@ -68,6 +68,7 @@ const overviewStack = [
 ];
 
 const timeline = [
+  ["Present", "Full Stack Developer", "Qugodo — full-stack product development for a local-services marketplace"],
   ["2022—2026", "B.Tech, Computer Science & Engineering", "APJ Abdul Kalam Technological University, Kerala"],
   ["8 months", "MERN Stack Developer Intern", "Ziuke — full-stack feature development and optimization"],
   ["5 months", "Full Stack Developer Intern", "Zecser LLP — scalable applications, APIs, and databases"],
@@ -298,7 +299,7 @@ export default function Home() {
         <div className="pathway-section__intro">
           <p className="overview-kicker"><i /> 03 / EXPERIENCE TRACE</p>
           <h2>Learning in public.<br /><em>Shipping with care.</em></h2>
-          <p>Academic grounding, three focused internship experiences, and competitive recognition provide the context behind the interface.</p>
+          <p>Current product work, academic grounding, three focused internship experiences, and competitive recognition provide the context behind the interface.</p>
         </div>
         <ol className="pathway-list">
           {timeline.map(([date, role, detail], index) => (
