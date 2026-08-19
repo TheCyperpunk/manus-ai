@@ -8,35 +8,6 @@
   box-sizing: border-box;
 }
 
-.contact-signal--switchboard {
-  min-height: min(635px, calc(100vh - 104px));
-}
-
-.contact-switchboard--in-signal {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  padding: clamp(56px, 8vw, 104px) clamp(34px, 7vw, 110px) clamp(54px, 7vw, 88px);
-}
-
-.contact-switchboard--in-signal .contact-switchboard__head {
-  grid-template-columns: minmax(0, 1fr) minmax(265px, .5fr);
-  gap: clamp(42px, 9vw, 150px);
-}
-
-.contact-switchboard--in-signal .contact-switchboard__grid::before {
-  background: #10140f;
-}
-
-.contact-switchboard--in-signal .contact-channel {
-  min-height: clamp(238px, 23vw, 300px);
-  background-color: rgba(10, 10, 11, .42);
-}
-
-.contact-switchboard--in-signal .contact-channel--email {
-  background: linear-gradient(135deg, rgba(184,255,59,.12), transparent 54%), rgba(10, 12, 10, .7);
-}
-
 @media (max-width: 1000px) {
   .contact-signal__content {
     grid-template-columns: minmax(0, 1fr) minmax(250px, .48fr);
@@ -52,15 +23,6 @@
 
 @media (max-width: 700px) {
   .contact-page { padding-top: 66px; }
-  .contact-signal--switchboard { min-height: auto !important; }
-  .contact-switchboard--in-signal { padding: 54px 20px 0; }
-  .contact-switchboard--in-signal .contact-switchboard__head { grid-template-columns: 1fr; gap: 23px; }
-  .contact-switchboard--in-signal .contact-switchboard__grid { grid-template-columns: 1fr; }
-  .contact-switchboard--in-signal .contact-channel,
-  .contact-switchboard--in-signal .contact-channel--email,
-  .contact-switchboard--in-signal .contact-channel--phone,
-  .contact-switchboard--in-signal .contact-channel--github,
-  .contact-switchboard--in-signal .contact-channel--location { grid-column: auto; min-height: 194px; }
   .contact-signal { width: calc(100vw - 48px) !important; max-width: none !important; min-height: 622px !important; box-sizing: border-box !important; }
   .contact-signal__rail { grid-template-columns: 1fr auto; min-height: 34px; padding: 0 16px; }
   .contact-signal__rail > span, .contact-signal__rail > i { display: none; }
