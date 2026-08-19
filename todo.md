@@ -48,3 +48,4 @@
 - [x] Recheck the expanded Stack page against public GitHub evidence and correct any verified omissions without changing its design.
 - [x] Apply the validated Source Atlas refinements to Stack proof instruments, evidence intervals, recent-build ledger, and brand framing.
 - [x] Restore the original Stack language instrument’s visible chart and metric values with source-backed fallback data while retaining its layout.
+- [x] Restore the Network page public-organization panel with verified visible fallback content while retaining its layout.
