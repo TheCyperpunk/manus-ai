@@ -56,3 +56,4 @@
 - [x] Recompose the Contact route into a reference-led collaboration page with clear, verified contact channels while retaining the Proof in Motion design system.
 - [x] Correct the Contact hero desktop columns so the complete collaboration message, primary email action, and status are visible within the frame.
 - [x] Recompose Contact to match the supplied hero and wide channel-switchboard references without removing the existing dark background treatment.
+- [x] Move only the existing channel switchboard to the bottom of Overview while leaving the Contact hero background and composition unchanged.

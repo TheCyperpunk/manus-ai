@@ -10,7 +10,10 @@ import {
   Award,
   Github,
   GraduationCap,
+  Mail,
+  MapPin,
   Orbit,
+  Phone,
   Sparkles,
   Workflow,
 } from "lucide-react";
@@ -225,6 +228,46 @@ export default function Home() {
           <h2>Bring the hard<br />constraint.</h2>
         </div>
         <div><p>Interested in working through a product question, an interaction system, or a technical edge case? The Open Channel is a better place to begin than a generic contact form.</p><Link href="/open" className="overview-link overview-link--dark">Open the channel <ArrowUpRight size={15} /></Link></div>
+      </section>
+
+      <section className="contact-switchboard" aria-labelledby="contact-switchboard-title">
+        <header className="contact-switchboard__head">
+          <div>
+            <p className="atlas-kicker"><i /> CHANNEL SWITCHBOARD</p>
+            <h2 id="contact-switchboard-title">Choose the <em>right line.</em></h2>
+          </div>
+          <p>Four verified paths, arranged for a direct first signal rather than a generic form.</p>
+        </header>
+
+        <div className="contact-switchboard__grid">
+          <a className="contact-channel contact-channel--email" href="mailto:sangeethkarunakaran16@gmail.com">
+            <span className="contact-channel__index">01 / PRIMARY</span>
+            <Mail size={22} />
+            <strong>Email</strong>
+            <b>sangeethkarunakaran16@gmail.com</b>
+            <ArrowUpRight className="contact-channel__arrow" size={18} />
+          </a>
+          <a className="contact-channel contact-channel--phone" href="tel:+919539432154">
+            <span className="contact-channel__index">02 / DIRECT</span>
+            <Phone size={20} />
+            <strong>Phone</strong>
+            <b>+91 95394 32154</b>
+            <ArrowUpRight className="contact-channel__arrow" size={17} />
+          </a>
+          <a className="contact-channel contact-channel--github" href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer">
+            <span className="contact-channel__index">03 / SOURCE</span>
+            <Github size={20} />
+            <strong>GitHub</strong>
+            <b>TheCyperpunk</b>
+            <ArrowUpRight className="contact-channel__arrow" size={17} />
+          </a>
+          <div className="contact-channel contact-channel--location">
+            <span className="contact-channel__index">04 / BASE</span>
+            <MapPin size={20} />
+            <strong>Location</strong>
+            <b>Sulthan Bathery<br />Wayanad, Kerala</b>
+          </div>
+        </div>
       </section>
 
       <footer className="overview-footer"><span>SANGEETH KARUNAKARAN / ABOUT DOSSIER</span><a href={`https://github.com/${githubHandle}`} target="_blank" rel="noreferrer"><Github size={14} /> @{profile.login || githubHandle}</a></footer>
