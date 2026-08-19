@@ -31,7 +31,7 @@
 
 .discipline-grid__more:hover,
 .discipline-grid__more:focus-visible {
-  border: 1px solid var(--lime);
+  border: 1px solid rgba(184, 255, 59, .24);
   background: transparent;
   box-shadow: none;
   color: var(--lime);
