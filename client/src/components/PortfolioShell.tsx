@@ -1,4 +1,4 @@
-/** Proof in Motion navigation — compact route indexing, readable mono labels, and a collaboration status without a desktop GitHub shortcut. */
+/** Proof in Motion navigation — compact route indexing, readable mono labels, and an availability status without a desktop GitHub shortcut. */
 import { Link, useLocation } from "wouter";
 import { ArrowUpRight, Github, Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -30,7 +30,7 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
               : <Link key={item.href} href={item.href} className={activeFor(item.href) ? "is-active" : ""}><small>{item.index}</small>{item.label}</Link>)}
           </nav>
           <div className="atlas-topbar__actions">
-            <a href="/#contact-switchboard" className="atlas-topbar__status"><i />Open to collaboration</a>
+            <a href="/#contact-switchboard" className="atlas-topbar__status"><i />Open to work</a>
             <button type="button" className="atlas-topbar__menu" onClick={() => setMenuOpen((value) => !value)} aria-expanded={menuOpen} aria-controls="atlas-mobile-navigation" aria-label="Toggle portfolio navigation">{menuOpen ? <X size={18} /> : <Menu size={18} />}</button>
           </div>
         </div>

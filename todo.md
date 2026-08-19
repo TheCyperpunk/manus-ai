@@ -102,3 +102,4 @@
 - [x] Remove the large decorative S glyph behind the Overview hero controls while preserving the remaining background treatment.
 - [x] Restore the decorative S glyph only on the right-side Overview counter-field while leaving the left-side S removed.
 - [x] Remove the dedicated Contact page content and make Contact navigation redirect to the contact section at the bottom of Overview.
+- [x] Update the header availability status from “Open to collaboration” to “Open to work”.
