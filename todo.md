@@ -29,3 +29,6 @@
 - [x] Validate the clarified Activity calendar locally and save a checkpoint.
 - [x] Remove the redundant three-card live-event summary strip from the Activity page.
 - [x] Validate the simplified Activity layout and save a checkpoint.
+- [x] Audit public repositories, organization work, source code, and documentation for portfolio-grade evidence.
+- [x] Select and implement the strongest verified project dossiers on the Projects page.
+- [x] Validate the curated Projects page locally and save a checkpoint.

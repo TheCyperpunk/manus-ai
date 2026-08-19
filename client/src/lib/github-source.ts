@@ -52,6 +52,19 @@ export type GithubOrg = {
   html_url: string;
 };
 
+export type FeaturedDossier = {
+  index: string;
+  mode: string;
+  name: string;
+  repository: string;
+  artifact: string;
+  summary: string;
+  proof: string;
+  tags: string[];
+  repositoryUrl: string;
+  liveUrl?: string;
+};
+
 export type GithubSource = {
   profile: GithubProfile;
   repos: GithubRepo[];
@@ -134,6 +147,46 @@ export function useGithubMetrics(source: GithubSource) {
 }
 
 export const githubHandle = HANDLE;
+
+// Curated after a public-source audit captured 19 Aug 2026. These entries are
+// intentionally not inferred from stars or descriptions, which are sparse in the profile.
+export const featuredDossiers: FeaturedDossier[] = [
+  {
+    index: "01",
+    mode: "LIVE / AVALANCHE FUJI",
+    name: "Onchain SIP",
+    repository: "collegeproject",
+    artifact: "WALLET CONNECT → TOKEN PICKER → EXECUTION HISTORY",
+    summary: "A systematic crypto-investment product with a deployed wallet flow, token selection, transaction-based display, and execution tracking surface.",
+    proof: "LIVE TESTNET · 3 FORKS · 3 CONTRIBUTORS",
+    tags: ["TypeScript", "Solidity", "Wagmi"],
+    repositoryUrl: "https://github.com/TheCyperpunk/collegeproject",
+    liveUrl: "https://onchainsip.vercel.app",
+  },
+  {
+    index: "02",
+    mode: "PRODUCT / NEXT.JS",
+    name: "XMO Messenger",
+    repository: "award-experiment",
+    artifact: "APP-LINK CALLBACKS → INVITES → ACCOUNT LIFECYCLE",
+    summary: "An application surface with wallet and app-link callbacks, invitation paths, account-lifecycle pages, legal routes, and deployment-aware maintenance.",
+    proof: "47 COMMITS · MAINTAINED 15 AUG 2026",
+    tags: ["TypeScript", "Next.js", "GSAP"],
+    repositoryUrl: "https://github.com/TheCyperpunk/award-experiment",
+  },
+  {
+    index: "03",
+    mode: "CONTRACT / STELLAR",
+    name: "SorobanVault",
+    repository: "SorobanVault-",
+    artifact: "TOKEN / REWARDS / KYC MODULES → CARGO TEST",
+    summary: "A documented lending and tokenization contract prototype for Stellar, spanning Soroban modules, an EVM companion, tests, and deployment make targets.",
+    proof: "RUST 80.8% · SOLIDITY 15.3% · CARGO TEST",
+    tags: ["Rust", "Soroban", "Solidity"],
+    repositoryUrl: "https://github.com/TheCyperpunk/SorobanVault-",
+  },
+];
+
 export const contributionSnapshot = {
   total: 264,
   captured: "19 Aug 2026",

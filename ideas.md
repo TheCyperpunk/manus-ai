@@ -120,3 +120,5 @@ The source atlas now exchanges its persistent side index for a **compact horizon
 - Activity must read as an authored evidence trail: dated ledger clusters, source stamps, and split-frame rail markers break longer event feeds into distinct public proof intervals.
 - The `S//` identity is structural on every atlas route, appearing in header indices, source rails, and proof-card corners rather than operating only as a navigation mark.
 - Signal Lime remains reserved for status and verified proof, while authored distinctiveness comes from rail geometry, source-index typography, and artifact-led microcopy.
+- Projects uses authored source intervals—application surfaces, protocol work, and utilities—so the public archive is a navigable evidence tape rather than an uninterrupted card grid.
+- Curated project dossiers lead with a concrete product artifact, source trace, or contract/build signal before descriptive copy; Signal Lime marks only verified statuses, counts, and proof stamps.
