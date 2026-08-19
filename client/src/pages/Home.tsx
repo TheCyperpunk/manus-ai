@@ -24,6 +24,7 @@ import { githubHandle, useGithubSource } from "@/lib/github-source";
 import "./overview.css";
 import "./overview-project-action.css";
 import "./overview-hero-links.css";
+import "./overview-hero-monogram.css";
 
 const disciplines = [
   {
@@ -86,6 +87,15 @@ export default function Home() {
     <main className="overview-main">
       <section className="overview-hero">
         <div className="overview-hero__grid" aria-hidden="true" />
+        <div className="signal-monogram-field" aria-hidden="true">
+          <div className="signal-monogram-field__glow" />
+          <div className="signal-monogram-field__glyph"><span>S</span><span>K</span><i>/</i></div>
+          <div className="signal-monogram-field__axis signal-monogram-field__axis--vertical" />
+          <div className="signal-monogram-field__axis signal-monogram-field__axis--horizontal" />
+          <div className="signal-monogram-field__cuts"><i /><i /><i /></div>
+          <div className="signal-monogram-field__cross"><i /><i /><i /><i /></div>
+          <div className="signal-monogram-field__rail"><span>SK / SIGNAL FIELD</span><b>01</b></div>
+        </div>
         <div className="overview-hero__orbits" aria-hidden="true">
           <motion.i animate={{ rotate: 360 }} transition={{ duration: 34, repeat: Infinity, ease: "linear" }} />
           <motion.i animate={{ rotate: -360 }} transition={{ duration: 22, repeat: Infinity, ease: "linear" }} />

@@ -93,3 +93,4 @@
 - [x] Add a lightweight, unique animated background layer to the Overview hero while preserving its existing layout, copy, portrait, and controls.
 - [x] Add an animated Source Atlas watermark and offset framing treatment behind the Overview hero, without altering its content or layout.
 - [x] Revert the added hero motion and Source Atlas background systems, retaining only the existing small cross/diagonal background block.
+- [x] Create a more visible, original Signal Monogram Field behind the Overview hero, inspired by the supplied dark technical references without copying them.
