@@ -23,7 +23,6 @@ import { githubHandle, useGithubSource } from "@/lib/github-source";
 import "./overview.css";
 import "./overview-project-action.css";
 import "./overview-hero-links.css";
-import "./overview-evidence-refinements.css";
 
 const disciplines = [
   {
@@ -33,7 +32,6 @@ const disciplines = [
     icon: Workflow,
     route: "/case-studies/onchain-sip",
     mode: "PROJECT / SMART-CONTRACT EXECUTION",
-    trace: ["SCHEDULE", "CONTRACT", "EXECUTION"],
     tags: ["Solidity", "Hardhat", "React", "Node.js", "Ethers.js", "Web3.js"],
     sourceHref: "https://github.com/TheCyperpunk/collegeproject",
   },
@@ -44,7 +42,6 @@ const disciplines = [
     icon: Sparkles,
     route: "/projects",
     mode: "PROJECT / LOCAL-FIRST AI WORKFLOWS",
-    trace: ["LOCAL INPUT", "RAG RETRIEVAL", "MODEL OUTPUT"],
     tags: ["Svelte", "Ollama", "Docker", "TypeScript", "Python", "RAG"],
     sourceHref: "https://github.com/TheCyperpunk?tab=repositories",
   },
@@ -55,7 +52,6 @@ const disciplines = [
     icon: Orbit,
     route: "/projects",
     mode: "PROJECT / INCIDENT OPERATIONS",
-    trace: ["FIELD REPORT", "CLI INTAKE", "COORDINATION LOG"],
     tags: ["Python", "Shell", "CLI automation", "REST APIs"],
     sourceHref: "https://github.com/TheCyperpunk?tab=repositories",
   },
@@ -171,11 +167,11 @@ export default function Home() {
         </header>
 
         <nav className="atlas-gateway" aria-label="Source atlas proof modes">
-          <span>SOURCE ATLAS / VERIFIED ROUTES</span>
-          <Link href="/projects"><b>01</b> Source registry</Link>
-          <Link href="/network"><b>02</b> Public network</Link>
-          <Link href="/stack"><b>03</b> Stack evidence</Link>
-          <Link href="/contact"><b>04</b> Contact channel</Link>
+          <span>ATLAS / PROOF MODES</span>
+          <Link href="/projects"><b>01</b> Registry</Link>
+          <Link href="/network"><b>02</b> Network</Link>
+          <Link href="/stack"><b>03</b> Stack</Link>
+          <Link href="/contact"><b>04</b> Contact</Link>
         </nav>
 
         <div className="discipline-grid">
@@ -192,9 +188,6 @@ export default function Home() {
                 whileHover={{ y: -6 }}
               >
                 <div><span>{discipline.number}</span><Icon size={19} /></div>
-                <div className="discipline-card__trace" aria-label={`${discipline.title} proof trace`}>
-                  <span>{discipline.trace[0]}</span><i aria-hidden="true" /><span>{discipline.trace[1]}</span><i aria-hidden="true" /><span>{discipline.trace[2]}</span>
-                </div>
                 <h3>{discipline.title}</h3>
                 <p>{discipline.copy}</p>
                 <ul className="discipline-card__tags" aria-label={`${discipline.title} technologies`}>
@@ -215,9 +208,8 @@ export default function Home() {
 
       <section className="pathway-section">
         <div className="pathway-section__lane" aria-hidden="true"><span /><span /><span /><span /><span /></div>
-        <div className="pathway-section__stamp" aria-hidden="true"><span>S// EVIDENCE INSERT</span><i /><b>03</b></div>
         <div className="pathway-section__intro">
-          <p className="overview-kicker"><i /> 03 / EXPERIENCE TRACE / EVIDENCE INSERT</p>
+          <p className="overview-kicker"><i /> 03 / EXPERIENCE TRACE</p>
           <h2>Learning in public.<br /><em>Shipping with care.</em></h2>
           <p>Academic grounding, three focused internship experiences, and competitive recognition provide the context behind the interface.</p>
         </div>
