@@ -29,7 +29,10 @@
 
 .discipline-grid__more:hover,
 .discipline-grid__more:focus-visible {
+  border-width: 1px;
   border-color: var(--lime);
+  background-color: transparent;
+  box-shadow: none;
   color: var(--lime);
 }
 
