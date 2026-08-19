@@ -80,3 +80,4 @@
 - [x] Refine the Overview professional-link row with rounded outlined controls, white border-only hover states, a visible Resume label, and verified Devfolio and Unstop vector marks.
 - [x] Change the Overview “Start a conversation” action to open the email client directly.
 - [x] Rewrite the Overview hero introduction in first person rather than third-person profile language.
+- [x] Increase the shared top-navigation font size and remove the right-side GitHub shortcut while retaining the collaboration status.

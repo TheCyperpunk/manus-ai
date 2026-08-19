@@ -1,4 +1,4 @@
-/** Proof in Motion navigation — compact route indexing with participation isolated as its own evidence destination. */
+/** Proof in Motion navigation — compact route indexing, readable mono labels, and a collaboration status without a desktop GitHub shortcut. */
 import { Link, useLocation } from "wouter";
 import { ArrowUpRight, Github, Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -29,7 +29,6 @@ export default function PortfolioShell({ children }: { children: React.ReactNode
           </nav>
           <div className="atlas-topbar__actions">
             <Link href="/contact" className="atlas-topbar__status"><i />Open to collaboration</Link>
-            <a href="https://github.com/TheCyperpunk" target="_blank" rel="noreferrer" className="atlas-topbar__github" aria-label="Open GitHub profile"><Github size={15} /><ArrowUpRight size={12} /></a>
             <button type="button" className="atlas-topbar__menu" onClick={() => setMenuOpen((value) => !value)} aria-expanded={menuOpen} aria-controls="atlas-mobile-navigation" aria-label="Toggle portfolio navigation">{menuOpen ? <X size={18} /> : <Menu size={18} />}</button>
           </div>
         </div>
