@@ -109,3 +109,4 @@
 - [x] Add a branded, accessible loading state for lazy-loaded portfolio routes and validate the navigation transition.
 - [x] Confirm Vercel deployment readiness and provide the repository-import, domain, and post-deployment verification guidance.
 - [x] Replace Manus-only image and logo paths with deployment-safe assets, then validate the Vercel-ready production build.
+- [ ] Push the verified Vercel asset repair to GitHub and provide the final production redeployment check.
