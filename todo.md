@@ -39,3 +39,6 @@
 - [x] Validate the content-only refinement locally and save a checkpoint.
 - [x] Add the supplied Onchain SIP, Auradesk, and ZeroHour project cards to the portfolio.
 - [x] Validate the added project cards locally and save a checkpoint.
+- [x] Replace only the titles and sentences in the three indicated Overview cards with the supplied Onchain SIP, Auradesk, and ZeroHour content.
+- [x] Remove the duplicate project section previously added below the cards.
+- [x] Validate the corrected content-only update locally and save a checkpoint.
