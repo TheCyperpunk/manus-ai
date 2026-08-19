@@ -16,3 +16,7 @@
 - [x] Replace the sidebar with responsive navbar navigation across all routes.
 - [x] Reshape the repository, activity, stack, and network pages into compact proof dashboards.
 - [x] Validate the new dashboard layout locally without pushing code to GitHub.
+- [x] Extract verified resume details for the Overview About narrative.
+- [x] Prepare the supplied portrait for use as a portfolio asset.
+- [x] Replace project-forward Overview copy with an animated About-led composition.
+- [x] Validate the reworked Overview locally without pushing code to GitHub.
