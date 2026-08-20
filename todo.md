@@ -113,3 +113,4 @@
 - [x] Add a brief, accessible global first-visit app-loader and validate its transition into the portfolio experience.
 - [x] Strengthen the Overview with a dominant technical proof artifact, more distinct project evidence traces, and tighter source-atlas framing.
 - [x] Push the global-loader and proof-surface enhancement to GitHub, then provide the final Vercel redeployment check.
+- [x] Remove only the unrequested hero build trace and project implementation-path visuals while retaining the first-visit loader.

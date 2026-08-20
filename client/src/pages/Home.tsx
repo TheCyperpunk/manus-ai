@@ -37,8 +37,6 @@ const disciplines = [
     mode: "PROJECT / SMART-CONTRACT EXECUTION",
     tags: ["Solidity", "Hardhat", "React", "Node.js", "Ethers.js", "Web3.js"],
     sourceHref: "https://github.com/TheCyperpunk/collegeproject",
-    traceMode: "onchain",
-    trace: ["Wallet", "SIP contract", "Execute", "Ledger"],
   },
   {
     number: "02",
@@ -49,8 +47,6 @@ const disciplines = [
     mode: "PROJECT / LOCAL-FIRST AI WORKFLOWS",
     tags: ["Svelte", "Ollama", "Docker", "TypeScript", "Python", "RAG"],
     sourceHref: "https://github.com/TheCyperpunk?tab=repositories",
-    traceMode: "auradesk",
-    trace: ["Input", "Local model", "Retrieve", "Response"],
   },
   {
     number: "03",
@@ -61,8 +57,6 @@ const disciplines = [
     mode: "PROJECT / INCIDENT OPERATIONS",
     tags: ["Python", "Shell", "CLI automation", "REST APIs"],
     sourceHref: "https://github.com/TheCyperpunk?tab=repositories",
-    traceMode: "zerohour",
-    trace: ["Report", "Triage", "Store", "Dispatch"],
   },
 ];
 
@@ -90,7 +84,6 @@ const recognitions = [
 export default function Home() {
   const source = useGithubSource();
   const profile = source.profile;
-  const sourceStatus = source.status === "ready" ? "PUBLIC / SYNCED" : source.status === "degraded" ? "PUBLIC / CACHED" : "PUBLIC / INDEXING";
   const heroRef = useRef<HTMLElement>(null);
   const parallaxFrame = useRef<number | null>(null);
   const pendingParallax = useRef({ x: 0, y: 0 });
@@ -177,13 +170,7 @@ export default function Home() {
           <p className="overview-lede">
             Based in Kerala, I build web products across interface engineering, applied AI, and Web3. I focus on clear systems, dependable implementation, and interactions that make complex workflows usable.
           </p>
-          <div className="hero-source-terminal" aria-label="Public GitHub source trace">
-            <header><span>S// BUILD TRACE</span><span>{sourceStatus}</span></header>
-            <div className="hero-source-terminal__line"><b>$</b><span>source github.com/{githubHandle}</span></div>
-            <div className="hero-source-terminal__line"><b>+</b><span>{profile.public_repos} public repositories indexed</span></div>
-            <div className="hero-source-terminal__line"><b>→</b><span>static build · interface / AI / Web3</span></div>
-          </div>
-            <div className="overview-actions">
+          <div className="overview-actions">
               <a href="mailto:sangeethkarunakaran16@gmail.com" className="overview-button">Start a conversation <ArrowDownRight size={17} /></a>
               <a href={`https://github.com/${githubHandle}`} target="_blank" rel="noreferrer" className="overview-link">Read the public trail <ArrowUpRight size={15} /></a>
             </div>
@@ -260,7 +247,7 @@ export default function Home() {
             return (
               <motion.article
                 key={discipline.number}
-                className={`discipline-card discipline-card--${discipline.traceMode}`}
+                className="discipline-card"
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-90px" }}
@@ -268,10 +255,6 @@ export default function Home() {
                 whileHover={{ y: -6 }}
               >
                 <div><span>{discipline.number}</span><Icon size={19} /></div>
-                <div className="discipline-card__trace" aria-label={`${discipline.title} implementation trace`}>
-                  <span>S// IMPLEMENTATION PATH</span>
-                  <ol>{discipline.trace.map((step) => <li key={step}>{step}</li>)}</ol>
-                </div>
                 <h3>{discipline.title}</h3>
                 <p>{discipline.copy}</p>
                 <ul className="discipline-card__tags" aria-label={`${discipline.title} technologies`}>
@@ -292,7 +275,6 @@ export default function Home() {
 
       <section className="pathway-section">
         <div className="pathway-section__lane" aria-hidden="true"><span /><span /><span /><span /><span /></div>
-        <div className="pathway-section__source-stamp" aria-hidden="true"><span>S//</span><small>RESUME<br />LEDGER</small></div>
         <div className="pathway-section__intro">
           <p className="overview-kicker"><i /> 03 / EXPERIENCE TRACE</p>
           <h2>Learning in public.<br /><em>Shipping with care.</em></h2>
