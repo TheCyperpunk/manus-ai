@@ -181,7 +181,7 @@ export default function Home() {
                 <a href="https://www.linkedin.com/in/sangeeth-karunakaran-a60984293/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile" title="LinkedIn"><Linkedin size={15} /></a>
                 <a href="https://devfolio.co/@sangeethkarun" target="_blank" rel="noreferrer" aria-label="Devfolio profile" title="Devfolio"><img className="overview-profile-links__mark overview-profile-links__mark--devfolio" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663887738612/ieGvcSDjqXCVPSYy.svg" alt="" decoding="async" /></a>
                 <a href="https://unstop.com/u/sangekar4788" target="_blank" rel="noreferrer" aria-label="Unstop profile" title="Unstop"><img className="overview-profile-links__mark overview-profile-links__mark--unstop" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663887738612/TOhXqiCHDYslvYio.svg" alt="" decoding="async" /></a>
-                <a className="overview-profile-links__resume" href="https://sangeethkarunakaran.vercel.app/resume.pdf" target="_blank" rel="noreferrer" aria-label="Open resume PDF" title="Resume"><FileText size={14} /><span>RESUME</span></a>
+                <a className="overview-profile-links__resume" href="https://sangeethkarunakaran.vercel.app/newone.pdf" target="_blank" rel="noreferrer" aria-label="Open resume PDF" title="Resume"><FileText size={14} /><span>RESUME</span></a>
               </div>
             </div>
           </motion.div>
