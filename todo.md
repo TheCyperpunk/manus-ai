@@ -116,3 +116,4 @@
 - [x] Remove only the unrequested hero build trace and project implementation-path visuals while retaining the first-visit loader.
 - [x] Push the scoped first-visit loader correction to GitHub and confirm the commit for Vercel redeployment.
 - [x] Replace only the Resume destination with the supplied new PDF URL.
+- [x] Push the Resume-link update to GitHub and confirm the commit for Vercel redeployment.
