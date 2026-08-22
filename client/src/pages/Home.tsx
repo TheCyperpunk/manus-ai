@@ -41,13 +41,13 @@ const disciplines = [
   },
   {
     number: "02",
-    title: "Auradesk",
-    copy: "A local-first assistant for vision and chat workflows, bringing RAG, speech, and web-aware tools into one private interface.",
+    title: "videoplatform",
+    copy: "A full-stack video platform that pairs a Next.js experience with a Fastify API, MongoDB data services, and container-ready delivery.",
     icon: Sparkles,
     route: "/projects",
-    mode: "PROJECT / LOCAL-FIRST AI WORKFLOWS",
-    tags: ["Svelte", "Ollama", "Docker", "TypeScript", "Python", "RAG"],
-    sourceHref: "https://github.com/TheCyperpunk?tab=repositories",
+    mode: "PROJECT / FULL-STACK VIDEO PLATFORM",
+    tags: ["TypeScript", "CSS", "Dockerfile", "JavaScript", "Axios", "Fastify", "MongoDB", "Radix UI", "TanStack Query", "Framer Motion", "Next.js", "React", "React Hook Form", "Zod", "Zustand", "Tailwind CSS", "Docker", "Docker Compose"],
+    sourceHref: "https://github.com/TheCyperpunk/videoplatform",
   },
   {
     number: "03",
