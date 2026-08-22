@@ -117,3 +117,4 @@
 - [x] Push the scoped first-visit loader correction to GitHub and confirm the commit for Vercel redeployment.
 - [x] Replace only the Resume destination with the supplied new PDF URL.
 - [x] Push the Resume-link update to GitHub and confirm the commit for Vercel redeployment.
+- [x] Update only the Onchain SIP and ZeroHour Overview project-source links to the supplied GitHub destinations.
