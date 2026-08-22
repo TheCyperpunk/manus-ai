@@ -37,6 +37,7 @@ const disciplines = [
     mode: "PROJECT / SMART-CONTRACT EXECUTION",
     tags: ["Solidity", "Hardhat", "React", "Node.js", "Ethers.js", "Web3.js"],
     sourceHref: "https://github.com/TheCyperpunk/collegeproject",
+    liveHref: "https://onchainsip.vercel.app/",
   },
   {
     number: "02",
@@ -57,6 +58,7 @@ const disciplines = [
     mode: "PROJECT / INCIDENT OPERATIONS",
     tags: ["Python", "Shell", "CLI automation", "REST APIs"],
     sourceHref: "https://github.com/make-a-ton-samurai",
+    liveHref: "https://www.linkedin.com/posts/sangeeth-karunakaran-a60984293_beachhack-hackathon-devtools-activity-7487383690126184448--JQV?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEcoROgBxO6xXvLRBoBAu3SegRiDIEfNDdo",
   },
 ];
 
@@ -263,6 +265,11 @@ export default function Home() {
                 <a className="discipline-card__source" href={discipline.sourceHref} target="_blank" rel="noreferrer">
                   View source on GitHub <ArrowUpRight size={14} />
                 </a>
+                {discipline.liveHref && (
+                  <a className="discipline-card__live" href={discipline.liveHref} target="_blank" rel="noreferrer">
+                    Live <ArrowUpRight size={12} />
+                  </a>
+                )}
                 <Link href={discipline.route} aria-label={`Open ${discipline.title} evidence`}>↗</Link>
               </motion.article>
             );

@@ -39,6 +39,30 @@
 
 .discipline-grid__more:focus-visible { outline: 1px solid rgba(184, 255, 59, .42); outline-offset: 3px; }
 
+/* Proof in Motion Overview action — lower-right live destination for selected project cards only. */
+.discipline-card__live {
+  position: absolute;
+  z-index: 2;
+  right: 21px;
+  bottom: 23px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--lime);
+  font: 9px var(--mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  transition: color 160ms var(--ease-out), gap 160ms var(--ease-out);
+}
+
+.discipline-card__live:hover,
+.discipline-card__live:focus-visible {
+  gap: 9px;
+  color: #f2f5ec;
+}
+
+.discipline-card__live:focus-visible { outline: 1px solid rgba(184, 255, 59, .42); outline-offset: 3px; }
+
 @media (max-width: 520px) {
   .discipline-grid__more {
     width: min(100%, 172px);
