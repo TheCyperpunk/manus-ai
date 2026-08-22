@@ -46,7 +46,7 @@ const disciplines = [
     icon: Sparkles,
     route: "/projects",
     mode: "PROJECT / FULL-STACK VIDEO PLATFORM",
-    tags: ["TypeScript", "CSS", "Dockerfile", "JavaScript", "Axios", "Fastify", "MongoDB", "Radix UI", "TanStack Query", "Framer Motion", "Next.js", "React", "React Hook Form", "Zod", "Zustand", "Tailwind CSS", "Docker", "Docker Compose"],
+    tags: ["TypeScript", "Axios", "Fastify", "MongoDB", "Radix UI", "TanStack Query", "Framer Motion", "Next.js", "Zod", "Zustand", "Tailwind CSS", "Docker"],
     sourceHref: "https://github.com/TheCyperpunk/videoplatform",
   },
   {
