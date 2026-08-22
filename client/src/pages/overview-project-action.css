@@ -63,6 +63,14 @@
 
 .discipline-card__live:focus-visible { outline: 1px solid rgba(184, 255, 59, .42); outline-offset: 3px; }
 
+/* Proof in Motion Overview action — source controls share one lower-left baseline across each evidence card. */
+.discipline-card__source {
+  position: absolute;
+  z-index: 2;
+  left: 23px;
+  bottom: 23px;
+}
+
 @media (max-width: 520px) {
   .discipline-grid__more {
     width: min(100%, 172px);

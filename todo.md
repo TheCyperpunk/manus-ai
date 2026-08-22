@@ -120,3 +120,4 @@
 - [x] Update only the Onchain SIP and ZeroHour Overview project-source links to the supplied GitHub destinations.
 - [x] Add only the requested lower-right LIVE links to the Onchain SIP and ZeroHour Overview project cards.
 - [x] Push only the latest LIVE-link update to GitHub and confirm the commit for Vercel deployment.
+- [x] Align the Auradesk and ZeroHour View source on GitHub actions with the Onchain SIP lower-left action position.
