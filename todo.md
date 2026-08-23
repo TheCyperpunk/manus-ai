@@ -138,3 +138,4 @@
 - [x] Verify the public Source Atlas endpoint and existing calendar report the selected 277 total, then record the security follow-up without unrelated changes.
 - [x] Add a manual live-contribution refresh control that bypasses the endpoint cache without exposing credentials or changing the calendar design.
 - [x] Validate the manual refresh control’s loading, success, and fallback states in the existing Projects calendar.
+- [ ] Push the validated manual live-data refresh implementation to GitHub main for Vercel deployment.
