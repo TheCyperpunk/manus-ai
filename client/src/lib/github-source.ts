@@ -210,6 +210,15 @@ export const contributionSnapshot = {
 
 export type ContributionDay = { date: string; count: number; level: 0 | 1 | 2 | 3 | 4 };
 
+export type ContributionCalendarSource = {
+  total: number;
+  days: ContributionDay[];
+  from: string;
+  to: string;
+  fetchedAt?: string;
+  status: "live" | "snapshot";
+};
+
 // Verified GitHub GraphQL calendar capture: 17 Aug 2025–19 Aug 2026, collected 19 Aug 2026.
 const calendarIntensity = "00320000410001100000102000010000000004000000010000001100000000100001004200001101110010111000002200000110010400010011100000000000000030010000000000000100011000000000001000002300000002000100110000220001100000010400011000001122001142110300000000101011000110000000000000000000000000000010000000001000000000000000000000000000000000000000000000000002000011000000000010000001";
 const calendarCountEntries = "2:8,3:6,8:10,9:1,13:2,14:3,20:1,22:5,27:1,37:15,45:2,52:1,53:1,62:1,67:3,70:11,71:4,76:1,77:3,79:1,80:3,81:3,84:1,86:1,87:1,88:1,94:4,95:4,101:1,102:2,105:3,107:10,111:1,114:1,115:3,116:1,132:9,135:2,149:1,153:1,154:1,166:1,172:5,173:7,181:4,185:2,188:1,189:3,194:4,195:4,199:2,200:3,207:2,209:12,213:2,214:2,220:2,221:2,222:4,223:6,226:2,227:2,228:15,229:5,230:2,231:1,233:9,242:2,244:2,246:1,247:2,251:3,252:2,282:3,292:1,343:6,348:1,349:1,360:1,367:1";
@@ -224,3 +233,73 @@ export const calendarDays: ContributionDay[] = calendarIntensity.split("").map((
   count: calendarCounts[index] ?? 0,
   level: Number(rawLevel) as ContributionDay["level"],
 }));
+
+const snapshotContributionCalendar: ContributionCalendarSource = {
+  total: contributionSnapshot.total,
+  days: calendarDays,
+  from: calendarDays[0].date,
+  to: calendarDays.at(-1)?.date ?? calendarDays[0].date,
+  status: "snapshot",
+};
+
+type LiveContributionCalendarResponse = {
+  source: "github-graphql";
+  fetchedAt: string;
+  from: string;
+  to: string;
+  totalContributions: number;
+  weeks: Array<Array<{ contributionCount: number; date: string }>>;
+};
+
+function normalizeContributionLevel(count: number, maximum: number): ContributionDay["level"] {
+  if (count <= 0) return 0;
+  if (maximum <= 1) return 4;
+  return Math.max(1, Math.min(4, Math.ceil((count / maximum) * 4))) as ContributionDay["level"];
+}
+
+function toLiveContributionCalendar(payload: LiveContributionCalendarResponse): ContributionCalendarSource {
+  const rawDays = payload.weeks.flat();
+  const maximum = rawDays.reduce((highest, day) => Math.max(highest, day.contributionCount), 0);
+
+  return {
+    total: payload.totalContributions,
+    days: rawDays.map((day) => ({
+      date: day.date,
+      count: day.contributionCount,
+      level: normalizeContributionLevel(day.contributionCount, maximum),
+    })),
+    from: payload.from.slice(0, 10),
+    to: payload.to.slice(0, 10),
+    fetchedAt: payload.fetchedAt,
+    status: "live",
+  };
+}
+
+export function useContributionCalendar() {
+  const [calendar, setCalendar] = useState<ContributionCalendarSource>(snapshotContributionCalendar);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetch("/api/github-contributions", {
+      headers: { Accept: "application/json" },
+      signal: controller.signal,
+    })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`Contribution request failed: ${response.status}`);
+        return toLiveContributionCalendar((await response.json()) as LiveContributionCalendarResponse);
+      })
+      .then((liveCalendar) => {
+        if (liveCalendar.days.length >= 350) setCalendar(liveCalendar);
+      })
+      .catch((error: unknown) => {
+        if (!(error instanceof DOMException && error.name === "AbortError")) {
+          setCalendar(snapshotContributionCalendar);
+        }
+      });
+
+    return () => controller.abort();
+  }, []);
+
+  return calendar;
+}

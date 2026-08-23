@@ -126,3 +126,6 @@
 - [x] Push the verified Video Platform Overview card replacement to GitHub main.
 - [x] Remove only JavaScript, CSS, Docker Compose, React Hook Form, Dockerfile, and React from the Video Platform Overview technology labels.
 - [x] Push the label-only Video Platform technology update to GitHub main.
+- [x] Inspect the portfolio’s GitHub contribution-data source, determine its refresh behavior, and explain the displayed-count mismatch without changing the website.
+- [x] Provide a secure serverless endpoint and backend-proxy setup plan for live GitHub contribution data without exposing a token.
+- [x] Store the user-created fine-grained GitHub token in Vercel as `GH_CONTRIBUTIONS_TOKEN` and implement only the live contribution endpoint while preserving the existing calendar design. Token expiration was intentionally left unset; rotate it later to an expiring credential.
