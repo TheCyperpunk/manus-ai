@@ -132,3 +132,4 @@
 - [x] Diagnose and correct why the deployed contribution calendar still falls back to the dated snapshot instead of live GitHub data.
 - [x] Push the live contribution-calendar endpoint checkpoint to GitHub main so Vercel can deploy the missing serverless route.
 - [x] Align the live endpoint’s date window with GitHub’s visible Sunday-to-Sunday contribution range while preserving the existing calendar design.
+- [x] Push the GitHub-aligned calendar-window correction to GitHub main.
