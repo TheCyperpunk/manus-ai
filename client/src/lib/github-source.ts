@@ -1,5 +1,5 @@
-/** Proof in Motion — public GitHub source adapter; labels identify live API data versus dated snapshots. */
-import { useEffect, useMemo, useState } from "react";
+/** Proof in Motion — public GitHub source adapter; contribution data supports a user-initiated cache-bypass refresh while retaining its dated snapshot fallback. */
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { fallbackRepos } from "./github-snapshot";
 
 const HANDLE = "TheCyperpunk";
@@ -275,31 +275,49 @@ function toLiveContributionCalendar(payload: LiveContributionCalendarResponse): 
   };
 }
 
+export type ContributionRefreshState = "idle" | "refreshing" | "ready" | "unavailable";
+
 export function useContributionCalendar() {
   const [calendar, setCalendar] = useState<ContributionCalendarSource>(snapshotContributionCalendar);
+  const [refreshState, setRefreshState] = useState<ContributionRefreshState>("idle");
+  const requestSequence = useRef(0);
+
+  const loadCalendar = useCallback(async (forceRefresh: boolean, signal?: AbortSignal) => {
+    const requestId = ++requestSequence.current;
+    if (forceRefresh) setRefreshState("refreshing");
+
+    try {
+      const response = await fetch(`/api/github-contributions${forceRefresh ? `?refresh=${Date.now().toString(36)}` : ""}`, {
+        headers: { Accept: "application/json" },
+        cache: forceRefresh ? "no-store" : "default",
+        signal,
+      });
+      if (!response.ok) throw new Error(`Contribution request failed: ${response.status}`);
+
+      const liveCalendar = toLiveContributionCalendar((await response.json()) as LiveContributionCalendarResponse);
+      if (requestId === requestSequence.current && liveCalendar.days.length >= 350) {
+        setCalendar(liveCalendar);
+        setRefreshState(forceRefresh ? "ready" : "idle");
+      }
+    } catch (error: unknown) {
+      if (!(error instanceof DOMException && error.name === "AbortError") && requestId === requestSequence.current) {
+        if (forceRefresh) {
+          setRefreshState("unavailable");
+        } else {
+          setCalendar(snapshotContributionCalendar);
+          setRefreshState("idle");
+        }
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
-
-    fetch("/api/github-contributions", {
-      headers: { Accept: "application/json" },
-      signal: controller.signal,
-    })
-      .then(async (response) => {
-        if (!response.ok) throw new Error(`Contribution request failed: ${response.status}`);
-        return toLiveContributionCalendar((await response.json()) as LiveContributionCalendarResponse);
-      })
-      .then((liveCalendar) => {
-        if (liveCalendar.days.length >= 350) setCalendar(liveCalendar);
-      })
-      .catch((error: unknown) => {
-        if (!(error instanceof DOMException && error.name === "AbortError")) {
-          setCalendar(snapshotContributionCalendar);
-        }
-      });
-
+    void loadCalendar(false, controller.signal);
     return () => controller.abort();
-  }, []);
+  }, [loadCalendar]);
 
-  return calendar;
+  const refresh = useCallback(() => loadCalendar(true), [loadCalendar]);
+
+  return { calendar, refresh, refreshState };
 }

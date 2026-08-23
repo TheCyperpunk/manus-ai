@@ -84,6 +84,12 @@ export default async function handler(request: IncomingMessage, response: Server
     return;
   }
 
+  // A client-generated query token intentionally produces an uncached response for
+  // the manual calendar refresh button. It changes neither the GitHub query nor
+  // the server-only credential exposure model.
+  const requestUrl = new URL(request.url ?? "/", "https://source-atlas.local");
+  const forceRefresh = requestUrl.searchParams.has("refresh");
+
   const token = process.env.GH_CONTRIBUTIONS_TOKEN ?? process.env.GITHUB_CONTRIBUTIONS_TOKEN;
   if (!token) {
     writeJson(response, 503, { error: "Contribution service is not configured." }, "no-store");
@@ -133,7 +139,7 @@ export default async function handler(request: IncomingMessage, response: Server
         totalContributions: calendar.totalContributions,
         weeks: calendar.weeks.map((week) => week.contributionDays),
       },
-      "public, max-age=300, s-maxage=900, stale-while-revalidate=3600",
+      forceRefresh ? "no-store" : "public, max-age=300, s-maxage=900, stale-while-revalidate=3600",
     );
   } catch (error) {
     console.error("GitHub contribution request failed unexpectedly", error instanceof Error ? error.message : "unknown error");

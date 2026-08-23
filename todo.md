@@ -136,3 +136,5 @@
 - [x] Identify the 15-contribution difference as authenticated private/internal contribution visibility rather than a date-range, cache, deployment, or frontend discrepancy.
 - [x] Replace the Vercel GitHub credential with a narrowly scoped, expiring credential that intentionally permits the selected 277-total public contribution view.
 - [x] Verify the public Source Atlas endpoint and existing calendar report the selected 277 total, then record the security follow-up without unrelated changes.
+- [x] Add a manual live-contribution refresh control that bypasses the endpoint cache without exposing credentials or changing the calendar design.
+- [x] Validate the manual refresh control’s loading, success, and fallback states in the existing Projects calendar.
