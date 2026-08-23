@@ -129,3 +129,5 @@
 - [x] Inspect the portfolio’s GitHub contribution-data source, determine its refresh behavior, and explain the displayed-count mismatch without changing the website.
 - [x] Provide a secure serverless endpoint and backend-proxy setup plan for live GitHub contribution data without exposing a token.
 - [x] Store the user-created fine-grained GitHub token in Vercel as `GH_CONTRIBUTIONS_TOKEN` and implement only the live contribution endpoint while preserving the existing calendar design. Token expiration was intentionally left unset; rotate it later to an expiring credential.
+- [x] Diagnose and correct why the deployed contribution calendar still falls back to the dated snapshot instead of live GitHub data.
+- [x] Push the live contribution-calendar endpoint checkpoint to GitHub main so Vercel can deploy the missing serverless route.
