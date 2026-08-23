@@ -3,7 +3,8 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 /** Server-only GitHub contribution proxy. Never expose GH_CONTRIBUTIONS_TOKEN to the browser. */
 const GITHUB_GRAPHQL_URL = "https://api.github.com/graphql";
 const GITHUB_LOGIN = "TheCyperpunk";
-const ONE_YEAR_IN_DAYS = 364;
+const CALENDAR_WEEKS = 53;
+const DAYS_PER_WEEK = 7;
 
 type GithubContributionDay = {
   contributionCount: number;
@@ -52,11 +53,28 @@ function writeJson(response: ServerResponse, statusCode: number, payload: unknow
 }
 
 function contributionWindow() {
-  const to = new Date();
-  const from = new Date(to);
-  from.setUTCDate(from.getUTCDate() - ONE_YEAR_IN_DAYS);
+  const displayTo = new Date();
+  displayTo.setUTCHours(23, 59, 59, 999);
 
-  return { from: from.toISOString(), to: to.toISOString() };
+  const latestSunday = new Date(displayTo);
+  latestSunday.setUTCHours(0, 0, 0, 0);
+  latestSunday.setUTCDate(latestSunday.getUTCDate() - latestSunday.getUTCDay());
+
+  const from = new Date(latestSunday);
+  from.setUTCDate(from.getUTCDate() - CALENDAR_WEEKS * DAYS_PER_WEEK);
+
+  // GitHub's date range is inclusive in the visible profile calendar, so the
+  // GraphQL request ends at the following UTC midnight while the client shows
+  // today's calendar date in its existing header.
+  const queryTo = new Date(displayTo);
+  queryTo.setUTCDate(queryTo.getUTCDate() + 1);
+  queryTo.setUTCHours(0, 0, 0, 0);
+
+  return {
+    from: from.toISOString(),
+    queryTo: queryTo.toISOString(),
+    displayTo: displayTo.toISOString(),
+  };
 }
 
 export default async function handler(request: IncomingMessage, response: ServerResponse) {
@@ -72,7 +90,7 @@ export default async function handler(request: IncomingMessage, response: Server
     return;
   }
 
-  const { from, to } = contributionWindow();
+  const { from, queryTo, displayTo } = contributionWindow();
 
   try {
     const upstream = await fetch(GITHUB_GRAPHQL_URL, {
@@ -84,7 +102,7 @@ export default async function handler(request: IncomingMessage, response: Server
       },
       body: JSON.stringify({
         query: CONTRIBUTION_QUERY,
-        variables: { login: GITHUB_LOGIN, from, to },
+        variables: { login: GITHUB_LOGIN, from, to: queryTo },
       }),
       cache: "no-store",
     });
@@ -111,7 +129,7 @@ export default async function handler(request: IncomingMessage, response: Server
         fetchedAt: new Date().toISOString(),
         login: GITHUB_LOGIN,
         from,
-        to,
+        to: displayTo,
         totalContributions: calendar.totalContributions,
         weeks: calendar.weeks.map((week) => week.contributionDays),
       },
