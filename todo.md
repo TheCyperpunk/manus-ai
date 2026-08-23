@@ -133,3 +133,6 @@
 - [x] Push the live contribution-calendar endpoint checkpoint to GitHub main so Vercel can deploy the missing serverless route.
 - [x] Align the live endpoint’s date window with GitHub’s visible Sunday-to-Sunday contribution range while preserving the existing calendar design.
 - [x] Push the GitHub-aligned calendar-window correction to GitHub main.
+- [x] Identify the 15-contribution difference as authenticated private/internal contribution visibility rather than a date-range, cache, deployment, or frontend discrepancy.
+- [x] Replace the Vercel GitHub credential with a narrowly scoped, expiring credential that intentionally permits the selected 277-total public contribution view.
+- [x] Verify the public Source Atlas endpoint and existing calendar report the selected 277 total, then record the security follow-up without unrelated changes.
