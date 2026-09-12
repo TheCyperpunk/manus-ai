@@ -138,4 +138,7 @@
 - [x] Verify the public Source Atlas endpoint and existing calendar report the selected 277 total, then record the security follow-up without unrelated changes.
 - [x] Add a manual live-contribution refresh control that bypasses the endpoint cache without exposing credentials or changing the calendar design.
 - [x] Validate the manual refresh control’s loading, success, and fallback states in the existing Projects calendar.
-- [ ] Push the validated manual live-data refresh implementation to GitHub main for Vercel deployment.
+- [x] Push the validated manual live-data refresh implementation to GitHub main for Vercel deployment.
+- [x] Replace only `Qugodo` with `AX ventures` in the Experience Trace.
+- [x] Replace only `local-services marketplace` with `Gym application` in the Experience Trace; preserve all other content and design.
+- [x] Validate the exact text replacements and production build.

@@ -69,7 +69,7 @@ const overviewStack = [
 ];
 
 const timeline = [
-  ["Present", "Full Stack Developer", "Qugodo — full-stack product development for a local-services marketplace"],
+  ["Present", "Full Stack Developer", "AX ventures — full-stack product development for a Gym application"],
   ["2022—2026", "B.Tech, Computer Science & Engineering", "APJ Abdul Kalam Technological University, Kerala"],
   ["8 months", "MERN Stack Developer Intern", "Ziuke — full-stack feature development and optimization"],
   ["5 months", "Full Stack Developer Intern", "Zecser LLP — scalable applications, APIs, and databases"],
